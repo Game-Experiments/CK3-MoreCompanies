@@ -1,0 +1,162 @@
+﻿more_unique_companies_deutsche_reichsbahn = {
+    icon = "gfx/interface/icons/company_icons/historical_company_icons/Deutsche_Reichsbahn.png"
+
+	group = je_group_historical_content
+
+    is_shown_when_inactive = {
+        any_company = {
+			#OR = {
+			#	is_company_type = company_type:company_Wurttemberg_eisenbahn 
+			#	is_company_type = company_type:company_Sachsen_eisenbahn
+			#	is_company_type = company_type:company_Bayern_eisenbahn
+			#	is_company_type = company_type:company_Oldenburg_eisenbahn
+			#	is_company_type = company_type:company_Mecklenburg_eisenbahn
+			#	is_company_type = company_type:company_Baden_eisenbahn
+			#	is_company_type = company_type:company_prussian_state_railways
+			#	is_company_type = company_type:company_sueddeutsche_eisenbahn
+			#}	
+        }
+		OR = {
+			country_has_primary_culture = cu:north_german
+			country_has_primary_culture = cu:south_german
+		}
+    }
+	
+	is_shown_in_lobby = {
+		AND = {
+			any_scope_state = {
+				OR = {
+					region = sr:region_western_europe
+					region = sr:region_central_europe
+				}
+				is_incorporated = yes
+			}
+			OR = {
+				country_has_primary_culture = cu:north_german
+				country_has_primary_culture = cu:south_german
+			}
+		}
+	}
+	
+    possible = {
+		any_company = {
+			NOT = { is_company_type = company_type:company_Deutsche_Reichsbahn }
+		}
+		any_company = {
+			company_is_prosperous = yes
+			OR = {
+				is_company_type = company_type:company_Wurttemberg_eisenbahn 
+				is_company_type = company_type:company_Sachsen_eisenbahn
+				is_company_type = company_type:company_Bayern_eisenbahn
+				is_company_type = company_type:company_Oldenburg_eisenbahn
+				is_company_type = company_type:company_Mecklenburg_eisenbahn
+				is_company_type = company_type:company_Baden_eisenbahn
+				is_company_type = company_type:company_prussian_state_railways
+				is_company_type = company_type:company_sueddeutsche_eisenbahn
+			}
+		}
+		has_technology_researched = steel_railway_cars
+		has_technology_researched = nationalism
+    }
+
+    immediate = {
+        random_company = {
+            limit = {
+				OR = {
+					is_company_type = company_type:company_Wurttemberg_eisenbahn 
+					is_company_type = company_type:company_Sachsen_eisenbahn
+					is_company_type = company_type:company_Bayern_eisenbahn
+					is_company_type = company_type:company_Oldenburg_eisenbahn
+					is_company_type = company_type:company_Mecklenburg_eisenbahn
+					is_company_type = company_type:company_Baden_eisenbahn
+					is_company_type = company_type:company_prussian_state_railways
+					is_company_type = company_type:company_sueddeutsche_eisenbahn
+				}
+				company_is_prosperous = yes
+            }
+            save_scope_as = relevant_company
+        }
+		set_variable = {
+			name = deutsche_reichsbahn_timer_var
+			value = 0
+		}
+    }
+
+    complete = {
+        trigger_if = {
+            limit = {
+                has_variable = deutsche_reichsbahn_timer_var
+            }
+            scope:journal_entry = {
+                is_goal_complete = yes
+            }
+        }
+		trigger_if = {
+            limit = {
+                exists = scope:relevant_company
+            }
+            scope:relevant_company ?= {
+                company_is_prosperous = yes
+            }
+        }
+		country_has_building_group_levels = {
+			type = bg_private_infrastructure
+			value  >= 70
+		}
+		NOT = {
+			has_law = law_type:law_monarchy
+		}
+		has_technology_researched = electric_railway
+		has_technology_researched = pan-nationalism
+		custom_tooltip = {
+			text = je_german_unification_idea_trigger_desc
+			has_variable = je_german_unification_idea
+		}
+    }
+
+    on_monthly_pulse = {
+         effect = {
+            if = {
+                limit = {
+                    scope:relevant_company ?= {
+                        company_is_prosperous = yes
+                    }
+                }
+                change_variable = { name = deutsche_reichsbahn_timer_var add = 1 }
+            }
+        }
+    }
+
+    on_complete = {
+        if = {
+            limit = {
+				exists = scope:relevant_company
+			}
+            custom_tooltip = {
+                text = deutsche_reichsbahn_establishment_tt
+                trigger_event = { id = more_unique_companies_events_deutsche_reichsbahn.1 popup = no }
+            }
+        }
+        post_notification = unification_notification_generic
+    }
+
+    invalid = {
+        NOT = {
+            exists = scope:relevant_company
+        }
+    }
+
+	current_value = {
+		value = root.var:deutsche_reichsbahn_timer_var
+	}
+
+	goal_add_value = {
+		add = more_unique_companies_deutsche_reichsbahn_months
+	}
+
+	progressbar = yes
+
+    weight = 1000
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}

@@ -1,0 +1,80 @@
+﻿##############################VANILLA#############################
+
+# None
+
+##############################MODDED##############################
+
+# Chocolaterie Robert
+company_ChocRobert = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/chocrobert.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_NORTH_MADAGASCAR }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_sweets
+	}
+
+	building_types = { #28
+		building_food_industry
+		building_sugar_plantation
+	}
+	
+	extension_building_types = {
+		building_livestock_ranch
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_east_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_NORTH_MADAGASCAR
+			}	
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_NORTH_MADAGASCAR
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = international_exchange_standards
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.15 #20
+		state_lower_strata_expected_sol_add = -0.5
+		state_middle_strata_expected_sol_add = -1
+		state_upper_strata_expected_sol_add = -1.5
+		unit_morale_recovery_mult = 0.04 #8
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = international_exchange_standards
+		any_scope_state = {
+			state_region = s:STATE_NORTH_MADAGASCAR
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_NORTH_MADAGASCAR
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

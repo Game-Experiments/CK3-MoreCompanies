@@ -1,0 +1,548 @@
+﻿more_unique_companies_ig_farben = {
+    icon = "gfx/interface/icons/company_icons/historical_company_icons/IG_Farben.png"
+
+	group = je_group_historical_content
+
+    is_shown_when_inactive = {
+        #any_company = {
+		#	OR = {
+		#		is_company_type = company_type:company_basf
+		#		is_company_type = company_type:company_Bayer
+		#		is_company_type = company_type:company_AGFA
+		#		is_company_type = company_type:company_Hoechst
+		#		is_company_type = company_type:company_Griesheim_Elektron
+		#		is_company_type = company_type:company_MeerChemicals
+		#	}
+		#}
+		OR = {
+			country_has_primary_culture = cu:north_german
+			country_has_primary_culture = cu:south_german
+		}
+    }
+	
+	is_shown_in_lobby = {
+		AND = {
+			any_scope_state = {
+				OR = {
+					region = sr:region_western_europe
+					region = sr:region_central_europe
+				}
+				is_incorporated = yes
+			}
+			OR = {
+				country_has_primary_culture = cu:north_german
+				country_has_primary_culture = cu:south_german
+			}
+		}
+	}
+	
+    possible = {
+		any_company = {
+			NOT = { is_company_type = company_type:company_IG_Farben }
+		}
+		any_company = {
+			company_is_prosperous = yes
+			OR = {
+				is_company_type = company_type:company_basf
+				is_company_type = company_type:company_Bayer
+				is_company_type = company_type:company_AGFA
+				is_company_type = company_type:company_Hoechst
+				is_company_type = company_type:company_Griesheim_Elektron
+				is_company_type = company_type:company_MeerChemicals
+			}
+			count >= 2
+		}
+		any_scope_state = {
+			OR = {
+					region = sr:region_western_europe
+					region = sr:region_central_europe
+				}
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_synthetics_plant
+					is_building_type = building_chemical_plant
+				}
+				level >= 5
+			}
+			count >=5
+		}
+		has_technology_researched = aniline
+		has_technology_researched = political_agitation
+		has_technology_researched = corporate_management
+    }
+
+    immediate = {
+        random_company = {
+            limit = {
+				is_company_type = company_type:company_basf
+            }
+            save_scope_as = relevant_company
+        }
+		random_company = {
+            limit = {
+				is_company_type = company_type:company_Bayer
+            }
+            save_scope_as = relevant_company_2
+        }
+		random_company = {
+            limit = {
+				is_company_type = company_type:company_AGFA
+            }
+            save_scope_as = relevant_company_3
+        }
+		random_company = {
+            limit = {
+				is_company_type = company_type:company_Hoechst
+            }
+            save_scope_as = relevant_company_4
+        }
+		random_company = {
+            limit = {
+				is_company_type = company_type:company_Griesheim_Elektron
+            }
+            save_scope_as = relevant_company_5
+        }
+		random_company = {
+            limit = {
+				is_company_type = company_type:company_MeerChemicals
+            }
+            save_scope_as = relevant_company_6
+        }
+		set_variable = {
+			name = ig_farben_timer_var
+			value = 0
+		}
+    }
+
+    complete = {
+        trigger_if = {
+            limit = {
+                has_variable = ig_farben_timer_var
+            }
+            scope:journal_entry = {
+                is_goal_complete = yes
+            }
+        }
+		hidden_trigger = {
+			trigger_if = {
+				limit = {
+					OR = {
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_2
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_3
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_3
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_4
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_5
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_6
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_4
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_5
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_6
+						}
+						AND = {
+							exists = scope:relevant_company_3
+							exists = scope:relevant_company_4
+						}
+						AND = {
+							exists = scope:relevant_company_3
+							exists = scope:relevant_company_5
+						}
+						AND = {
+							exists = scope:relevant_company_3
+							exists = scope:relevant_company_6
+						}
+						AND = {
+							exists = scope:relevant_company_4
+							exists = scope:relevant_company_5
+						}
+						AND = {
+							exists = scope:relevant_company_4
+							exists = scope:relevant_company_6
+						}
+						AND = {
+							exists = scope:relevant_company_5
+							exists = scope:relevant_company_6
+						}
+					}
+				}
+				OR = {
+					AND = {
+						scope:relevant_company ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_2 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_2 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_3 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_3 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_4 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_5 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_6 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_2 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_4 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_2 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_5 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_2 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_6 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_3 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_4 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_3 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_5 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_3 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_6 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_4 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_5 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_4 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_6 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_5 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_6 ?= {
+							company_is_prosperous = yes
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = ig_farben_prosperous_tt
+		}
+    }
+
+    on_monthly_pulse = {
+        effect = {
+            if = {
+                limit = {
+					OR = {
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_2
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_3
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_3
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_4
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_5
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_6
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_4
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_5
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_6
+						}
+						AND = {
+							exists = scope:relevant_company_3
+							exists = scope:relevant_company_4
+						}
+						AND = {
+							exists = scope:relevant_company_3
+							exists = scope:relevant_company_5
+						}
+						AND = {
+							exists = scope:relevant_company_3
+							exists = scope:relevant_company_6
+						}
+						AND = {
+							exists = scope:relevant_company_4
+							exists = scope:relevant_company_5
+						}
+						AND = {
+							exists = scope:relevant_company_4
+							exists = scope:relevant_company_6
+						}
+						AND = {
+							exists = scope:relevant_company_5
+							exists = scope:relevant_company_6
+						}
+					}
+				}
+                change_variable = { name = ig_farben_timer_var add = 1 }
+            }
+        }
+    }
+
+    on_complete = {
+        if = {
+            limit = {
+				OR = {
+					AND = {
+						exists = scope:relevant_company
+						exists = scope:relevant_company_2
+					}
+					AND = {
+						exists = scope:relevant_company_2
+						exists = scope:relevant_company_3	
+					}
+					AND = {
+						exists = scope:relevant_company
+						exists = scope:relevant_company_3
+					}
+					AND = {
+						exists = scope:relevant_company
+						exists = scope:relevant_company_4
+					}
+					AND = {
+						exists = scope:relevant_company
+						exists = scope:relevant_company_5
+					}
+					AND = {
+						exists = scope:relevant_company
+						exists = scope:relevant_company_6
+					}
+					AND = {
+						exists = scope:relevant_company_2
+						exists = scope:relevant_company_4
+					}
+					AND = {
+						exists = scope:relevant_company_2
+						exists = scope:relevant_company_5
+					}
+					AND = {
+						exists = scope:relevant_company_2
+						exists = scope:relevant_company_6
+					}
+					AND = {
+						exists = scope:relevant_company_3
+						exists = scope:relevant_company_4
+					}
+					AND = {
+						exists = scope:relevant_company_3
+						exists = scope:relevant_company_5
+					}
+					AND = {
+						exists = scope:relevant_company_3
+						exists = scope:relevant_company_6
+					}
+					AND = {
+						exists = scope:relevant_company_4
+						exists = scope:relevant_company_5
+					}
+					AND = {
+						exists = scope:relevant_company_4
+						exists = scope:relevant_company_6
+					}
+					AND = {
+						exists = scope:relevant_company_5
+						exists = scope:relevant_company_6
+					}
+				}
+			}
+            custom_tooltip = {
+                text = ig_farben_establishment_tt
+                trigger_event = { id = more_unique_companies_events_ig_farben.1 popup = no }
+            }
+        }
+        post_notification = unification_notification_generic
+    }
+
+    invalid = {
+        NOT = {
+			OR = {
+				AND = {
+					exists = scope:relevant_company
+					exists = scope:relevant_company_2
+				}
+				AND = {
+					exists = scope:relevant_company_2
+					exists = scope:relevant_company_3	
+				}
+				AND = {
+					exists = scope:relevant_company
+					exists = scope:relevant_company_3
+				}
+				AND = {
+					exists = scope:relevant_company
+					exists = scope:relevant_company_4
+				}
+				AND = {
+					exists = scope:relevant_company
+					exists = scope:relevant_company_5
+				}
+				AND = {
+					exists = scope:relevant_company
+					exists = scope:relevant_company_6
+				}
+				AND = {
+					exists = scope:relevant_company_2
+					exists = scope:relevant_company_4
+				}
+				AND = {
+					exists = scope:relevant_company_2
+					exists = scope:relevant_company_5
+				}
+				AND = {
+					exists = scope:relevant_company_2
+					exists = scope:relevant_company_6
+				}
+				AND = {
+					exists = scope:relevant_company_3
+					exists = scope:relevant_company_4
+				}
+				AND = {
+					exists = scope:relevant_company_3
+					exists = scope:relevant_company_5
+				}
+				AND = {
+					exists = scope:relevant_company_3
+					exists = scope:relevant_company_6
+				}
+				AND = {
+					exists = scope:relevant_company_4
+					exists = scope:relevant_company_5
+				}
+				AND = {
+					exists = scope:relevant_company_4
+					exists = scope:relevant_company_6
+				}
+				AND = {
+					exists = scope:relevant_company_5
+					exists = scope:relevant_company_6
+				}
+			}
+        }
+    }
+
+	current_value = {
+		value = root.var:ig_farben_timer_var
+	}
+
+	goal_add_value = {
+		add = more_unique_companies_journal_entry_months
+	}
+
+	progressbar = yes
+
+    weight = 1000
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}

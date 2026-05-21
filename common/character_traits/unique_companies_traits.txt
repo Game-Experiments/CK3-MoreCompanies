@@ -1,0 +1,23 @@
+﻿more_unique_companies_banker = {
+	type = skill
+	texture = "gfx/interface/icons/character_trait_icons/basic_entrepreneur.dds"
+	
+	country_modifier = {
+		country_free_charters_add = 2
+		country_capitalists_pol_str_mult = 0.15
+	}
+	
+	executive_modifier = {
+		building_throughput_add = -0.1
+		building_paper_mill_throughput_add = -0.15
+	}
+
+	possible = {
+		NOT = { age < define:NCharacters|ADULT_AGE }
+		has_game_rule = banks_enabled
+		has_role_of_type = executive
+	}
+
+	weight = {	
+	}
+}

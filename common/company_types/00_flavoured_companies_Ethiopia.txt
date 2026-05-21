@@ -1,0 +1,175 @@
+﻿##############################VANILLA##############################
+ #none
+##############################DLC-MP1##############################
+
+# Imperial Ethiopian Railway Company
+TRY_REPLACE:company_imperial_ethiopian_railways = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_imperial_ethiopian_railways.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+
+	flavored_company = yes
+
+	building_types = {
+		building_railway
+	}
+
+	extension_building_types = {
+		building_motor_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_east_africa
+	}
+
+	attainable = {
+	}
+
+	possible = {
+		has_technology_researched = railways
+		any_scope_state = {
+			region = sr:region_east_africa
+			has_building = building_railway
+			any_scope_building = {
+				is_building_type = building_coffee_plantation
+				level >= 5
+			}
+		}
+		any_scope_state = {
+			region = sr:region_east_africa
+			is_coastal = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_coffee_plantation_throughput_add = 0.1
+		building_livestock_ranch_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = railways
+		any_scope_state = {
+			region = sr:region_east_africa
+		}
+	}
+
+	ai_construction_targets = {
+		building_coffee_plantation = {
+			level = 5
+			state_trigger = {
+				region = sr:region_east_africa
+			}
+		}
+		building_railway = {
+			level = 5
+			state_trigger = {
+				region = sr:region_east_africa
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+#National Bank of Ethiopia / Bank of Abyssinia
+company_Bank_NBoE = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bankabyssinia.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_OROMIA }
+	
+	category = aristocrat_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {
+		building_paper_mill
+		building_railway
+		building_livestock_ranch
+	}
+	
+	extension_building_types = {	
+		building_tooling_workshop
+		building_steel_mill
+		building_iron_mine
+		building_shipyard	
+	}
+	
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_east_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_OROMIA
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_OROMIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 15
+			}
+		}
+		has_technology_researched = investment_banks
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = {
+		country_loyalists_from_legitimacy_mult = 0.1 #
+		interest_group_ig_landowners_approval_add = 2
+		
+		country_minting_mult = 0.025
+		country_loan_interest_rate_mult = -0.025
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.015
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.055 #<--
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.075 #<--
+		country_government_dividends_reinvestment_add = 0.05  
+		country_government_dividends_efficiency_add = 0.05 
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+	    unique_companies_has_bank = no
+	    has_technology_researched = investment_banks
+		any_scope_state = {
+			state_region = s:STATE_OROMIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_OROMIA
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}

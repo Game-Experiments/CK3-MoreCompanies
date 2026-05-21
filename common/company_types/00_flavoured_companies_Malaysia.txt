@@ -1,0 +1,255 @@
+﻿##############################VANILLA#############################
+
+# None
+
+##############################DLC-EP2##############################
+
+
+# Guthrie & Co.
+TRY_REPLACE:company_guthrie = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_guthrie.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_MALAYA }
+
+	building_types = {
+		building_coffee_plantation
+		building_tea_plantation
+	}
+
+	extension_building_types = {
+		building_rubber_plantation
+		building_logging_camp
+		building_tooling_workshop
+	}
+
+	possible_prestige_goods = {
+	}
+
+	prestige_goods_trigger = {
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_indochina
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_MALAYA = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		s:STATE_MALAYA = {
+			any_scope_state = {
+				owner = root
+				any_scope_building = {
+					OR = {
+						is_building_type = building_coffee_plantation
+						is_building_type = building_tea_plantation
+					}
+					level >= 5
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_port_throughput_add = 0.05
+		state_trade_advantage_mult = 0.05
+		state_colony_growth_speed_mult = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_MALAYA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_coffee_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_MALAYA
+			}
+		}
+		building_tea_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_MALAYA
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+# Boustead & Co.
+company_boustead = {
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_MALAYA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_coffee
+	}
+	
+	building_types = { #26
+		building_trade_center
+		building_port
+		building_textile_mill
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+		building_coffee_plantation
+		building_banana_plantation
+		building_shipyard
+	}
+
+	potential = {
+		country_has_primary_culture = cu:british
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_MALAYA
+			}
+			
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_MALAYA
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_banana_plantation
+					is_building_type = building_coffee_plantation
+				}
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_ship_group_supply_ships_construction_efficiency_add = 0.15 #10
+		country_minting_mult = 0.03 #10
+		state_assimilation_mult = 0.12 #6
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_MALAYA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_trade_center = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_MALAYA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# North Borneo Chartered Company
+company_north_borneo_CC = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/nbcc.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_NORTH_BORNEO }
+
+	building_types = { #19
+		building_tobacco_plantation
+		building_logging_camp
+		building_livestock_ranch
+	}
+
+	extension_building_types = {
+		building_railway
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_indonesia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_NORTH_BORNEO
+			}
+		}
+	}	
+
+	possible = {
+		cultural_acceptance_base = {
+			target = cu:bornean
+			value >= acceptance_status_4
+		}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_BORNEO
+			any_scope_building = {
+				OR = {
+					is_building_type = building_tobacco_plantation
+					is_building_type = building_logging_camp
+					is_building_type = building_livestock_ranch
+				}
+				level >= 5
+			}
+		}
+		has_technology_researched = civilizing_mission
+	}
+
+	prosperity_modifier = {
+		interest_group_ig_landowners_approval_add = 2 #8
+		building_tobacco_plantation_throughput_add = 0.14 #11
+	}
+
+	ai_will_do = {
+		has_technology_researched = civilizing_mission
+		cultural_acceptance_base = {
+			target = cu:bornean
+			value >= acceptance_status_4
+		}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_BORNEO
+		}
+	}
+
+	ai_construction_targets = {
+		building_tobacco_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_NORTH_BORNEO
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

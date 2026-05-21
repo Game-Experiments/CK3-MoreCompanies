@@ -1,0 +1,626 @@
+﻿# prestige goods of More Unique Companies
+
+#############################################################################################################
+# GENERIC PRESTIGE GOODS (More Unique Companies)
+#############################################################################################################
+
+prestige_good_generic_beer = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = liquor
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/generic_beer.dds"
+}
+
+prestige_good_generic_cement = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = explosives
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/cement.dds"
+}
+
+prestige_good_generic_sugarcane = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = sugar
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/sugarcane.dds"
+}
+
+prestige_good_generic_molasses = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = sugar
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/molasses.dds"
+}
+
+prestige_good_generic_musical_instruments = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = luxury_furniture
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/instruments.dds"
+}
+
+prestige_good_generic_animation = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = fine_art
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/animation.dds"
+}
+
+prestige_good_generic_typewriters = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = telephones
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/typewriters.dds"
+}
+
+prestige_good_generic_pineapple = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = fruit
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/pineapple.dds"
+}
+
+prestige_good_generic_ivory = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = meat
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/ivory.dds"
+}
+
+prestige_good_generic_machine_parts = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = tools
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/machine_parts.dds"
+}
+
+prestige_good_generic_writing_utensils = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = fine_art
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/writing_utensils.dds"
+}
+
+prestige_good_generic_medicine = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = fertilizer
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/medicine.dds"
+}
+
+prestige_good_generic_glass_jars = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = glass
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/glass_jars.dds"
+}
+
+prestige_good_generic_tropical_wood = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = hardwood
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/tropical_wood.dds"
+}
+
+prestige_good_generic_copper = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = lead
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/Copper.dds"
+}
+
+prestige_good_generic_tungsten = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = iron
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/tungsten.dds"
+}
+
+prestige_good_generic_zinc = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = lead
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/zinc.dds"
+}
+
+prestige_good_generic_pyrite = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = sulfur
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/pyrite.dds"
+}
+
+prestige_good_generic_newspaper = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = paper
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/newspapers.dds"
+}
+
+prestige_good_generic_religious_icons = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = fine_art
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/religious_icons.dds"
+}
+
+prestige_good_generic_toys = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = luxury_furniture
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/toys.dds"
+}
+
+prestige_good_generic_spring_beds = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = furniture
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/spring_beds.dds"
+}
+
+prestige_good_generic_spices = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = grain
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/spices.dds"
+}
+
+prestige_good_generic_compound_engines = {
+	possible = {
+		has_dlc_feature = mp1_content
+		NOT = { has_dlc_feature = ep2_content }
+	}
+	base_good = engines
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/compound_engines.dds"
+}
+
+prestige_good_generic_gemstones = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = gold
+	prestige_bonus = 0.1
+    texture = "gfx/interface/icons/goods_icons/prestige_goods/gemstones.dds"
+}
+
+prestige_good_generic_wristwatches = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = luxury_clothes
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/wristwatches.dds"
+}
+
+prestige_good_generic_tin = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = lead
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/tin.dds"
+}
+
+prestige_good_generic_transportation = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = transportation
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/luxury_transportation.dds"
+}
+
+
+prestige_good_generic_sweets = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = groceries
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/chocolate.dds"
+}
+
+prestige_good_generic_uniforms = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = clothes
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/uniforms.dds"
+}
+
+prestige_good_generic_anthracite_coal = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = coal
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/anthracite_coal.dds"
+}
+
+prestige_good_generic_specialized_glass = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = glass
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/zeiss_glass.dds"
+}
+
+
+
+prestige_good_generic_mediteranean_wine = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = wine
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/italian_wine.dds"
+}
+
+prestige_good_generic_tea = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = tea
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/generic_tea.dds"
+}
+
+#############################################################################################################
+# UNIQUE PRESTIGE GOODS (More Unique Companies)
+#############################################################################################################
+
+prestige_good_amazonian_rubber = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = rubber
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/amazonian_rubber.dds"
+}
+
+prestige_good_romanian_oil = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = oil
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/romanian_oil.dds"
+}
+
+prestige_good_arabian_oil = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = oil
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/arabian_oil.dds"
+}
+
+prestige_good_australian_coal = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = coal
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/australian_coal.dds"
+}
+
+prestige_good_silesian_coal = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = coal
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/silesian_coal.dds"
+}
+
+prestige_good_indian_dyes = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = dye
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/indian_dyes.dds"
+}
+
+prestige_good_hydroelectricity = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = electricity
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/hydroelectricity.dds"
+}
+
+prestige_good_remington = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = ammunition
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/remington_ammunition.dds"
+}
+
+prestige_good_michelin_rubber = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = rubber
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/michelin_rubber.dds"
+}
+
+prestige_good_nobel_dynamite = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = explosives
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/nobel_dynamite.dds"
+}
+
+prestige_good_steel_bells = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = steel
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/bells.dds"
+}
+
+prestige_good_porsche_tanks = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = tanks
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/porsche_tanks.dds"
+}
+
+prestige_good_power_cables = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = electricity
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/power_line_cables.dds"
+}
+
+prestige_good_mauser_ammunition = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = ammunition
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/mauser_ammunition.dds"
+}
+
+prestige_good_yemeni_coffee = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = coffee
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/yemeni_coffee.dds"
+}
+
+prestige_good_icelandic_fish = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = fish
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/icelandic_fish.dds"
+}
+
+prestige_good_junkers_planes = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = aeroplanes
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/junkers_planes.dds"
+}
+
+prestige_good_spitfire = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = aeroplanes
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/spitfire.dds"
+}
+
+prestige_good_cuban_cigars = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = tobacco
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/cuban_cigars.dds"
+}
+
+prestige_good_renault_tanks = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = tanks
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/renault_tank.dds"
+}
+
+prestige_good_japanese_planes = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = aeroplanes
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/mitsubishi_aircraft.dds"
+}
+
+prestige_good_german_cars = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = automobiles
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/volkswagen_beetle.dds"
+}
+
+prestige_good_siberian_pine = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = wood
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/siberian_pine.dds"
+}
+
+prestige_good_redwood = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = wood
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/redwood.dds"
+}
+
+prestige_good_agarwood = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = wood
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/agarwood.dds"
+}
+
+prestige_good_toile = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = fabric
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/toile_de_jouy.dds"
+}
+
+prestige_good_indonesian_golekan = {
+	possible = {
+		has_dlc_feature = mp1_content
+	}
+	base_good = merchant_marine
+	prestige_bonus = 0.1
+	texture = "gfx/interface/icons/goods_icons/prestige_goods/golekan.dds"
+}
+
+#############################################################################################################
+# PRESTIGE GOOD LIMIT
+#############################################################################################################
+
+#prestige_good_generic_new_world_liquor = {
+#	base_good = liquor
+#	prestige_bonus = 0.1
+#	texture = "gfx/interface/icons/goods_icons/prestige_goods/rum.dds"
+#}
+
+#prestige_good_generic_pralines = {
+#	base_good = groceries
+#	prestige_bonus = 0.1
+#	texture = "gfx/interface/icons/goods_icons/prestige_goods/belgian_chocolate.dds"
+#}
+
+#prestige_good_generic_tractors = {
+#	base_good = engines
+#	prestige_bonus = 0.1
+#	texture = "gfx/interface/icons/goods_icons/prestige_goods/tractors.dds"
+#}
+
+#prestige_good_japanese_warships = {
+#	base_good = ironclads
+#	prestige_bonus = 0.1
+#	texture = "gfx/interface/icons/goods_icons/prestige_goods/japanese_warship.dds"
+#}
+
+#prestige_good_german_kriegsmarine = {
+#	base_good = ironclads
+#	prestige_bonus = 0.1
+#	texture = "gfx/interface/icons/goods_icons/prestige_goods/blohmvoss.dds"
+#}
+
+#prestige_good_montagu_whaler = {
+#	base_good = clippers
+#	prestige_bonus = 0.1
+#	texture = "gfx/interface/icons/goods_icons/prestige_goods/montagu_whaler.dds"
+#}
+
+#prestige_good_windjammers = {
+#	base_good = merchant_marine
+#	prestige_bonus = 0.1
+#	texture = "gfx/interface/icons/goods_icons/prestige_goods/windjammer.dds"
+#}
+
+#prestige_good_british_blackwall_frigate = {
+#	base_good = clippers
+#	prestige_bonus = 0.1
+#	texture = "gfx/interface/icons/goods_icons/prestige_goods/blackwall_frigate.dds"
+#}
+
+#prestige_good_british_baltimore_clipper = {
+#	base_good = clippers
+#	prestige_bonus = 0.1
+#	texture = "gfx/interface/icons/goods_icons/prestige_goods/baltimore_clipper.dds"
+#}
+
+#prestige_good_baochuan = {
+#	base_good = manowars
+#	prestige_bonus = 0.1
+#	texture = "gfx/interface/icons/goods_icons/prestige_goods/baochuan.dds"
+#}

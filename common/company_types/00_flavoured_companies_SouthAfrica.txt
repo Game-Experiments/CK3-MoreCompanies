@@ -1,0 +1,695 @@
+﻿##############################VANILLA##############################
+
+# None
+
+##############################DLC-MP1##############################
+
+# De Beers Consolidated Mines Ltd.
+TRY_REPLACE:company_de_beers = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_de_beers.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_CAPE_COLONY }
+
+	building_types = {
+		building_gold_mine
+	}
+
+	extension_building_types = {
+		building_iron_mine
+	}
+
+	potential = {
+		has_dlc_feature = mp1_content
+		has_interest_marker_in_region = sr:region_southern_africa
+	}
+
+	attainable = {
+	}
+
+	possible = {
+		any_scope_state = {
+			region = sr:region_southern_africa
+			any_scope_building = {
+				is_building_type = building_gold_mine
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_prestige_mult = 0.1
+		country_leverage_generation_mult = 0.05
+		state_colony_growth_speed_mult = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			region = sr:region_southern_africa
+			has_potential_resource = building_gold_mine
+		}
+	}
+
+	ai_construction_targets = {
+		building_gold_mine = {
+			level = 5
+			state_trigger = {
+				region = sr:region_southern_africa
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+# Netherlands-South African Railway Company
+company_NRC = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/nzasm.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CAPE_COLONY }
+	
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #23
+		building_railway
+	}
+	
+	extension_building_types = {
+		building_power_plant
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_migration_pull_mult = 0.04 #5
+		state_construction_mult = 0.05 #18
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_railway = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Anglovaal Engineering
+company_Anglovaal = {
+	icon = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CAPE_COLONY }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_tools
+	}
+
+	
+	building_types = { #15
+		building_logging_camp
+		building_tooling_workshop
+	}
+	
+	extension_building_types = {
+		building_steel_mill
+		building_explosives_factory
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+		has_technology_researched = mechanical_tools
+	}
+	
+	prosperity_modifier = {
+		country_construction_add = 5 #10
+		country_max_weekly_construction_progress_add = 5 #6
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = mechanical_tools
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Oude Molen
+company_OudeMolen = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/oudemolen.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CAPE_COLONY }
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #26
+		building_vineyard
+	}
+	
+	extension_building_types = {
+		building_livestock_ranch
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_vineyard
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_landowners_approval_add = 4 #16
+		state_colony_growth_speed_mult = 0.1 #10
+	}
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_vineyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Imperial Cold Storage and Supply company
+company_ImperialCC = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/imperialcoldstorage.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CAPE_COLONY }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	
+	building_types = { #27
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_railway
+		building_power_plant
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = baking_powder
+	}
+	
+	prosperity_modifier = {
+		state_birth_rate_mult = 0.05 #20
+		state_colony_growth_creation_factor = 0.07 #7
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = baking_powder
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Johannesburg Gas Works
+company_Johannesburg = {
+	icon = "gfx/interface/icons/company_icons/basic_oil.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_oil_drills.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CAPE_COLONY }
+
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #14
+		building_oil_rig
+		building_coal_mine
+	}
+	
+	extension_building_types = {
+		building_power_plant
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_oil_rig
+				level >= 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_minting_mult = 0.05 #14
+	}
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_oil_rig = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Witwatersrand Gold Mining Company
+company_WGMC = {
+	icon = "gfx/interface/icons/company_icons/basic_gold_mining.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_NORTHERN_CAPE }
+	
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #24
+		building_gold_mine
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_NORTHERN_CAPE
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTHERN_CAPE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_gold_mine
+				level >= 3
+			}
+		}
+		has_technology_researched = pumpjacks
+	}
+	
+	prosperity_modifier = {
+		state_colony_growth_speed_mult = 0.1 #10
+		state_migration_pull_mult = 0.1 #14
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = pumpjacks
+		any_scope_state = {
+			state_region = s:STATE_NORTHERN_CAPE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_gold_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_NORTHERN_CAPE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+#Standard Bank of British South Africa
+company_Bank_SBoBSA = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bankofsouthafrica.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CAPE_COLONY }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {  
+		building_paper_mill
+		building_gold_mine
+		building_coal_mine
+	}
+	
+	extension_building_types = {	
+		building_iron_mine
+		building_cotton_plantation
+		building_wheat_farm
+		building_tea_plantation
+	}
+	
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_southern_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				OR = {
+					state_region = s:STATE_EASTERN_CAPE
+					state_region = s:STATE_CAPE_COLONY
+				}
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_EASTERN_CAPE
+				state_region = s:STATE_CAPE_COLONY
+			}
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 15
+			}
+		}
+		OR = {
+			AND = { 
+				exists = c:GBR
+				c:GBR = { relations:root >= relations_threshold:amicable }
+				has_technology_researched = central_banking
+				has_technology_researched = joint_stock_companies
+			}
+			has_technology_researched = investment_banks
+		}
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = {
+		state_colony_growth_creation_factor = 0.05
+		state_migration_pull_mult = 0.05
+		
+		country_minting_mult = 0.025
+		country_loan_interest_rate_mult = -0.025
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.03 
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.04 
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.05
+		country_government_dividends_efficiency_add = 0.05
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+		unique_companies_has_bank = no
+		OR = {
+			AND = { 
+				exists = c:GBR
+				c:GBR = { relations:root >= relations_threshold:amicable }
+				has_technology_researched = central_banking
+				has_technology_researched = joint_stock_companies
+			}
+			has_technology_researched = investment_banks
+		}
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {	
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+# Cape Argus
+company_Cape_Argus = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/capeargus.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CAPE_COLONY }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_newspaper
+	}
+
+	
+	building_types = { #28
+		building_paper_mill
+	}
+	
+	extension_building_types = {
+		building_sulfur_mine
+		building_logging_camp
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_africa
+		has_game_rule = newspapers_enabled
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+		has_technology_researched = human_rights
+	}
+	
+	prosperity_modifier = {
+		country_bureaucracy_mult = 0.08 #10
+		interest_group_in_opposition_approval_add = 1 #8
+		state_radicalism_increases_violent_hostility_mult = -0.15 #10
+		state_radicalism_increases_cultural_erasure_mult = -0.10
+		state_radicalism_increases_open_prejudice_mult = -0.05
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = human_rights
+		any_scope_state = {
+			state_region = s:STATE_CAPE_COLONY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CAPE_COLONY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

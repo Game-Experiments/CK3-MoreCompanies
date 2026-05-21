@@ -1,0 +1,1081 @@
+﻿##############################VANILLA##############################
+
+# Caribbean Petroleum Company
+TRY_REPLACE:company_caribbean_petroleum = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/venezuela_caribbean_petroleum_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_oil_drills.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_ZULIA STATE_MIRANDA }
+
+	building_types = {
+		building_oil_rig
+	}
+
+	extension_building_types = {
+		building_power_plant
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				OR = {
+					state_region = s:STATE_ZULIA
+					state_region = s:STATE_MIRANDA
+				}
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = pumpjacks
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_ZULIA
+				state_region = s:STATE_MIRANDA
+			}
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_oil_rig
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_ship_group_supply_ships_construction_efficiency_add = 0.1
+		interest_group_ig_industrialists_approval_add = 3
+	}
+
+	ai_will_do = {
+		has_technology_researched = pumpjacks
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_ZULIA
+				state_region = s:STATE_MIRANDA
+			}
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_oil_rig = {
+			level = 5
+			state_trigger = {
+				OR = {
+					state_region = s:STATE_ZULIA
+					state_region = s:STATE_MIRANDA
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################DLC-COTS##############################
+
+# C.A. La Electricidad de Caracas
+TRY_REPLACE:company_electricidad_de_caracas = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/venezuela_c_a_la_electricidad_de_caracas.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_MIRANDA }
+
+	possible_prestige_goods = {
+		prestige_good_hydroelectricity
+	}
+	
+	building_types = {
+		building_power_plant
+	}
+
+	extension_building_types = {
+		building_motor_industry
+		building_coal_mine
+	}
+
+	potential = {
+		has_dlc_feature = rp1_content
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_MIRANDA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = electrical_generation
+		any_scope_state = {
+			state_region = s:STATE_MIRANDA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_power_plant
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_infrastructure_from_population_add = 5
+		state_infrastructure_from_population_max_add = 10
+	}
+
+	ai_will_do = {
+		has_technology_researched = electrical_generation
+		any_scope_state = {
+			state_region = s:STATE_MIRANDA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_power_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_MIRANDA
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+# National Federation of Coffee Growers of Colombia
+company_NFCGC = {
+	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_MIRANDA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_coffee
+	}
+	
+	building_types = { #26
+		building_coffee_plantation
+	}
+	
+	extension_building_types = {
+		building_food_industry
+		building_trade_center
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_MIRANDA
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_MIRANDA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_coffee_plantation
+				level >= 3
+			}
+		}
+		has_technology_researched = corporatism
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_trade_unions_approval_add = 3 #12
+		interest_group_ig_trade_unions_pop_attraction_mult = 0.15 #10
+		building_coffee_plantation_throughput_add = 0.05 #4
+	}
+
+	ai_will_do = {
+		has_technology_researched = corporatism
+		any_scope_state = {
+			state_region = s:STATE_MIRANDA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_coffee_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_MIRANDA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# House of Ango
+company_HouseOfAngo = {
+	icon = "gfx/interface/icons/company_icons/basic_food.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_corn.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BOLIVAR }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = { #27
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_maize_farm
+		building_banana_plantation
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BOLIVAR
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BOLIVAR
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_migration_pull_mult = 0.1 #14
+		country_ship_group_supply_ships_construction_efficiency_add = 0.07 #5
+		interest_group_ig_armed_forces_approval_add = 2 #8
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_BOLIVAR
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BOLIVAR
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Manuelita
+company_Manuelita = {
+	icon = "gfx/interface/icons/company_icons/company_basic_agriculture_1.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rice.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CAUCA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_sugarcane
+	}
+	
+	building_types = { #23
+		building_coffee_plantation
+		building_sugar_plantation
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CAUCA
+			}
+		}
+	}		
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_CAUCA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_coffee_plantation
+				level >= 3
+			}
+		}
+		has_technology_researched = watertube_boiler
+	}
+	
+	prosperity_modifier = {
+		building_sugar_plantation_throughput_add = 0.13 #10
+		country_production_tech_spread_mult = 0.07 #7
+		state_migration_pull_mult = 0.05 #6
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = watertube_boiler
+		any_scope_state = {
+			state_region = s:STATE_CAUCA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_coffee_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CAUCA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Sociedad Colombo-Alemana de Transportes Aéreos / Colombo-German Air Transport Company 
+company_SCADTA = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/scadta.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ANTIOQUIA }
+	
+	possible_prestige_goods = {
+		prestige_good_junkers_planes
+	}
+	
+	building_types = { #21
+		building_automotive_industry
+		building_trade_center
+		building_port
+	}
+	
+	extension_building_types = {
+		building_paper_mill
+		building_motor_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ANTIOQUIA
+			}
+		}
+	}		
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ANTIOQUIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_automotive_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = combustion_engine
+	}
+	
+	prosperity_modifier = {
+		state_infrastructure_add = 3 #6
+		state_infrastructure_from_population_max_add = 6 #4
+		state_migration_pull_mult = 0.08 #10
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = combustion_engine
+		any_scope_state = {
+			state_region = s:STATE_ANTIOQUIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_automotive_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ANTIOQUIA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Bavaria Brewery
+company_BavariaBrewery = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bavaria.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rice.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CUNDINAMARCA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_beer
+	}
+	
+	building_types = { #29
+		building_food_industry
+		building_trade_center
+	}
+	
+	extension_building_types = {
+		building_port
+		building_maize_farm
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CUNDINAMARCA
+			}
+		}
+	}		
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_CUNDINAMARCA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = vacuum_canning
+	}
+	
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult = -0.11 #14
+		state_lower_strata_expected_sol_add = -0.35
+		state_middle_strata_expected_sol_add = -0.7
+		state_upper_strata_expected_sol_add = -1.05
+		country_prestige_mult = 0.05 #5
+		state_assimilation_mult = 0.20 #10
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = vacuum_canning
+		any_scope_state = {
+			state_region = s:STATE_CUNDINAMARCA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CUNDINAMARCA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Maravillas de Colombia S.A.
+company_Maravillas = {
+	icon = "gfx/interface/icons/company_icons/basic_munitions.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CUNDINAMARCA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_explosives
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_explosives_complete_tt
+			has_variable = prestige_good_generic_explosives_var
+		}
+	}
+	
+	building_types = { #18
+		building_logging_camp
+		building_explosives_factory
+	}
+
+	extension_building_types = {
+		building_sulfur_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CUNDINAMARCA
+			}
+		}
+	}		
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_CUNDINAMARCA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_explosives_factory
+				level >= 3
+			}
+		}
+		has_technology_researched = electrical_generation
+	}
+	
+	prosperity_modifier = {
+		building_urban_center_throughput_add = 0.1 #14
+		state_loyalists_from_political_movements_mult = 0.03 #4
+		state_lower_strata_expected_sol_add = -0.1
+		state_middle_strata_expected_sol_add = -0.2
+		state_upper_strata_expected_sol_add = -0.3
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = electrical_generation
+		any_scope_state = {
+			state_region = s:STATE_CUNDINAMARCA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_explosives_factory = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CUNDINAMARCA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Compañía Cerámica Antioqueña
+company_ceramica_antio = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/cocean.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ANTIOQUIA }
+	
+	possible_prestige_goods = {
+		###
+	}
+	
+	building_types = { #28
+		building_glassworks
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+		building_synthetics_plant
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ANTIOQUIA
+			}
+		}
+	}		
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ANTIOQUIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 3
+			}
+		}
+		has_technology_researched = crystal_glass
+		has_technology_researched = corporatism
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.14 #18
+		state_lower_strata_expected_sol_add = -0.45
+		state_middle_strata_expected_sol_add = -0.9
+		state_upper_strata_expected_sol_add = -1.35
+		state_mortality_wealth_mult = -0.002 #10
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = crystal_glass
+		has_technology_researched = corporatism
+		any_scope_state = {
+			state_region = s:STATE_ANTIOQUIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ANTIOQUIA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Concesión Mares
+company_Mares_Oil = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/mares.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_oil_drills.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_ANTIOQUIA }
+
+    possible_prestige_goods = {
+		###
+	}
+
+	building_types = { #23
+		building_oil_rig
+	}
+
+	extension_building_types = {
+		building_railway
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ANTIOQUIA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = pumpjacks
+		any_scope_state = {
+			state_region = s:STATE_ANTIOQUIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 3
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_influence_mult = 0.15 #10
+		state_migration_pull_mult = 0.10 #14
+	}
+
+	ai_will_do = {
+		has_technology_researched = pumpjacks
+		any_scope_state = {
+			state_region = s:STATE_ANTIOQUIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_urban_center = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ANTIOQUIA
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Laboratorios JGB
+company_JGB = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/jgb.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_CAUCA }
+
+    possible_prestige_goods = {
+		prestige_good_generic_medicine
+	}
+
+	building_types = { #27
+		building_chemical_plant
+	}
+
+	extension_building_types = {
+		building_tooling_workshop
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CAUCA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = pharmaceuticals
+		any_scope_state = {
+			state_region = s:STATE_CAUCA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_chemical_plant
+				level >= 3
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_mortality_wealth_mult = -0.003 #14
+		interest_group_ig_intelligentsia_approval_add = 2 #8
+		interest_group_ig_intelligentsia_pop_attraction_mult = 0.08 #5
+	}
+
+	ai_will_do = {
+		has_technology_researched = pharmaceuticals
+		any_scope_state = {
+			state_region = s:STATE_CAUCA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_chemical_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CAUCA
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Coltejer
+company_Coltejer = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/coltejer.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ANTIOQUIA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_clothes
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_clothes_complete_tt
+			has_variable = prestige_good_generic_clothes_var
+		}
+	}
+	
+	building_types = { #30
+		building_textile_mill
+	}
+	
+	extension_building_types = {
+		building_cotton_plantation
+		building_synthetics_plant
+		building_livestock_ranch
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ANTIOQUIA
+			}
+		}
+	}		
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ANTIOQUIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 3
+			}
+		}
+		has_technology_researched = shift_work
+		has_technology_researched = vulcanization
+	}
+	
+	prosperity_modifier = {
+		country_production_tech_spread_mult = 0.08 #8
+		building_textile_mill_throughput_add = 0.12 #12
+		state_loyalists_from_political_movements_mult = 0.08 #10
+		state_lower_strata_expected_sol_add = -0.25
+		state_middle_strata_expected_sol_add = -0.5
+		state_upper_strata_expected_sol_add = -0.75
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = shift_work
+		has_technology_researched = vulcanization
+		any_scope_state = {
+			state_region = s:STATE_ANTIOQUIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ANTIOQUIA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Compañía Colombiana de Teléfonos / ETB
+company_Colombia_Telephone = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/etb.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CUNDINAMARCA }
+	
+	possible_prestige_goods = {
+		##
+	}
+	
+	building_types = { #24
+		building_electrics_industry
+	}
+	
+	extension_building_types = {
+		building_lead_mine
+		building_furniture_manufactory
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CUNDINAMARCA
+			}
+		}
+	}		
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_CUNDINAMARCA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_electrics_industry
+				level >= 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		unit_supply_consumption_mult = -0.05 #14
+		state_loyalists_from_political_movements_mult = 0.08 #10
+		state_lower_strata_expected_sol_add = -0.25
+		state_middle_strata_expected_sol_add = -0.5
+		state_upper_strata_expected_sol_add = -0.75
+	}
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_CUNDINAMARCA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_electrics_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CUNDINAMARCA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+# Banco López
+company_Bank_Lopez = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bank_lopez.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CUNDINAMARCA }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = { #24
+		building_paper_mill
+		building_coffee_plantation
+		building_furniture_manufactory
+	}
+	
+	extension_building_types = {
+		building_power_plant
+		building_tooling_workshop
+		building_motor_industry
+		building_port
+	}
+	
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_gran_colombia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CUNDINAMARCA
+			}
+		}
+	}		
+
+	possible = { 
+		any_scope_state = {
+		    state_region = s:STATE_CUNDINAMARCA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 15
+			}
+		}
+		has_technology_researched = corporate_management
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = {
+		building_coffee_plantation_throughput_add = 0.1
+		state_trade_advantage_mult = 0.10
+		
+		country_loan_interest_rate_mult = -0.025
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.03 #<---
+		state_shopkeepers_investment_pool_contribution_add = 0.015
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.04
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		country_government_dividends_reinvestment_add = 0.075 #<--
+		country_government_dividends_efficiency_add = 0.075 #<--
+		
+		country_max_companies_add = 1
+	}
+	
+
+	ai_will_do = {
+	    unique_companies_has_bank = no
+	    has_technology_researched = corporate_management
+		any_scope_state = {
+			state_region = s:STATE_CUNDINAMARCA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CUNDINAMARCA
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}

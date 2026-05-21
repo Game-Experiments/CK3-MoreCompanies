@@ -1,0 +1,153 @@
+﻿##############################MODDED##############################
+
+# Meikles
+company_Meikles = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/meikles.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZAMBEZI }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_furniture
+	}
+
+	
+	building_types = { #22
+		building_trade_center
+		building_furniture_manufactory
+	}
+	
+	extension_building_types = {
+		building_port
+		building_tea_plantation
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZAMBEZI
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZAMBEZI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_furniture_manufactory
+				level >= 3
+			}
+		}
+		has_technology_researched = civilizing_mission
+	}
+	
+	prosperity_modifier = {
+		state_trade_advantage_mult = 0.12 #8
+		interest_group_ig_petty_bourgeoisie_approval_add = 2 #8
+		state_migration_pull_mult = 0.05 #6
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = civilizing_mission
+		any_scope_state = {
+			state_region = s:STATE_ZAMBEZI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_furniture_manufactory = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZAMBEZI
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Rhodesian Printing and Publishing Company / Zimpapers
+company_Zimpapers = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/rhodesianpaper.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZAMBEZI }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_newspaper
+	}
+
+	
+	building_types = { #30  
+		building_paper_mill
+	}
+	
+	extension_building_types = {
+		building_logging_camp
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_africa
+		has_game_rule = newspapers_enabled
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZAMBEZI
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZAMBEZI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+		has_technology_researched = corporate_management
+	}
+	
+	prosperity_modifier = {
+		interest_group_in_government_approval_add = 2 #16
+		state_radicalism_increases_violent_hostility_mult = -0.21 #14
+		state_radicalism_increases_cultural_erasure_mult = -0.14
+		state_radicalism_increases_open_prejudice_mult = -0.07
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = corporate_management
+		any_scope_state = {
+			state_region = s:STATE_ZAMBEZI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZAMBEZI
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

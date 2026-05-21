@@ -1,0 +1,86 @@
+﻿##############################VANILLA#############################
+
+# None
+
+##############################MODDED##############################
+
+# African Lake Corporation
+company_AfricanLakeCorp = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/africanlakescorp.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KAZEMBE }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_ivory
+		prestige_good_generic_meat
+	}
+	
+	building_types = { #21
+		building_livestock_ranch
+		building_trade_center
+		building_port
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+		building_shipyard
+		building_automotive_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_east_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KAZEMBE
+			}
+		}
+	}			
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KAZEMBE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_influence_mult = 0.15 #10
+        state_conversion_mult = 0.15 #10
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KAZEMBE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_livestock_ranch = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_KAZEMBE
+			}
+		}
+		
+		building_trade_center = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_KAZEMBE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

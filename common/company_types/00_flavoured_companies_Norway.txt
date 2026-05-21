@@ -1,0 +1,1025 @@
+﻿##############################VANILLA##############################
+
+# Aker Mek
+TRY_REPLACE:company_aker_mek = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_aker_mek.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_EASTERN_NORWAY }
+
+	building_types = {
+		building_shipyard
+		building_motor_industry
+	}
+
+	extension_building_types = {
+		building_tooling_workshop
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = gantry_cranes
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_ship_group_supply_ships_construction_efficiency_add = 0.15
+		building_fishing_wharf_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = gantry_cranes
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################DLC-MP1##############################
+
+# Norsk Hydroelektrisk Kvælstofaktieselskap
+TRY_REPLACE:company_norsk_hydro = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_norsk_hydro.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_WESTERN_NORWAY }
+
+	building_types = {
+		building_chemical_plant
+		building_power_plant
+	}
+
+	extension_building_types = {
+		building_sulfur_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_WESTERN_NORWAY = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = electrical_generation
+		any_scope_state = {
+			state_region = s:STATE_WESTERN_NORWAY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_chemical_plant
+				level >= 5
+			}
+			any_scope_building = {
+				is_building_type = building_power_plant
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_group_bg_agriculture_throughput_add = 0.1
+		country_production_tech_spread_mult = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = electrical_generation
+		any_scope_state = {
+			state_region = s:STATE_WESTERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_chemical_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_WESTERN_NORWAY
+			}
+		}
+		building_power_plant = {
+			level = 1
+			state_trigger = {
+				state_region = s:STATE_WESTERN_NORWAY
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+company_Nydalens = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/nydalens.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_NORWAY }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_clothes
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_clothes_complete_tt
+			has_variable = prestige_good_generic_clothes_var
+		}
+	}
+	
+	building_types = { #26
+		building_textile_mill
+	}
+	
+	extension_building_types = {
+		building_cotton_plantation
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_intelligentsia_approval_add = 2 #8
+		interest_group_ig_industrialists_approval_add = 2 #8
+		unit_morale_recovery_mult = 0.05 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Dyno Nobel
+company_Nobel = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/dynonobel.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_NORWAY }
+	
+	possible_prestige_goods = {
+		prestige_good_nobel_dynamite
+	}
+
+	building_types = { #23
+		building_explosives_factory	
+	}
+	
+	extension_building_types = {
+		building_sulfur_mine
+		building_coal_mine
+		building_iron_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_explosives_factory
+				level >= 3
+			}
+		}
+		
+	}
+	
+	prosperity_modifier = {
+		country_minting_mult = 0.03 #10
+		building_explosives_factory_throughput_add = 0.11 #14
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_explosives_factory = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_AlbertC = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/albertcollett.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_NORWAY }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	building_types = { #18
+		building_logging_camp
+		building_power_plant
+	}
+	
+	extension_building_types = {
+		building_paper_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+			  any_scope_building = {
+			    OR = {
+					is_building_type = building_logging_camp
+					is_building_type = building_power_plant
+				}
+				level >= 5
+			  }
+		}
+		has_technology_researched = electrical_generation
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_intelligentsia_approval_add = 2 #8
+		unit_supply_consumption_mult = -0.03 #10
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = electrical_generation
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_logging_camp = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_HOFF = {
+	icon = "gfx/interface/icons/company_icons/company_basic_agriculture_1.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_NORWAY }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_grain
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_grain_complete_tt
+			has_variable = prestige_good_generic_grain_var
+		}
+	}
+	
+	building_types = { #24
+		building_wheat_farm
+		building_millet_farm
+		building_rye_farm
+	}
+	
+	extension_building_types = {
+		building_food_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_wheat_farm
+					is_building_type = building_millet_farm
+					is_building_type = building_rye_farm
+				}
+				level >= 3
+			  }
+		 }
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_rural_folk_approval_add = 3 #12
+		interest_group_ig_trade_unions_approval_add = 3 #12
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_rye_farm = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# A/S Kosmos
+company_Kosmos = {
+	icon = "gfx/interface/icons/company_icons/basic_fishing.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_WESTERN_NORWAY }
+	
+	possible_prestige_goods = {
+		prestige_good_icelandic_fish
+	}
+
+	building_types = { #20
+		building_shipyard
+		building_fishing_wharf
+		building_whaling_station
+	}
+	
+	extension_building_types = {
+		building_food_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_WESTERN_NORWAY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_WESTERN_NORWAY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_fishing_wharf
+				level >= 3
+			}
+		}
+		has_technology_researched = dreadnought_tech
+	}
+	
+	prosperity_modifier = {
+		building_food_industry_throughput_add = 0.18 #20
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = dreadnought_tech
+		any_scope_state = {
+			state_region = s:STATE_WESTERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_fishing_wharf = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_WESTERN_NORWAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Sulitjelma Mines
+company_Sulit = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/suli.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_NORTHERN_NORWAY }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_pyrite
+	}
+
+	building_types = { #26
+		building_sulfur_mine
+		building_lead_mine
+	}
+	
+	extension_building_types = {
+		building_railway
+		building_steel_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_NORTHERN_NORWAY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTHERN_NORWAY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_sulfur_mine
+				level >= 3
+			}
+		}
+		has_technology_researched = steam_donkey
+	}
+	
+	prosperity_modifier = {
+		state_trade_advantage_mult = 0.09 #6
+		building_sulfur_mine_throughput_add = 0.15 #20
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = steam_donkey
+		any_scope_state = {
+			state_region = s:STATE_NORTHERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_sulfur_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_NORTHERN_NORWAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Kongsberg Våpenfabrikk
+company_Kongsberg = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/kongsberg.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_NORWAY }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_small_arms
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_small_arms_complete_tt
+			has_variable = prestige_good_generic_small_arms_var
+		}
+	}
+	
+	building_types = { #16
+		building_tooling_workshop
+		building_arms_industry
+		building_munition_plant	
+	}
+	
+	extension_building_types = {
+		building_artillery_foundry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+			  any_scope_building = {
+			    is_building_type = building_arms_industry
+				level >= 3
+			  }
+		}
+	}
+	
+	prosperity_modifier = {
+		country_military_goods_cost_mult = -0.03 #6
+		unit_morale_loss_mult = -0.05 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+		
+		building_arms_industry = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Orkla
+company_Orkla = {
+	icon = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_NORWAY }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_pyrite
+	}
+	
+	building_types = { #13
+		building_iron_mine
+		building_sulfur_mine
+		building_railway
+	}
+	
+	extension_building_types = {
+		building_steel_mill
+		building_paper_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				OR = {
+					state_region = s:STATE_EASTERN_NORWAY
+					state_region = s:STATE_NORTHERN_NORWAY
+				}
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_EASTERN_NORWAY
+				state_region = s:STATE_NORTHERN_NORWAY
+			}
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_iron_mine 
+				level >= 3
+			}
+		}
+		has_technology_researched = open_hearth_process
+	}
+	
+	prosperity_modifier = {
+		building_steel_mill_throughput_add = 0.08 #12
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = open_hearth_process
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_iron_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+#  Raufoss Patronfabrikk
+company_Raufoss = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/raufoss.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_NORWAY }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_explosives
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_explosives_complete_tt
+			has_variable = prestige_good_generic_explosives_var
+		}
+	}
+
+	building_types = { #23
+		building_munition_plant
+		building_explosives_factory
+	}
+	
+	extension_building_types = {
+		building_automotive_industry
+		building_sulfur_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_munition_plant
+				level >= 3
+			}
+		}
+		has_technology_researched = dynamite
+	}
+	
+	prosperity_modifier = {
+		unit_army_defense_mult = 0.04 #8
+		country_military_goods_cost_mult = -0.04 #8
+		state_infrastructure_mult = 0.04 #8
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = dynamite
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_explosives_factory = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+		
+		building_munition_plant = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Christiania Sparebank
+company_Christiana_Sparebank = {
+  icon = "gfx/interface/icons/company_icons/historical_company_icons/norwayhandelsbanken.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_NORWAY }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {  
+		building_paper_mill
+		building_furniture_manufactory
+		building_fishing_wharf
+	}
+	
+	extension_building_types = {	
+		building_whaling_station
+		building_logging_camp
+		building_sulfur_mine
+		building_textile_mill	
+	}
+	
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 10
+			}
+		}
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_petty_bourgeoisie_approval_add = 1
+		interest_group_ig_rural_folk_approval_add = 1
+		state_dependent_political_participation_add = 0.05
+		
+		country_minting_mult = 0.025
+		country_loan_interest_rate_mult = -0.025
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.02 #<---
+		state_shopkeepers_investment_pool_contribution_add = 0.02 #<--
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.04
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.05
+		country_government_dividends_efficiency_add = 0.05
+		
+		country_max_companies_add = 1
+	}	
+	
+	ai_will_do = {
+		unique_companies_has_bank = no
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_NORWAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+# Ulstein Mekaniske Verksted
+company_Ulstein = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/ulstein.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_NORTHERN_NORWAY }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	building_types = { #24
+		building_shipyard
+		building_motor_industry
+	}
+	
+	extension_building_types = {
+		building_steel_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_NORTHERN_NORWAY
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTHERN_NORWAY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 3
+			}
+		}
+		has_technology_researched = concrete_dockyards
+	}
+	
+	prosperity_modifier = {
+		building_shipyard_throughput_add = 0.10 #8
+		building_fishing_wharf_throughput_add = 0.16 #16
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = concrete_dockyards
+		any_scope_state = {
+			state_region = s:STATE_NORTHERN_NORWAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_NORTHERN_NORWAY
+			}
+		}
+		
+		building_motor_industry = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_NORTHERN_NORWAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

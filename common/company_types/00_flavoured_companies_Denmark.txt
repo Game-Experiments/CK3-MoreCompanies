@@ -1,0 +1,1391 @@
+﻿##############################VANILLA##############################
+
+# Chr. Hansens teknisk-kemiske Laboratorium A/S
+TRY_REPLACE:company_chr_hansens = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/denmark_chr_hansens_teknisk_kemiske_laboratorium.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rye.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_ZEALAND }
+
+	building_types = {
+		building_food_industry
+		building_chemical_plant
+	}
+
+	extension_building_types = {
+		building_synthetics_plant
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_groceries_complete_tt
+			has_variable = prestige_good_generic_groceries_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_food_industry
+					is_building_type = building_chemical_plant
+				}
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_livestock_ranch_throughput_add = 0.1
+		building_fishing_wharf_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+		building_chemical_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# A.P. Møller (later Mærsk)
+TRY_REPLACE:company_ap_moller = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/ap_moller.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_ZEALAND }
+
+	building_types = {
+		building_port
+	}
+
+	extension_building_types = {
+		building_shipyard
+		building_logging_camp
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_merchant_marine
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_merchant_marine_complete_tt
+			has_variable = prestige_good_generic_merchant_marine_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_ship_group_supply_ships_construction_efficiency_add = 0.2
+		interest_group_ig_industrialists_pop_attraction_mult = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+# Simonsen Weel
+company_SimonsenWeel = {
+	icon = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZEALAND }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_tools
+	}
+	
+	building_types = {  #22
+		building_tooling_workshop
+	}
+	
+	extension_building_types = {
+		building_furniture_manufactory
+		building_electrics_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		unit_morale_recovery_mult = 0.05 #10
+		state_mortality_mult = -0.04 #12
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+
+}
+
+# Royal Porcelain Factory of Denmark
+company_RPFD = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/royaldenmark.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZEALAND }
+	
+	category = aristocrat_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = {  #22
+		building_glassworks
+	}
+	
+	extension_building_types = {
+		building_art_academy
+		building_dye_plantation
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_landowners_approval_add = 2 #8
+		building_lead_mine_throughput_add = 0.11 #14
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+
+}
+
+# Stevns Foderstofforening
+company_Stevns = {
+	icon = "gfx/interface/icons/company_icons/basic_chemicals.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZEALAND }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_fertilizer
+	}
+	
+	building_types = {  #27
+		building_chemical_plant
+		building_livestock_ranch
+	}
+	
+	extension_building_types = {
+		building_rye_farm
+		building_tooling_workshop
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_livestock_ranch
+				level >= 5
+			}
+		}
+		has_law_or_variant = law_type:law_cooperative_ownership
+	}
+	
+	prosperity_modifier = {
+		building_group_bg_agriculture_throughput_add = 0.05 #18
+		building_livestock_ranch_throughput_add = 0.09 #9
+	}	
+	
+
+	ai_will_do = {
+	    has_law_or_variant = law_type:law_cooperative_ownership
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_livestock_ranch = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+
+}
+
+# Carlsberg
+company_Carlsberg = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/carlsberg.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZEALAND }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_beer
+	}
+	
+	building_types = {  #25
+		building_food_industry
+		building_rye_farm
+	}
+	
+	extension_building_types = {
+		building_shipyard
+		building_port
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_society_tech_spread_mult = 0.12 #12
+		state_radicals_from_political_movements_mult = -0.11 #14
+		state_lower_strata_expected_sol_add = -0.35
+		state_middle_strata_expected_sol_add = -0.7
+		state_upper_strata_expected_sol_add = -1.05
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# DISA / Dansk Rekyl Riffel Syndikat A/S
+company_DISA = {
+icon = "gfx/interface/icons/company_icons/historical_company_icons/disa.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZEALAND }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_small_arms
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_small_arms_complete_tt
+			has_variable = prestige_good_generic_small_arms_var
+		}
+	}
+	
+	building_types = {  #16
+		building_arms_industry
+		building_munition_plant
+		building_tooling_workshop
+	}
+	
+	extension_building_types = {
+		building_steel_mill
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_arms_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		unit_army_defense_mult = 0.08 #16
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_arms_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# De Danske Sukkerfabrikker
+company_DDS = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/danske2.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZEALAND }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_molasses
+	}
+	
+	building_types = {  #25
+		building_rye_farm
+		building_sugar_plantation
+	}
+	
+	extension_building_types = {
+		building_food_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_rye_farm
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_rye_farm_throughput_add = 0.20 #16
+		building_food_industry_throughput_add = 0.10 #9
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_rye_farm = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# De Danske Bomuldsspinderier
+company_DDB = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/dansk1.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZEALAND }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_clothes
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_clothes_complete_tt
+			has_variable = prestige_good_generic_clothes_var
+		}
+	}
+	
+	building_types = {  #26
+		building_textile_mill
+	}
+	
+	extension_building_types = {
+		building_cotton_plantation
+	}
+
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_cotton_plantation_throughput_add = 0.15 #20
+		state_loyalists_from_political_movements_mult = 0.05 #6
+		state_lower_strata_expected_sol_add = -0.15
+		state_middle_strata_expected_sol_add = -0.3
+		state_upper_strata_expected_sol_add = -0.45
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Munke Mølle
+company_Munke_Molle = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/munke.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZEALAND }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_grain
+	}
+	
+	building_types = {  #28
+		building_rye_farm
+	}
+	
+	extension_building_types = {
+		building_wheat_farm
+		building_millet_farm
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_rye_farm
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+	    state_birth_rate_mult = 0.05 #20
+		building_food_industry_throughput_add = 0.09 #8
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_rye_farm = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Landmandsbanken
+company_Bank_of_Denmark = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/landmandsbanken.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZEALAND }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+
+	building_types = {  
+		building_paper_mill
+		building_rye_farm
+		building_fishing_wharf
+	}
+	
+	extension_building_types = {	
+		building_logging_camp
+		building_shipyard
+		building_tooling_workshop
+		building_textile_mill
+	}
+
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 15
+			}
+		}
+		has_technology_researched = investment_banks
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_rural_folk_approval_add = 2
+		country_legitimacy_base_add = 5
+		
+		country_loan_interest_rate_mult = -0.025
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.04 #<---
+		state_shopkeepers_investment_pool_contribution_add = 0.02 #<--
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.04
+		state_capitalists_investment_pool_contribution_add = 0.055 #<-- less
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.05
+		country_government_dividends_efficiency_add = 0.05
+		
+		country_max_companies_add = 1
+	}	
+	
+
+	ai_will_do = {
+	    unique_companies_has_bank = no
+	    has_technology_researched = investment_banks
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+# Lego
+company_lego = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/lego.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_JUTLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_toys
+	}
+	
+	building_types = {  #28
+		building_furniture_manufactory
+		building_glassworks
+	}
+	
+	extension_building_types = {
+		building_chemical_plant
+		building_synthetics_plant
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_JUTLAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_JUTLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_furniture_manufactory
+				level >= 3
+			}
+		}
+		has_technology_researched = plastics
+		has_technology_researched = macroeconomics
+	}
+	
+	prosperity_modifier = {
+	    state_loyalists_from_political_movements_mult = 0.11 #14
+		state_lower_strata_expected_sol_add = -0.35
+		state_middle_strata_expected_sol_add = -0.7
+		state_upper_strata_expected_sol_add = -1.05
+		country_influence_mult = 0.06 #4
+		state_trade_capacity_mult = 0.05 #10
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = plastics
+		has_technology_researched = macroeconomics
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_furniture_manufactory = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_JUTLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# De danske Statsbaner / DSB
+company_Danish_Railway = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/dsb.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_JUTLAND }
+	
+	category = bureaucrat_owned
+
+	possible_prestige_goods = {
+		##
+	}
+	
+	building_types = {  #23
+		building_railway
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_JUTLAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_JUTLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 3
+			}
+		}
+		has_technology_researched = railways
+	}
+	
+	prosperity_modifier = {
+	    state_infrastructure_mult = 0.06 #12
+		country_bureaucracy_investment_cost_factor_mult = -0.05 #10
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = railways
+		any_scope_state = {
+			state_region = s:STATE_JUTLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_railway = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_JUTLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Grundfoss / Bjerringbro Pressestøberi og Maskinfabrik
+company_Grundfoss = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/grundfoss.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_JUTLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_machine_parts
+	}
+	
+	building_types = {  #28
+		building_motor_industry
+		building_electrics_industry
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_JUTLAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_JUTLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_motor_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = oil_turbine
+		has_technology_researched = pneumatic_tools
+	}
+	
+	prosperity_modifier = {
+	    state_pollution_reduction_health_mult = -0.10 #14
+		state_infrastructure_mult = 0.07 #14
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = oil_turbine
+		has_technology_researched = pneumatic_tools
+		any_scope_state = {
+			state_region = s:STATE_JUTLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_JUTLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# VELUX / V. Kann Rasmussen & Co
+company_VELUX = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/velux.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZEALAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_specialized_glass
+	}
+	
+	building_types = {  #32
+		building_glassworks
+	}
+	
+	extension_building_types = {
+		building_furniture_manufactory
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 3
+			}
+		}
+		has_technology_researched = oil_turbine
+		has_technology_researched = plastics
+	}
+	
+	prosperity_modifier = {
+	    state_loyalists_from_political_movements_mult = 0.15 #20
+		state_lower_strata_expected_sol_add = -0.5
+		state_middle_strata_expected_sol_add = -1.0
+		state_upper_strata_expected_sol_add = -1.5
+		state_trade_advantage_mult = 0.18 #12
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = oil_turbine
+	    has_technology_researched = plastics
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Technical Bureau / FLSmidth and Co. A/S
+company_FLSmidth = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/flsmidth.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZEALAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_machine_parts
+	}
+	
+	building_types = {  #21
+		building_tooling_workshop
+		building_chemical_plant
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+		building_explosives_factory
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+		has_technology_researched = dynamite
+	}
+	
+	prosperity_modifier = {
+	    state_construction_mult = 0.05 #18
+		state_pop_qualifications_mult = 0.03 #4
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = dynamite
+		any_scope_state = {
+			state_region = s:STATE_ZEALAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZEALAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Bang & Olufsen
+company_Bang_Olufsen = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bangolufsen.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_JUTLAND }
+	
+
+	possible_prestige_goods = {
+		##
+	}
+	
+	building_types = {  #28
+		building_electrics_industry
+		building_furniture_manufactory
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_JUTLAND
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_JUTLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_electrics_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = radio
+		has_technology_researched = international_exchange_standards
+	}
+	
+	prosperity_modifier = {
+	    state_education_access_wealth_add = 0.004 #14
+		state_loyalists_from_political_movements_mult = 0.11 #14
+		state_lower_strata_expected_sol_add = -0.35
+		state_middle_strata_expected_sol_add = -0.7
+		state_upper_strata_expected_sol_add = -1.05
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = radio
+		has_technology_researched = international_exchange_standards
+		any_scope_state = {
+			state_region = s:STATE_JUTLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_electrics_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_JUTLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+# Dansk Køleautomatik- og Apparatfabrik / Danfoss A/S
+company_Danfoss = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/danfoss.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_SCHLESWIG_HOLSTEIN }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_tools
+	}
+	
+	building_types = {  #28
+		building_tooling_workshop
+		building_furniture_manufactory
+	}
+	
+	extension_building_types = {
+		building_electrics_industry
+	}
+	
+	potential = {
+		OR = {
+			has_interest_marker_in_region = sr:region_northern_europe
+			has_interest_marker_in_region = sr:region_central_europe
+		}
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_SCHLESWIG_HOLSTEIN
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_SCHLESWIG_HOLSTEIN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+		has_technology_researched = pneumatic_tools
+		has_technology_researched = compression_ignition
+	}
+	
+	prosperity_modifier = {
+	    state_pollution_reduction_health_mult = -0.10 #14
+		building_urban_center_throughput_add = 0.1 #14
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = pneumatic_tools
+		has_technology_researched = compression_ignition
+		any_scope_state = {
+			state_region = s:STATE_SCHLESWIG_HOLSTEIN
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_SCHLESWIG_HOLSTEIN
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

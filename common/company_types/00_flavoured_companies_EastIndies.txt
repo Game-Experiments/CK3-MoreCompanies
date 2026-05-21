@@ -1,0 +1,527 @@
+﻿##############################VANILLA##############################
+
+# None
+##############################DLC-MP1##############################
+
+# Lanfang Kongsi
+TRY_REPLACE:company_lanfang_kongsi = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_lanfang_kongsi.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+
+	category = shopkeeper_owned
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_WEST_BORNEO STATE_EAST_BORNEO STATE_NORTH_BORNEO }
+
+	building_types = {
+		building_gold_mine
+		building_port
+	}
+
+	extension_building_types = {
+		building_rice_farm
+		building_iron_mine
+	}
+
+	potential = {
+		has_dlc_feature = mp1_content
+		has_interest_marker_in_region = sr:region_indonesia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				OR = {
+					state_region = s:STATE_WEST_BORNEO
+					state_region = s:STATE_EAST_BORNEO
+					state_region = s:STATE_NORTH_BORNEO
+				}
+			}
+		}
+	}
+
+	possible = {
+		cultural_acceptance_base = {
+			target = cu:hakka
+			value >= acceptance_status_4
+		}
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_WEST_BORNEO
+				state_region = s:STATE_EAST_BORNEO
+				state_region = s:STATE_NORTH_BORNEO
+			}
+			any_scope_building = {
+				is_building_type = building_gold_mine
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_group_bg_agriculture_throughput_add = 0.05
+		battle_defense_owned_province_mult = 0.1
+
+	}
+
+	ai_will_do = {
+		cultural_acceptance_base = {
+			target = cu:hakka
+			value >= acceptance_status_4
+		}
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_WEST_BORNEO
+				state_region = s:STATE_EAST_BORNEO
+				state_region = s:STATE_NORTH_BORNEO
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_gold_mine = {
+			level = 5
+			state_trigger = {
+				OR = {
+					state_region = s:STATE_WEST_BORNEO
+					state_region = s:STATE_EAST_BORNEO
+					state_region = s:STATE_NORTH_BORNEO
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+
+# Pindad
+company_Pindad = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/pindad.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EAST_JAVA }
+	
+	category = bureaucrat_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_explosives
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_explosives_complete_tt
+			has_variable = prestige_good_generic_explosives_var
+		}
+	}
+
+	building_types = {  #19
+		building_munition_plant
+		building_artillery_foundry
+		building_explosives_factory
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_indonesia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EAST_JAVA
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_JAVA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_munition_plant
+				level >= 3
+			}
+		}
+		has_technology_researched = percussion_cap
+	}
+	
+	prosperity_modifier = {
+		unit_army_offense_mult = 0.05 #10
+		unit_army_defense_mult = 0.05 #10
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = percussion_cap
+		any_scope_state = {
+			state_region = s:STATE_EAST_JAVA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_munition_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EAST_JAVA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Sampoerna
+company_Sampoerna = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/sampoerna.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EAST_JAVA }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = {  #28
+		building_tobacco_plantation
+	}
+	
+	extension_building_types = {
+		building_paper_mill
+		building_port
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_indonesia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EAST_JAVA
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_JAVA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 3
+			}
+		}
+		has_technology_researched = pumpjacks
+	}
+	
+	prosperity_modifier = {
+		country_influence_mult = 0.15 #10
+		country_prestige_mult = 0.1 #10
+		state_trade_advantage_mult = 0.12 #8
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = pumpjacks
+		any_scope_state = {
+			state_region = s:STATE_EAST_JAVA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tobacco_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EAST_JAVA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Balai Pustaka
+company_Balai_Pustaka = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/balai.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_WEST_JAVA }
+	
+	category = academic_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_newspaper
+	}
+
+	building_types = {  #32
+		building_paper_mill
+	}
+	
+	extension_building_types = {
+		building_logging_camp
+		building_art_academy
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_indonesia
+		has_game_rule = newspapers_enabled
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				region = sr:region_indonesia
+				is_incorporated = yes
+			}
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			region = sr:region_indonesia
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 5
+			}
+		}
+		has_technology_researched = political_agitation
+		has_technology_researched = civilizing_mission
+	}
+	
+	prosperity_modifier = {
+		state_radicalism_increases_violent_hostility_mult = -0.3 #20
+		state_radicalism_increases_cultural_erasure_mult = -0.2
+		state_radicalism_increases_open_prejudice_mult = -0.1
+		interest_group_ig_petty_bourgeoisie_approval_add = 1 #4
+		interest_group_ig_petty_bourgeoisie_pop_attraction_mult = 0.16 #8
+	}	
+	
+
+	
+	ai_will_do = {
+		has_technology_researched = political_agitation
+		has_technology_researched = civilizing_mission
+		any_scope_state = {
+			region = sr:region_indonesia
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				region = sr:region_indonesia
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# De Javasche Bank
+company_bank_of_java = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/indonesia_bank.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_WEST_JAVA STATE_EAST_JAVA }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {
+		building_paper_mill
+		building_gold_mine
+		building_sugar_plantation
+	}
+	
+	extension_building_types = {	
+		building_coffee_plantation
+		building_tobacco_plantation
+		building_dye_plantation
+		building_rubber_plantation
+	}
+	
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_indonesia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				region = sr:region_indonesia
+				is_incorporated = yes
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			region = sr:region_indonesia
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 10
+			}
+		}
+		OR = {
+			AND = {
+				exists = c:NET
+				c:NET = { relations:root >= relations_threshold:amicable }
+			}
+			AND = {
+				has_technology_researched = central_banking
+				has_technology_researched = joint_stock_companies
+			}
+		}
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = {
+		country_free_charters_add = 1
+		building_group_bg_plantations_throughput_add = 0.02
+		
+		country_minting_mult = 0.04 #<--
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.02 #<--
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.05 #<--
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.05
+		country_government_dividends_efficiency_add = 0.05
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+		unique_companies_has_bank = no
+		OR = {
+			AND = {
+				exists = c:NET
+				c:NET = { relations:root >= relations_threshold:amicable }
+			}
+			AND = {
+				has_technology_researched = central_banking
+				has_technology_researched = joint_stock_companies
+			}
+		}
+		any_scope_state = {
+			region = sr:region_indonesia
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				region = sr:region_indonesia
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+# Nederlandsch Indische Portland Cement Maatschappij
+company_cement_indonesia = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/indonesia_cement.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_NORTH_SUMATRA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_cement
+	}
+
+	building_types = {  #26
+		building_explosives_factory
+		building_chemical_plant
+	}
+	
+	extension_building_types = {
+		building_sulfur_mine
+		building_coal_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_indonesia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_NORTH_SUMATRA
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_SUMATRA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_explosives_factory
+				level >= 3
+			}
+		}
+		has_technology_researched = nitrogen_fixation
+		has_technology_researched = civilizing_mission
+	}
+	
+	prosperity_modifier = {
+		state_construction_mult = 0.05 #18
+		state_pop_qualifications_mult = 0.06 #8
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = nitrogen_fixation
+		has_technology_researched = civilizing_mission
+		any_scope_state = {
+			state_region = s:STATE_NORTH_SUMATRA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_explosives_factory = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_NORTH_SUMATRA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

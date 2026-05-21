@@ -1,0 +1,631 @@
+﻿##############################VANILLA##############################
+
+# B.Grimm
+TRY_REPLACE:company_b_grimm = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/thailand_b_grimm.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_BANGKOK }
+
+	building_types = {
+		building_rice_farm # aided in irrigation projects
+	}
+
+	extension_building_types = {
+		building_chemical_plant
+	}
+	
+	possible_prestige_goods = {
+		prestige_good_generic_grain
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_grain_complete_tt
+			has_variable = prestige_good_generic_grain_var
+		}
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_indochina
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_rice_farm
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_infrastructure_from_population_mult = 0.1
+		building_food_industry_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_rice_farm = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################DLC-EP2##############################
+
+
+# Siam Electricity Company Limited
+TRY_REPLACE:company_siam_electrical_company_limited = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_siam_electrical_company_limited.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_BANGKOK }
+
+	building_types = {
+		building_power_plant
+	}
+
+	extension_building_types = {
+		building_railway
+	}
+
+	possible_prestige_goods = {
+	}
+
+	prestige_goods_trigger = {
+	}
+
+	potential = {
+		has_dlc_feature = ep2_content
+		has_interest_marker_in_region = sr:region_indochina
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_BANGKOK = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		s:STATE_BANGKOK = {
+			any_scope_state = {
+				owner = root
+				any_scope_building = {
+					is_building_type = building_power_plant
+					level >= 5
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_rice_farm_throughput_add = 0.1
+		interest_group_ig_landowners_approval_add = 3
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+		}
+	}
+
+	ai_construction_targets = {
+		building_power_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+
+##############################MODDED##############################
+
+# Siam Cement Company
+company_SiamCement = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/vietnamcement.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BANGKOK }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_cement
+	}
+
+	
+	building_types = { #18
+		building_steel_mill
+		building_chemical_plant
+		building_explosives_factory
+	}
+	
+	extension_building_types = {
+		building_glassworks
+		building_sulfur_mine
+		building_lead_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_indochina
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}
+	
+	possible = {
+	    has_law_or_variant = law_type:law_monarchy
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_construction_sector
+				level >= 3
+			}
+		}
+		has_technology_researched = steel_frame_buildings
+		has_technology_researched = electrical_generation
+	}
+	
+	prosperity_modifier = {
+		state_construction_mult = 0.05 #18
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = steel_frame_buildings
+		has_technology_researched = electrical_generation
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_construction_sector = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Charoen Pokphand
+company_Charoen = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/charoen.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rice.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BANGKOK }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_meat
+	}
+
+	
+	building_types = { #22
+		building_rice_farm
+		building_livestock_ranch
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_indochina
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_rice_farm
+				level >= 3
+			}
+		}
+		has_technology_researched = pan-nationalism
+	}
+	
+	prosperity_modifier = {
+		country_ship_group_supply_ships_construction_efficiency_add = 0.15 #10
+		state_assimilation_mult = 0.12 #6
+		state_trade_advantage_mult = 0.09 #6
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = pan-nationalism
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_rice_farm = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Bangkok Dock Company
+company_bangkok_dock = {
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BANGKOK }
+
+	possible_prestige_goods = {
+		prestige_good_generic_merchant_marine
+	}
+	
+	building_types = { #23
+		building_shipyard
+	}
+	
+	extension_building_types = {
+		building_port
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_indochina
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_ship_group_supply_ships_construction_efficiency_add = 0.09 #6
+		building_rice_farm_throughput_add = 0.12 #18
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Min Sae Co. Ltd,
+company_min_sae = {
+	icon = "gfx/interface/icons/company_icons/basic_paper.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BANGKOK }
+	
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #23
+		building_logging_camp
+	}
+	
+	extension_building_types = {
+		building_rubber_plantation
+		building_sulfur_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_indochina
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_logging_camp
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.11 #14
+		state_lower_strata_expected_sol_add = -0.35
+		state_middle_strata_expected_sol_add = -0.7
+		state_upper_strata_expected_sol_add = -1.05
+		state_trade_advantage_mult = 0.15 #10
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_logging_camp = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Siam Commercial Bank
+company_Siam_Commercial_Bank = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/siam_commercial_bank.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BANGKOK }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {  
+		building_paper_mill
+		building_iron_mine
+		building_rice_farm
+	}
+	
+	extension_building_types = {	
+		building_railway
+		building_tea_plantation
+		building_tooling_workshop
+		building_automotive_industry
+	}
+	
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_indochina
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 20
+			}
+		}
+		has_technology_researched = investment_banks
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = { 
+		country_free_charters_add = 1
+		interest_group_ig_landowners_approval_add = 2
+		
+		country_minting_mult = 0.025
+		country_loan_interest_rate_mult = -0.025
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.015
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.06 #<----
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.075 #<---
+		country_government_dividends_reinvestment_add = 0.075 #<---
+		country_government_dividends_efficiency_add = 0.075 #<---
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+		unique_companies_has_bank = no
+		has_technology_researched = investment_banks
+		any_scope_state = {
+			state_region = s:STATE_BANGKOK
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BANGKOK
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+# Louis T. Leonowens Company
+company_Leonowens = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/louisleonowens.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+
+	flavored_company = yes
+
+	building_types = { #25
+		building_trade_center
+		building_port
+	}
+
+	extension_building_types = {
+		building_logging_camp
+		building_explosives_factory
+	}
+	
+	possible_prestige_goods = {
+		prestige_good_burmese_teak
+		prestige_good_generic_cement
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_indochina
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = { is_homeland = cu:thai }
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = rubber_mastication
+		any_scope_state = {
+			state_region = {
+				is_homeland = cu:thai
+			}
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_trade_center
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_assimilation_mult = 0.12 #6
+		state_trade_advantage_mult = 0.15 #10
+		building_group_bg_logging_throughput_add = 0.08 #10
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = {
+				is_homeland = cu:thai
+			}
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_trade_center = {
+			level = 5
+			state_trigger = {
+				state_region = {
+					is_homeland = cu:thai
+				}
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

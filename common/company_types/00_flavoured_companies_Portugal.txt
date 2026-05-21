@@ -1,0 +1,1038 @@
+﻿##############################VANILLA##############################
+
+## Companhia de Moçambique
+TRY_REPLACE:company_mozambique_company = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/mozambique_companhia_de_mocambique.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_MOCAMBIQUE STATE_ZAMBEZIA STATE_LOURENCO_MARQUES }
+
+	building_types = {
+		building_cotton_plantation
+		building_tea_plantation
+		building_wheat_farm
+	}
+
+	extension_building_types = {
+		building_logging_camp
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_grain
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_grain_complete_tt
+			has_variable = prestige_good_generic_grain_var
+		}
+	}
+
+	potential = {
+		country_has_primary_culture = cu:portuguese
+	}
+
+	possible = {
+		has_technology_researched = mutual_funds
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_MOCAMBIQUE
+				state_region = s:STATE_ZAMBEZIA
+				state_region = s:STATE_LOURENCO_MARQUES
+			}
+			any_scope_building = {
+				OR = {
+					is_building_type = building_cotton_plantation
+					is_building_type = building_tea_plantation
+				}
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_colony_growth_speed_mult = 0.1
+		state_colony_growth_creation_factor = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = mutual_funds
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_MOCAMBIQUE
+				state_region = s:STATE_ZAMBEZIA
+				state_region = s:STATE_LOURENCO_MARQUES
+			}
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_cotton_plantation = {
+			level = 5
+			state_trigger = {
+				OR = {
+					state_region = s:STATE_MOCAMBIQUE
+					state_region = s:STATE_ZAMBEZIA
+					state_region = s:STATE_LOURENCO_MARQUES
+				}
+				is_incorporated = yes
+			}
+		}
+		building_tea_plantation = {
+			level = 5
+			state_trigger = {
+				OR = {
+					state_region = s:STATE_MOCAMBIQUE
+					state_region = s:STATE_ZAMBEZIA
+					state_region = s:STATE_LOURENCO_MARQUES
+				}
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################IP-4##############################
+
+
+# Companhia Geral da Agricultura das Vinhas do Alto Douro / douro Wine Company
+TRY_REPLACE:company_douro_wine_company = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_companhia_geral_da_agricultura_das_vinhas_do_alto_douro.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	category = aristocrat_owned
+
+	flavored_company = yes
+
+	building_types = {
+		building_vineyard
+		building_food_industry
+	}
+
+	extension_building_types = {
+		building_glassworks
+	}
+
+	possible_prestige_goods = {
+		prestige_good_port_wine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_europe
+		has_dlc_feature = ip4_content
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ENTRE_DOURO_E_MINHO
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ENTRE_DOURO_E_MINHO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_vineyard
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_prestige_mult = 0.1
+		country_liberty_desire_of_subjects_add = -0.05
+		state_aristocrats_investment_pool_efficiency_mult = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ENTRE_DOURO_E_MINHO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_vineyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ENTRE_DOURO_E_MINHO
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+
+
+# Companhia União Fabril
+TRY_REPLACE:company_uniao_fabril = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_companhia_uniao_fabril.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = yes
+
+	building_types = {
+		building_chemical_plant
+		building_wheat_farm
+		building_tobacco_plantation
+	}
+
+	extension_building_types = {
+		building_textile_mill
+		building_port
+		building_shipyard
+		building_food_industry
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_fertilizer
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_fertilizer_complete_tt
+			has_variable = prestige_good_generic_fertilizer_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_europe
+		has_dlc_feature = ip4_content
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = {
+					is_homeland = cu:portuguese
+				}
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = {
+				is_homeland = cu:portuguese
+			}
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_chemical_plant
+					is_building_type = building_wheat_farm
+					is_building_type = building_tobacco_plantation
+				}
+				level >= 5
+			}
+			count >= 2
+		}
+	}
+
+	prosperity_modifier = {
+		country_production_tech_research_speed_mult = 0.1
+		state_radicals_from_political_movements_mult = -0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = {
+				is_homeland = cu:portuguese
+			}
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_chemical_plant = {
+			level = 5
+			state_trigger = {
+				state_region = {
+					is_homeland = cu:portuguese
+				}
+				is_incorporated = yes
+			}
+		}
+		building_wheat_farm = {
+			level = 5
+			state_trigger = {
+				state_region = {
+					is_homeland = cu:portuguese
+				}
+				is_incorporated = yes
+			}
+		}
+		building_tobacco_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = {
+					is_homeland = cu:portuguese
+				}
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################DLC-EP2##############################
+
+
+# Ramirez & Cia. (Filhos) Lda.
+TRY_REPLACE:company_ramirez = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_ramirez.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_ALENTEJO }
+
+	building_types = {
+		building_food_industry
+		building_fishing_wharf
+	}
+
+	extension_building_types = {
+		building_whaling_station
+		building_port
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_groceries_complete_tt
+			has_variable = prestige_good_generic_groceries_var
+		}
+	}
+
+	potential = {
+		has_dlc_feature = ep2_content
+		has_interest_marker_in_region = sr:region_southern_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_ALENTEJO = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = canneries
+		s:STATE_ALENTEJO = {
+			any_scope_state = {
+				owner = root
+				any_scope_building = {
+					is_building_type = building_food_industry
+					level >= 5
+				}
+				any_scope_building = {
+					is_building_type = building_fishing_wharf
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_production_tech_spread_mult = 0.1
+		state_trade_advantage_mult = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ALENTEJO
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ALENTEJO
+			}
+		}
+		building_fishing_wharf = {
+			level = 1
+			state_trigger = {
+				state_region = s:STATE_ALENTEJO
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+company_VistaAlegre = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/vistaalegre.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ESTREMADURA }
+	
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #22
+		building_glassworks
+	}
+	
+	extension_building_types = {
+		building_lead_mine
+		building_furniture_manufactory
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_europe
+		country_has_primary_culture = cu:portuguese
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ESTREMADURA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ESTREMADURA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_landowners_approval_add = 3 #12
+		state_radicals_from_political_movements_mult = -0.08 #10
+		state_lower_strata_expected_sol_add = -0.25
+		state_middle_strata_expected_sol_add = -0.5
+		state_upper_strata_expected_sol_add = -0.75
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ESTREMADURA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ESTREMADURA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+
+# Companhia dos Tabacos de Portugal
+company_CdTd = {
+	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ESTREMADURA }
+	
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #26
+		building_tobacco_plantation
+	}
+	
+	extension_building_types = {
+		building_coffee_plantation
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ESTREMADURA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ESTREMADURA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_tobacco_plantation_throughput_add = 0.08 #6
+		country_minting_mult = 0.03 #10
+		state_colony_growth_speed_mult = 0.1 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ESTREMADURA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tobacco_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ESTREMADURA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Companhia Nacional de Navegação 
+company_CNN = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/cndn.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ESTREMADURA }
+
+
+	possible_prestige_goods = {
+		prestige_good_generic_merchant_marine
+	}
+
+	
+	building_types = { #23
+		building_shipyard
+	}
+	
+	extension_building_types = {
+		building_port
+		building_automotive_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ESTREMADURA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ESTREMADURA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_ship_group_supply_ships_construction_efficiency_add = 0.15 #10
+		goods_output_aeroplanes_mult = 0.20 #10
+		state_trade_advantage_mult = 0.015 #3
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ESTREMADURA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ESTREMADURA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Arsenal do Alfeite S.A. 
+company_Arsenal_Alfeite = {
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ESTREMADURA }
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #23
+		building_shipyard
+	}
+	
+	extension_building_types = {
+		building_shipyard
+		building_port
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ESTREMADURA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ESTREMADURA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		ship_hull_damage_mult = 0.035 #14
+		ship_ship_type_submarine_hull_damage_mult = 0.075 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ESTREMADURA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ESTREMADURA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+#Banco Nacional Ultramarino 
+company_Bank_Ultramarino = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bank_ultramarino.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ESTREMADURA }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {  
+		building_paper_mill
+		building_trade_center
+		building_coffee_plantation
+	}
+	
+	extension_building_types = {	
+		building_coal_mine
+		building_gold_mine
+		building_dye_plantation
+		building_sugar_plantation
+	}
+	
+	potential = {
+		has_game_rule = banks_enabled
+		OR = {
+			c:POR ?= this
+			was_formed_from = POR
+			country_has_primary_culture = cu:portuguese
+		}
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			country_has_primary_culture = cu:portuguese
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 15
+			}
+		}
+		OR = {
+			AND = {
+				has_technology_researched = joint_stock_companies
+				c:POR ?= this
+			}
+			AND = {
+				has_technology_researched = joint_stock_companies
+				has_technology_researched = quinine
+			}
+		}
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = {
+		country_influence_mult = 0.10
+		country_institution_colonial_affairs_max_investment_add = 1
+		
+		country_minting_mult = 0.05
+		country_loan_interest_rate_mult = -0.025
+        country_private_construction_allocation_mult = 0.05
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.015
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.04
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.05
+		country_government_dividends_efficiency_add = 0.05
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+		unique_companies_has_bank = no
+		OR = {
+			AND = {
+				has_technology_researched = joint_stock_companies
+				c:POR ?= this
+			}
+			AND = {
+				has_technology_researched = joint_stock_companies
+				has_technology_researched = quinine
+			}
+		}
+		OR = {
+			c:POR ?= this
+			was_formed_from = POR
+			country_has_primary_culture = cu:portuguese
+		}
+		any_scope_state = {
+			state_region = s:STATE_ESTREMADURA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ESTREMADURA
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+# Direcção-Geral de Correios, Telégraphos e Faróis LATER --> CTT
+company_CTT = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/ctt.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ESTREMADURA }
+
+
+	possible_prestige_goods = {
+		prestige_good_generic_paper
+	}
+
+	
+	building_types = { #26
+		building_paper_mill
+	}
+	
+	extension_building_types = {
+		building_logging_camp
+		building_sulfur_mine
+		building_port
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ESTREMADURA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ESTREMADURA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_electrics_industry_throughput_add = 0.12 #16
+		building_government_administration_throughput_add = 0.15 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ESTREMADURA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ESTREMADURA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+
+# Companhia do Niassa
+company_Niassa_company = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/niassa.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_MOCAMBIQUE }
+
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #20
+		building_rubber_plantation
+		building_cotton_plantation
+	}
+	
+	extension_building_types = {
+		building_dye_plantation
+		building_coffee_plantation
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_east_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_MOCAMBIQUE
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_MOCAMBIQUE
+			any_scope_building = {
+				OR = {
+					is_building_type = building_rubber_plantation
+					is_building_type = building_cotton_plantation
+				}
+				level >= 3
+			}
+		}
+		has_technology_researched = mutual_funds
+	}
+	
+	prosperity_modifier = {
+		state_migration_pull_mult = -0.05 #+3
+		interest_group_ig_industrialists_approval_add = 2 #8
+		state_non_homeland_colony_growth_speed_mult = 0.1 #10
+		state_unincorporated_starting_wages_mult = -0.05 #5
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = mutual_funds
+		any_scope_state = {
+			state_region = s:STATE_MOCAMBIQUE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_rubber_plantation = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_MOCAMBIQUE
+			}
+		}
+		
+		building_cotton_plantation = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_MOCAMBIQUE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Companhia da Zambézia
+company_Zambezia_company = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/zambezia.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ZAMBEZIA }
+
+	possible_prestige_goods = {
+		prestige_good_generic_meat
+	}
+
+	
+	building_types = { #22
+		building_livestock_ranch
+		building_cotton_plantation
+		building_millet_farm
+	}
+	
+	extension_building_types = {
+		building_gold_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_east_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ZAMBEZIA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ZAMBEZIA
+			any_scope_building = {
+				OR = {
+					is_building_type = building_livestock_ranch
+					is_building_type = building_cotton_plantation
+					is_building_type = building_millet_farm
+				}
+				level >= 3
+			}
+		}
+		has_technology_researched = mutual_funds
+	}
+	
+	prosperity_modifier = {
+		state_infrastructure_mult = 0.05 #10
+		building_trade_center_throughput_add = 0.06 #6
+		country_resource_discovery_chance_mult = 0.12 #6
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = mutual_funds
+		any_scope_state = {
+			state_region = s:STATE_ZAMBEZIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_livestock_ranch = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ZAMBEZIA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

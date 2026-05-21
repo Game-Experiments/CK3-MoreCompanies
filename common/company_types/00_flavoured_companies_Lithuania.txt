@@ -1,0 +1,225 @@
+﻿########################### MODDED ####################################################
+
+# Kazionyj Nr.1 vinyj očistnyj sklad /State wine warehouse No. 1 (later Stumbras)
+company_Stumbras = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/stumbras.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KAUNAS }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	building_types = { #25
+		building_food_industry
+		building_wheat_farm
+	}
+	
+	extension_building_types = {
+		building_rye_farm
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+		
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KAUNAS
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KAUNAS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = fractional_distillation
+	}
+	
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult = -0.03 #4
+		state_lower_strata_expected_sol_add = -0.1
+		state_middle_strata_expected_sol_add = -0.2
+		state_upper_strata_expected_sol_add = -0.3
+		state_mortality_turmoil_mult = -0.02 #20
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = fractional_distillation
+		any_scope_state = {
+			state_region = s:STATE_KAUNAS
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KAUNAS
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+# Dvarčionių keramika
+company_Dvarc_keramika = {
+	icon = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_VILNIUS }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = { #19
+		building_chemical_plant
+		building_glassworks
+	}
+	
+	extension_building_types = {
+		building_lead_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+		
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_VILNIUS
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_VILNIUS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_chemical_plant
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_construction_mult = 0.05 #18
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_VILNIUS
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_chemical_plant = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_VILNIUS
+			}
+		}
+		
+		building_glassworks = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_VILNIUS
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+# Sanitas
+company_Sanitas = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/sanitas.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KAUNAS }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_medicine
+	}
+
+	building_types = { #27
+		building_chemical_plant
+	}
+	
+	extension_building_types = {
+		building_rye_farm
+		building_livestock_ranch
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KAUNAS
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_KAUNAS
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_chemical_plant
+				level >= 3
+			}
+		}
+		has_technology_researched = pharmaceuticals
+	}
+	
+	prosperity_modifier = {
+		state_mortality_wealth_mult = -0.002 #10
+		country_weekly_innovation_max_add = 5 #10
+		country_weekly_innovation_mult = 0.03 #7
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = pharmaceuticals
+		any_scope_state = {
+			state_region = s:STATE_KAUNAS
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_chemical_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KAUNAS
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

@@ -1,0 +1,1807 @@
+﻿namespace = more_unique_companies_events_us_steel_corp
+
+more_unique_companies_events_us_steel_corp.1 = {
+	type = country_event
+	hidden = yes
+	#merge existing Steel/Coal company into US Steel Corporation
+	immediate = {
+		if = {
+			limit = {
+				has_company = company_type:company_us_steel
+			}
+			save_scope_as = company_owner
+			scope:company_owner = {
+				owning_company ?= {
+					if = {
+						limit = {
+							is_company_type = company_type:company_us_steel
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_federal_steel 
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_national_steel  
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_american_tin 
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_consolidated_lake_superior  
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_american_wire 
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_national_tube  
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					
+					
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_us_steel
+					}
+					remove_company = company_type:company_us_steel
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_federal_steel
+					}
+					remove_company = company_type:company_federal_steel
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_national_steel
+					}
+					remove_company = company_type:company_national_steel
+				}
+				
+				if = {
+					limit = {
+						has_company = company_type:company_american_tin
+					}
+					remove_company = company_type:company_american_tin
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_consolidated_lake_superior
+					}
+					remove_company = company_type:company_consolidated_lake_superior
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_american_wire
+					}
+					remove_company = company_type:company_american_wire
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_national_tube
+					}
+					remove_company = company_type:company_national_tube
+				}
+				add_company = company_type:company_us_steel_corp
+				company:company_us_steel_corp = {
+					set_company_state_region = s:STATE_PENNSYLVANIA
+				}
+			}
+			every_scope_state = {
+				if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 1
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=1
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 2
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=2
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 3
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=3
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 4
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=4
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 5
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=5
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 6
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=6
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 7
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=7
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 8
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=8
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 9
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=9
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 10
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=10
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 11
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=11
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 12
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=12
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 13
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=13
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 14
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=14
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 15
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=15
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 16
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=16
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 17
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=17
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 18
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=18
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level = 19
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=19
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_steel_mill
+							level >= 20
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_steel_mill
+					create_building={
+						building="building_steel_mill"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=20
+							}
+						}
+						reserves=1
+					}
+				}
+				if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 1
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=1
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 2
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=2
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 3
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=3
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 4
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=4
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 5
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=5
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 6
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=6
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 7
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=7
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 8
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=8
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 9
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=9
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 10
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=10
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 11
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=11
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 12
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=12
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 13
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=13
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 14
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=14
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 15
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=15
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 16
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=16
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 17
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=17
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 18
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=18
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level = 19
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=19
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_coal_mine
+							level >= 20
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_coal_mine
+					create_building={
+						building="building_coal_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=20
+							}
+						}
+						reserves=1
+					}
+				}
+				
+				if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 1
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=1
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 2
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=2
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 3
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=3
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 4
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=4
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 5
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=5
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 6
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=6
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 7
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=7
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 8
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=8
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 9
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=9
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 10
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=10
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 11
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=11
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 12
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=12
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 13
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=13
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 14
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=14
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 15
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=15
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 16
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=16
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 17
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=17
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 18
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=18
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level = 19
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=19
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_iron_mine
+							level >= 20
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_iron_mine
+					create_building={
+						building="building_iron_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=20
+							}
+						}
+						reserves=1
+					}
+				}
+				
+				if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_lead_mine
+							level = 1
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_lead_mine
+					create_building={
+						building="building_lead_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=1
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_lead_mine
+							level = 2
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_lead_mine
+					create_building={
+						building="building_lead_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=2
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_lead_mine
+							level = 3
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_lead_mine
+					create_building={
+						building="building_lead_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=3
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_lead_mine
+							level = 4
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_lead_mine
+					create_building={
+						building="building_lead_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=4
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_lead_mine
+							level = 5
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_lead_mine
+					create_building={
+						building="building_lead_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=5
+							}
+						}
+						reserves=1
+					}
+				}
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_lead_mine
+							level = 6
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_lead_mine
+					create_building={
+						building="building_lead_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=6
+							}
+						}
+						reserves=1
+					}
+				}
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_lead_mine
+							level = 7
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_lead_mine
+					create_building={
+						building="building_lead_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=7
+							}
+						}
+						reserves=1
+					}
+				}
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_lead_mine
+							level = 8
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_lead_mine
+					create_building={
+						building="building_lead_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=8
+							}
+						}
+						reserves=1
+					}
+				}
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_lead_mine
+							level = 9
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_lead_mine
+					create_building={
+						building="building_lead_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=9
+							}
+						}
+						reserves=1
+					}
+				}
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_lead_mine
+							level = 10
+						}
+						region = sr:region_atlantic_coast
+					}
+					remove_building = building_lead_mine
+					create_building={
+						building="building_lead_mine"
+						add_ownership={
+							company={
+								type=company_us_steel_corp
+								country=scope:company_owner
+								levels=10
+							}
+						}
+						reserves=1
+					}
+				}
+			}
+			
+		}
+	}
+}

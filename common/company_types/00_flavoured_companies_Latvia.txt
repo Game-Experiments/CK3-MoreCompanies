@@ -1,0 +1,370 @@
+﻿##########################MODDED################################
+
+# Līgatnes papīru fabriku kompānija / Ligatne Paper Mill Company
+company_Ligatne_Paper = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/ligatne.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_RIGA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_paper
+	}
+	
+	building_types = { #26
+		building_paper_mill
+	}
+	
+	extension_building_types = {
+		building_cotton_plantation
+		building_art_academy
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+		
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_RIGA
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_RIGA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_paper_mill_throughput_add = 0.11 #10
+		country_prestige_mult = 0.1 #10
+		state_radicals_from_political_movements_mult = -0.05 #6
+		state_lower_strata_expected_sol_add = -0.15
+		state_middle_strata_expected_sol_add = -0.3
+		state_upper_strata_expected_sol_add = -0.45
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_RIGA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_RIGA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Valsts elektrotehniskā fabrika (VEF) #at the time they starting producing phones they were already VEF
+company_VEF = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/vef.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_RIGA }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = { #24
+		building_electrics_industry
+	}
+	
+	extension_building_types = {
+		building_automotive_industry
+		building_art_academy
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+		
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_RIGA
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_RIGA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_electrics_industry
+				level >= 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_government_administration_throughput_add = 0.15 #10
+		country_production_tech_spread_mult = 0.14 #14
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_RIGA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_electrics_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_RIGA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+# Russo-Baltic Wagon Factory #requirements are hard to set right
+company_Russo_Baltic_Wagon = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/russobalticwagon.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_RIGA }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	building_types = { #26
+		building_automotive_industry
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+		
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_RIGA
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_RIGA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_automotive_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = combustion_engine
+	}
+	
+	prosperity_modifier = {
+		building_railway_throughput_add = 0.15 #20
+		goods_output_automobiles_mult = 0.08 #6
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = combustion_engine
+		any_scope_state = {
+			state_region = s:STATE_RIGA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_automotive_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_RIGA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+# Laima
+company_Laima = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/laima.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_RIGA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	building_types = { #24
+		building_sugar_plantation
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_rye_farm
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+		
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_RIGA
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_RIGA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = baking_powder
+	}
+	
+	prosperity_modifier = {
+		state_birth_rate_mult = 0.05 #20
+		state_loyalists_from_political_movements_mult = 0.03 #4
+		state_lower_strata_expected_sol_add = -0.1
+		state_middle_strata_expected_sol_add = -0.2
+		state_upper_strata_expected_sol_add = -0.3
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = baking_powder
+		any_scope_state = {
+			state_region = s:STATE_RIGA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_RIGA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+# Cēsu Alus
+company_Cesu_Alus = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/cesu.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_RIGA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	
+	building_types = { #25
+		building_food_industry
+		building_wheat_farm
+	}
+	
+	extension_building_types = {
+		building_rye_farm
+	}
+
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+		
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_RIGA
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_RIGA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = fractional_distillation
+	}
+	
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult = -0.15 #20
+		state_lower_strata_expected_sol_add = -0.5
+		state_middle_strata_expected_sol_add = -1
+		state_upper_strata_expected_sol_add = -1.5
+		country_prestige_mult = 0.05 #5
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = fractional_distillation
+		any_scope_state = {
+			state_region = s:STATE_RIGA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_RIGA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

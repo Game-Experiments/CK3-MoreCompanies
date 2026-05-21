@@ -1,0 +1,56 @@
+﻿# Main Developers
+# W4RPER 
+# Flardarmar
+# Coutin
+
+# 3rd Party Modders who contributed to this mod
+# Lord R - Morgenröte (Swiss companies)
+# Jozef - Jozef's Dutch Flavour: Additional Companies (Dutch companies)
+
+# Translation
+# 牛奶大魔王 - Chinese 
+# Marcus - Chinese
+# TweeDzz - French
+# Nerva - Korean
+# 시아츠 - Korean
+
+# Company Suggestions
+# Vitatious
+# gpistu
+# Mammad
+# Mundos_An/0611
+# Underspeakable
+# Anime Titties Enjoyer
+# Danomite 
+# n9th34nh
+# Markusry
+# Tof Tof
+# Markusry
+# Nullpointer
+# Christina
+# McCleves
+# veto
+# Fangeltim
+# mikmik
+# Chuffed
+# Peter Zwegat
+# Fridhmyr
+# Dodi
+# yesplease
+# depressugar
+# hitmehn
+# Jaramaka 2
+# diecicatorce
+# FG_Master
+# andi999
+
+# Coding help
+# Paradox: Lino "H4n1baL" Claudius
+# CaesarVincens
+# Laaxus
+# Lord R 
+
+# Icon and Naming Help
+# nevynosimo
+
+

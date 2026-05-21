@@ -1,0 +1,328 @@
+﻿##############################VANILLA##############################
+
+# Panama Canal Company
+TRY_REPLACE:company_panama_company = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/panama_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_PANAMA }
+
+	building_types = {
+		building_trade_center
+		building_port
+	}
+
+	extension_building_types = {
+		building_shipyard
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_merchant_marine
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_merchant_marine_complete_tt
+			has_variable = prestige_good_generic_merchant_marine_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_central_america
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_PANAMA
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_PANAMA
+			any_scope_building = {
+				is_building_type = building_panama_canal
+				occupancy >= 0.5
+			}
+		}
+		any_scope_state = {
+			any_scope_building = {
+				OR = {
+					is_building_type = building_trade_center
+					is_building_type = building_port
+				}
+				level >= 5
+			}
+		}
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_PANAMA
+			any_scope_building = {
+				is_building_type = building_panama_canal
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_trade_center = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_PANAMA
+			}
+		}
+		building_port = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_PANAMA
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_trade_advantage_mult = 0.25
+		country_tax_income_add = 50000
+		country_free_charters_add = 1
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+# Florde Cana
+company_FlordeCana = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/fdc.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_NICARAGUA }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_new_world_liquor
+		prestige_good_bacardi_rum
+	}
+
+	building_types = {  #24
+		building_sugar_plantation
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_glassworks
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_central_america
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_NICARAGUA
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_NICARAGUA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult = -0.09 #12
+		state_lower_strata_expected_sol_add = -0.3
+		state_middle_strata_expected_sol_add = -0.6
+		state_upper_strata_expected_sol_add = -0.9
+	    state_migration_pull_mult = 0.09 #12
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NICARAGUA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_NICARAGUA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Compania Cervecera de Nicaragua
+company_CCN = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/ccdn.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_NICARAGUA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_beer
+	}
+
+	building_types = {  #27
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_maize_farm
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_central_america
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_NICARAGUA
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_NICARAGUA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_birth_rate_mult = 0.05 #20
+		interest_group_ig_petty_bourgeoisie_approval_add = 2 #8
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NICARAGUA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_NICARAGUA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# SIMAN
+company_SIMAN = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/siman.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_SAN_SALVADOR }
+	
+	category = shopkeeper_owned
+
+	possible_prestige_goods = {
+		prestige_good_generic_clothes
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_clothes_complete_tt
+			has_variable = prestige_good_generic_clothes_var
+		}
+	}
+	
+	building_types = {  #26
+		building_textile_mill
+	}
+	
+	extension_building_types = {
+		building_furniture_manufactory
+		building_gold_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_america
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_SAN_SALVADOR
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_SAN_SALVADOR
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+	    state_loyalists_from_political_movements_mult = 0.06 #8
+		state_radicals_from_political_movements_mult = -0.06 #8
+		state_lower_strata_expected_sol_add = -0.4
+		state_middle_strata_expected_sol_add = -0.8
+		state_upper_strata_expected_sol_add = -1.2
+		state_migration_pull_mult = 0.08 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_SAN_SALVADOR
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_SAN_SALVADOR
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}

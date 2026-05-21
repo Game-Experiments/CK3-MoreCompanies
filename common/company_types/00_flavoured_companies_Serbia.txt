@@ -1,0 +1,466 @@
+﻿##############################VANILLA##############################
+
+# Zastava
+TRY_REPLACE:company_zastava = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/zastava.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_WESTERN_SERBIA }
+
+	building_types = {
+		building_arms_industry
+		building_munition_plant
+	}
+
+	extension_building_types = {
+		building_artillery_foundry
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_small_arms
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_small_arms_complete_tt
+			has_variable = prestige_good_generic_small_arms_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_balkans
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_WESTERN_SERBIA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = gunsmithing
+		any_scope_state = {
+			state_region = s:STATE_WESTERN_SERBIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_arms_industry
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		unit_defense_mult = 0.05
+		unit_recovery_rate_add = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = gunsmithing
+		any_scope_state = {
+			state_region = s:STATE_WESTERN_SERBIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_arms_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_WESTERN_SERBIA
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+#################### NATIONAL AWAKENING ##########################
+
+# Klaničko Društvo, Srpsko akcionarsko društvo za klanje i preradu stoke u Beogradu
+TRY_REPLACE:company_klanicko_drustvo = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_klanicko_drustvo.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	building_types = {
+		building_food_industry
+		building_livestock_ranch
+	}
+
+	extension_building_types = {
+		building_wheat_farm
+		building_logging_camp
+	}
+
+	possible_prestige_goods = {
+		prestige_good_acorn_fed_pork
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_balkans
+		has_dlc_feature = ip3_content
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_WESTERN_SERBIA = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_WESTERN_SERBIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_livestock_ranch
+				level >= 5
+			}
+			any_scope_building = {
+				is_building_type = building_food_industry
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_livestock_ranch_throughput_add = 0.1
+		building_synthetics_plant_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_WESTERN_SERBIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_livestock_ranch = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_WESTERN_SERBIA
+			}
+		}
+		building_food_industry = {
+			level = 1
+			state_trigger = {
+				state_region = s:STATE_WESTERN_SERBIA
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+
+##############################MODDED##############################
+
+company_SerbianRailway = {
+	icon = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_WESTERN_SERBIA }
+	
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #23
+		building_railway
+	}
+	
+	extension_building_types = {
+		building_power_plant
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_balkans
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_WESTERN_SERBIA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_WESTERN_SERBIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_infrastructure_mult = 0.1 #20
+		interest_group_ig_landowners_approval_add = 1 #4
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_WESTERN_SERBIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_railway = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_WESTERN_SERBIA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_MIN = {
+	icon = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_SERBIA }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_machine_parts
+	}
+
+	
+	building_types = { #8
+		building_logging_camp
+		building_tooling_workshop
+		building_steel_mill
+	}
+	
+	extension_building_types = {
+		building_automotive_industry
+		building_iron_mine
+		building_coal_mine
+		building_motor_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_balkans
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_SERBIA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_SERBIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+		has_technology_researched = railways
+	}
+	
+	prosperity_modifier = {
+		building_railway_throughput_add = 0.06 #8
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = railways
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_SERBIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_SERBIA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+#  Imperial Brewery (Serbia)
+company_Ser_Imperial_Brewery = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/serbian.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_DELVIDEK }
+
+	possible_prestige_goods = {
+		prestige_good_generic_beer
+	}
+
+	
+	building_types = { #25
+		building_food_industry
+		building_wheat_farm
+	}
+	
+	extension_building_types = {
+		building_livestock_ranch
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_balkans
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_DELVIDEK
+			}
+		}
+	}			
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_DELVIDEK
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_landowners_approval_add = 3 #12
+		state_radicals_from_political_movements_mult = -0.11 #14
+		state_lower_strata_expected_sol_add = -0.35
+		state_middle_strata_expected_sol_add = -0.7
+		state_upper_strata_expected_sol_add = -1.05
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_DELVIDEK
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_DELVIDEK
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Georg Weifert 
+company_Georg_Weifert = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/georg_weifert.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_DELVIDEK }
+
+	possible_prestige_goods = {
+		prestige_good_generic_beer
+	}
+
+	
+	building_types = { #27
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_coal_mine
+		building_lead_mine
+		building_gold_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_balkans
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_DELVIDEK
+			}
+		}
+	}			
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_DELVIDEK
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = fractional_distillation
+	}
+	
+	prosperity_modifier = {
+		country_society_tech_spread_mult = 0.08 #8
+		interest_group_ig_industrialists_approval_add = 1 #4
+		state_radicals_from_political_movements_mult = -0.11 #14
+		state_lower_strata_expected_sol_add = -0.35
+		state_middle_strata_expected_sol_add = -0.75
+		state_upper_strata_expected_sol_add = -1.05
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = fractional_distillation
+		any_scope_state = {
+			state_region = s:STATE_DELVIDEK
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_DELVIDEK
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

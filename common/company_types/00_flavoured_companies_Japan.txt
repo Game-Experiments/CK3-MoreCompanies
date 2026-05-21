@@ -1,0 +1,2845 @@
+﻿##############################VANILLA##############################
+
+# Mitsui
+TRY_REPLACE:company_mitsui = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/japanese_mitsui.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_KANTO }
+
+	building_types = {
+		building_textile_mill
+		building_silk_plantation
+		building_dye_plantation
+	}
+
+	extension_building_types = {
+		building_tea_plantation
+		building_food_industry
+		building_glassworks
+		building_coal_mine
+		
+		building_chemical_plant
+		building_port
+		#building_shipyard
+		#building_iron_mine
+		#building_steel_mill
+		#building_lead_mine
+	}
+
+	possible_prestige_goods = {
+		prestige_good_tomioka_silk
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = cotton_gin
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		interest_group_ig_industrialists_pol_str_mult = 0.1
+		country_production_tech_research_speed_mult = 0.05
+		state_trade_advantage_mult = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = cotton_gin
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+
+# Mitsubishi
+TRY_REPLACE:company_mitsubishi = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/japanese_mitsubishi.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_KANTO }
+
+	building_types = {
+		building_shipyard
+		building_iron_mine
+		building_paper_mill
+	}
+
+	extension_building_types = {
+		building_coal_mine
+		building_steel_mill
+		building_motor_industry
+		building_artillery_foundry
+		
+		building_port
+		building_automotive_industry
+	}
+
+	possible_prestige_goods = {
+		prestige_good_washi_paper
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+
+	possible = {
+		has_technology_researched = ironclad_tech
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		any_scope_state = {
+			state_region = s:STATE_KYUSHU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		interest_group_ig_industrialists_pol_str_mult = 0.1
+		building_automotive_industry_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = ironclad_tech
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		any_scope_state = {
+			state_region = s:STATE_KYUSHU
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KYUSHU
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# South Manchuria Railway
+TRY_REPLACE:company_mantetsu = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/japanese_mantetsu.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_SHENGJING }
+
+	building_types = {
+		building_railway
+		building_coal_mine
+		building_glassworks
+	}
+
+	extension_building_types = {
+		building_food_industry
+		building_chemical_plant
+	}
+
+	potential = {
+		country_has_primary_culture = cu:japanese
+	}
+
+	possible = {
+		country_or_subject_owns_entire_state_region = STATE_SHENGJING
+		has_technology_researched = railways
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		any_scope_state = {
+			OR = {
+				region = sr:region_northeast_asia
+				region = sr:region_north_china
+			}
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 5
+			}
+			count >= 2
+		}
+	}
+
+	prosperity_modifier = {
+		state_non_homeland_colony_growth_speed_mult = 0.1
+		building_wheat_farm_throughput_add = 0.15
+	}
+
+	ai_will_do = {
+		country_or_subject_owns_entire_state_region = STATE_SHENGJING
+		has_technology_researched = railways
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		any_scope_state = {
+			OR = {
+				region = sr:region_northeast_asia
+				region = sr:region_north_china
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_railway = {
+			level = 5
+			state_trigger = {
+				OR = {
+					region = sr:region_northeast_asia
+					region = sr:region_north_china
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+		if = {
+			limit = {
+				has_journal_entry = je_colonize_korea
+				NOT = {
+					any_company = {
+						is_company_type = company_type:company_oriental_development_company # Only one needed
+					}
+				}
+			}
+			add = 6
+		}
+	}
+}
+
+##############################DLC-MP1##############################
+
+# Kinkozan Sobei
+TRY_REPLACE:company_kinkozan_sobei = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_kinkozan_sobei.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_KANSAI }
+
+	building_types = {
+		building_glassworks
+	}
+
+	extension_building_types = {
+		building_logging_camp
+	}
+
+	possible_prestige_goods = {
+		prestige_good_satsuma_ware
+	}
+
+	potential = {
+		has_dlc_feature = mp1_content
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_KANSAI = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_influence_mult = 0.05
+		country_infamy_decay_mult = 0.1
+		country_leverage_generation_mult = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################DLC-EP2##############################
+
+# Sumitomo
+TRY_REPLACE:company_sumitomo = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_sumitomo.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_KANSAI }
+
+	building_types = {
+		building_lead_mine
+		building_steel_mill
+		building_chemical_plant
+	}
+
+	extension_building_types = {
+		building_coal_mine
+		building_iron_mine
+		building_tooling_workshop
+		
+		building_logging_camp
+		building_rubber_plantation
+		building_electrics_industry
+		#building_explosives_factory
+		#building_motor_industry
+		#building_glassworks
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_steel
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_steel_complete_tt
+			has_variable = prestige_good_generic_steel_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_KANSAI = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		s:STATE_KANSAI = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				any_scope_building = {
+					OR = {
+						is_building_type = building_lead_mine
+						is_building_type = building_steel_mill
+						is_building_type = building_chemical_plant
+					}
+					level >= 5
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		interest_group_ig_industrialists_pol_str_mult = 0.1
+		building_construction_sector_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_lead_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+		building_steel_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+		building_chemical_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Yasuda
+TRY_REPLACE:company_yasuda = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_yasuda.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_KANTO }
+
+	building_types = {
+		building_sulfur_mine
+		building_railway
+		building_port
+	}
+
+	extension_building_types = {
+		building_tooling_workshop
+		building_coal_mine
+		building_textile_mill
+		
+		building_explosives_factory
+		building_paper_mill
+		building_motor_industry
+		#building_glassworks
+		#building_steel_mill
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_merchant_marine
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_merchant_marine_complete_tt
+			has_variable = prestige_good_generic_merchant_marine_var
+		}
+	}
+
+	potential = {
+		has_dlc_feature = ep2_content
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_KANTO = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		s:STATE_KANTO = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				any_scope_building = {
+					OR = {
+						is_building_type = building_sulfur_mine
+						is_building_type = building_railway
+						is_building_type = building_port
+					}
+					level >= 5
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		interest_group_ig_industrialists_pol_str_mult = 0.1
+		country_loan_interest_rate_mult = -0.1
+		country_gold_reserve_limit_mult = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_sulfur_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+		building_railway = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+		building_port = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+
+# Tokyo Electric Light Company, Ltd.
+TRY_REPLACE:company_tokyo_electric_light_company = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_tokyo_electric_light_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_KANTO }
+
+	building_types = { #23
+		building_power_plant
+	}
+
+	extension_building_types = {
+		building_railway
+	}
+
+	possible_prestige_goods = {
+	}
+
+	prestige_goods_trigger = {
+	}
+
+	potential = {
+		has_dlc_feature = ep2_content
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_KANTO = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		s:STATE_KANTO = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+				any_scope_building = {
+					is_building_type = building_power_plant
+					level >= 5
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_electrics_industry_throughput_add = 0.1 #13
+		building_urban_center_throughput_add = 0.08 #10
+	}
+
+	ai_will_do = {
+		s:STATE_KANTO = {
+			any_scope_state = {
+				owner = root
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_power_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Noda Shoyu Co. Ltd.
+TRY_REPLACE:company_noda_shoyu = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_noda_shoyu.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rice.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_KANTO }
+
+	building_types = { #27
+		building_food_industry
+	}
+
+	extension_building_types = {
+		building_rice_farm
+		building_vineyard
+	}
+
+	possible_prestige_goods = {
+		prestige_good_kikkoman_soy_sauce
+	}
+
+	potential = {
+		has_dlc_feature = ep2_content
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_KANTO = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		s:STATE_KANTO = {
+			any_scope_state = {
+				owner = root
+				any_scope_building = {
+					is_building_type = building_food_industry
+					level >= 5
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = { 
+		state_mortality_mult = -0.05 # It's good for you #14
+		state_assimilation_mult = 0.08 #4
+		state_loyalists_from_political_movements_mult = 0.08 #10
+		state_lower_strata_expected_sol_add = -0.25
+		state_middle_strata_expected_sol_add = -0.5
+		state_upper_strata_expected_sol_add = -0.75
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+
+##############################MODDED##############################
+company_Kajima = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/kajima.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANTO }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = { #15
+		building_steel_mill
+		building_logging_camp
+	}
+	
+	extension_building_types = {
+		building_railway	
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANTO		
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_construction_sector
+					is_building_type = building_steel_mill
+					is_building_type = building_logging_camp
+				}
+				level >= 5
+			}
+		}
+		has_technology_researched = railways
+	}
+	
+	prosperity_modifier = {
+		country_max_weekly_construction_progress_add = 5 #6
+		state_infrastructure_mult = 0.05 #10
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = railways
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_steel_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_Marukome = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/marukome.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rice.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_HOKUSHINETSU }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	building_types = { #21
+		building_food_industry
+		building_rice_farm
+	}
+	
+	extension_building_types = {
+		building_rye_farm
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+		country_has_primary_culture = cu:japanese
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_HOKUSHINETSU		
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_HOKUSHINETSU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult = -0.15 #20
+		state_lower_strata_expected_sol_add = -0.5
+		state_middle_strata_expected_sol_add = -1
+		state_upper_strata_expected_sol_add = -1.5
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_HOKUSHINETSU
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_HOKUSHINETSU
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_UragaDockCompany = {
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CHUGOKU }
+	
+	possible_prestige_goods = {
+		#prestige_good_japanese_warships
+	}
+
+	building_types = { #23
+		building_shipyard
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+		building_steel_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+		country_has_primary_culture = cu:japanese
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_TOHOKU		
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_TOHOKU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 3
+			}
+		}
+
+	}
+	
+	prosperity_modifier = {
+		ship_hull_damage_mult = 0.035 #14
+		building_shipyard_throughput_add = 0.05 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_CHUGOKU
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CHUGOKU
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_Tomioka = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/tomiokasilk.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CHUGOKU }
+	
+	possible_prestige_goods = {
+		prestige_good_tomioka_silk
+	}
+	
+	building_types = { #24
+		building_silk_plantation
+	}
+	
+	extension_building_types = {
+		building_textile_mill
+		building_tooling_workshop
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+		country_has_primary_culture = cu:japanese
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_TOHOKU			
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_TOHOKU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_silk_plantation
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_rural_folk_pop_attraction_mult = 0.1 #+5
+		interest_group_ig_rural_folk_approval_add = 2 #8
+		building_silk_plantation_throughput_add = 0.15 #20
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_TOHOKU
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_silk_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_TOHOKU
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_Oji = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/oji.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CHUGOKU }
+	
+	possible_prestige_goods = {
+		prestige_good_washi_paper
+	}
+	
+	building_types = { #19
+		building_paper_mill
+		building_logging_camp
+	}
+	
+	extension_building_types = {
+		building_power_plant
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+		country_has_primary_culture = cu:japanese
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANTO			
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_paper_mill
+					is_building_type = building_logging_camp
+				}
+				level >= 3
+		    }
+		}
+	}
+	
+	prosperity_modifier = {
+		country_infamy_decay_mult = 0.05 #10
+		interest_group_ig_intelligentsia_approval_add = 1 #4
+		interest_group_ig_intelligentsia_pop_attraction_mult = 0.08 #5
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_CHUGOKU
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CHUGOKU
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Furukawa
+company_Furukawa = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/furukawa.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANTO }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = { #21
+		building_electrics_industry
+		building_lead_mine
+		
+	}
+	
+	extension_building_types = {
+		building_synthetics_plant
+		building_steel_mill
+		building_rubber_plantation
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+		country_has_primary_culture = cu:japanese
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANTO		
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_electrics_industry
+				level >= 5
+		    }
+		}
+	}
+	
+	prosperity_modifier = {
+		building_iron_mine_throughput_add = 0.07 #10
+		building_coal_mine_throughput_add = 0.07 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_electrics_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Kawasaki Jūkōgyō Kabushiki-gaisha
+company_Kawasaki = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/kawasaki.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANTO }
+	
+	possible_prestige_goods = {
+		#prestige_good_japanese_warships
+	}
+
+	building_types = { #23
+		building_shipyard
+	}
+	
+	extension_building_types = {
+		building_railway
+		building_motor_industry
+		building_automotive_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+		country_has_primary_culture = cu:japanese
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANTO			
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 3
+		    }
+		}
+	}
+	
+	prosperity_modifier = {
+		building_automotive_industry_throughput_add = 0.15 #20
+		ship_armor_mult = 0.01 #4
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Kabushiki-gaisha Kubota
+company_Kabushiki = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/kubota.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANSAI }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_machine_parts
+	}
+	
+	building_types = { #12
+		building_iron_mine
+		building_motor_industry
+		building_tooling_workshop
+	}
+	
+	extension_building_types = {
+		building_steel_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+		country_has_primary_culture = cu:japanese
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANSAI			
+			}		
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_motor_industry
+				level >= 3
+		    }
+		}
+		has_technology_researched = mechanized_farming
+	}
+	
+	prosperity_modifier = {
+		building_rice_farm_throughput_add = 0.09 #12
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = mechanized_farming
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_iron_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Oriental Brewery 
+company_OrientalB = {
+icon = "gfx/interface/icons/company_icons/historical_company_icons/oriental_brewery.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rice.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_SEOUL STATE_KANTO }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_beer
+	}
+
+	building_types = { #30
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_rice_farm
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+			   state_region = {
+				  is_homeland = cu:korean
+			   }	
+			}
+		}
+	}	
+	
+	possible = { 
+		country_or_subject_owns_entire_state_region = STATE_SEOUL
+		has_technology_researched = railways
+		any_scope_state = {
+			state_region = {
+				is_homeland = cu:korean
+			}
+			has_building = building_food_industry
+			count >= 3
+		}
+		OR = {
+			AND = {
+				this = c:JAP
+				custom_tooltip = {
+					text = is_meiji_japan
+					has_variable = japan_restoration_complete
+				}
+			}
+			NOT = {
+				this = c:JAP
+			}
+		}
+		
+	}
+	
+	prosperity_modifier = {
+		state_radicalism_increases_violent_hostility_mult = -0.3 #20
+		state_radicalism_increases_cultural_erasure_mult = -0.2
+		state_radicalism_increases_open_prejudice_mult = -0.1
+		country_prestige_mult = 0.05 #5
+		state_assimilation_mult = 0.1 #5
+	}	
+	
+
+	ai_will_do = {
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		any_subject_or_below = {
+			any_scope_state = {
+				state_region = s:STATE_SEOUL
+				is_incorporated = yes
+			}	
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_SEOUL
+			}
+		}
+		
+		building_food_industry = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+	ai_weight = {
+		value = 2 # Higher base value for flavored companies
+	}
+}
+
+# Japan Brewery Company
+company_Kirin = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/kirin_company.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rice.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANTO }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_beer
+	}
+	
+	building_types = { #26 
+		building_food_industry
+		building_rice_farm
+	}
+	
+	extension_building_types = {
+		building_rye_farm
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANTO			
+			}		
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+		    }
+		}
+		OR = {
+			AND = {
+				this = c:JAP
+				custom_tooltip = {
+					text = is_meiji_japan
+					has_variable = japan_restoration_complete
+				}
+			}
+			NOT = {
+				this = c:JAP
+			}
+		}
+		NOR = {
+			has_law_or_variant = law_type:law_isolationism
+			has_law_or_variant = law_type:law_closed_borders
+		}
+	}
+	
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult = -0.09 #12
+		state_lower_strata_expected_sol_add = -0.3
+		state_middle_strata_expected_sol_add = -0.6
+		state_upper_strata_expected_sol_add = -0.9
+		state_migration_pull_mult = 0.1 #14
+	}
+
+
+	ai_will_do = {
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		NOR = {
+			has_law_or_variant = law_type:law_isolationism
+			has_law_or_variant = law_type:law_closed_borders
+		}
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Osaka Shosen Kaisha (OSK)
+company_Osaka_Shosen = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/osaka_shosen_kaisha.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANSAI }
+	
+
+	possible_prestige_goods = {
+		#prestige_good_japanese_warships
+	}
+
+	
+	building_types = { #23
+		building_shipyard
+	}
+	
+	extension_building_types = {
+		building_port
+		building_oil_rig
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 3
+			}
+		}
+
+	}
+	
+	prosperity_modifier = {
+		country_ship_group_supply_ships_construction_efficiency_add = 0.15 #10
+		state_trade_advantage_mult = 0.21 #14
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Teppei Soma
+company_SomaCo = {
+	icon = "gfx/interface/icons/company_icons/basic_fishing.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rice.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_HOKKAIDO }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_grain
+	}
+	
+	building_types = { #20
+		building_rice_farm
+		building_trade_center
+		building_wheat_farm
+	}
+	
+	extension_building_types = {
+		building_port
+		building_whaling_station
+		building_fishing_wharf
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_HOKKAIDO		
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_HOKKAIDO
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_wheat_farm
+					is_building_type = building_trade_center
+				}
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.06 #8
+		state_lower_strata_expected_sol_add = -0.2
+		state_middle_strata_expected_sol_add = -0.4
+		state_upper_strata_expected_sol_add = -0.6
+		country_max_weekly_construction_progress_add = 10 #12
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_HOKKAIDO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_wheat_farm = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_HOKKAIDO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Nintendo
+company_Nintendo = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/nintendo.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANSAI }
+	
+	possible_prestige_goods = {
+		prestige_good_washi_paper
+	}
+	
+	building_types = { #28
+		building_paper_mill
+	}
+	
+	extension_building_types = {
+		building_synthetics_plant
+		building_electrics_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+		country_has_primary_culture = cu:japanese
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANSAI		
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+		has_technology_researched = aniline
+	}
+	
+	prosperity_modifier = {
+		building_tobacco_plantation_throughput_add = 0.03 #2
+		building_synthetics_plant_throughput_add = 0.1 #10
+		interest_group_in_opposition_approval_add = 2 #16
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = aniline
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Tanaka-Iga Butsugu
+company_Tanaka-Iga_Butsugu = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/tanaka_iga.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANSAI }	
+
+	possible_prestige_goods = {
+		prestige_good_generic_religious_icons
+	}
+
+	building_types = { #25
+		building_logging_camp	
+	}
+	
+	extension_building_types = {
+		building_furniture_manufactory
+		building_textile_mill
+		building_art_academy
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+		OR = {
+			country_has_state_religion = rel:mahayana
+			country_has_state_religion = rel:gelugpa
+			country_has_state_religion = rel:theravada
+		}
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANSAI
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_logging_camp
+				level >= 3
+		    }
+		}
+	}
+	
+	prosperity_modifier = {
+		country_prestige_mult = 0.05 #5
+		state_assimilation_mult = 0.20 #10
+		state_conversion_mult = 0.15 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_logging_camp = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Shibaura Seisaku-sho (later Toshiba)
+company_Shibaura_Seisaku_sho = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/shibaura_seisaku_sho_logo.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANTO }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	building_types = { #24
+		building_electrics_industry
+	}
+		
+	extension_building_types = {
+		building_tooling_workshop
+		building_lead_mine
+	}
+
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANTO			
+			}		
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_electrics_industry
+				level >= 5
+		    }
+		}
+	}
+	
+	prosperity_modifier = {
+		country_production_tech_spread_mult = 0.12 #12
+		building_power_plant_throughput_add = 0.09 #12
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_electrics_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Yamaha
+company_yamaha = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/yamaha.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_TOKAI }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_musical_instruments
+	}
+
+	building_types = { #22
+		building_art_academy
+		building_furniture_manufactory
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+		building_automotive_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_TOKAI
+			}
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_TOKAI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_art_academy
+				level >= 3
+			}
+		}
+		has_technology_researched = rubber_mastication
+	}
+	
+	prosperity_modifier = {
+		state_education_access_wealth_add = 0.004 #14
+		country_prestige_mult = 0.08 #8
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = rubber_mastication
+		any_scope_state = {
+			state_region = s:STATE_TOKAI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_art_academy = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_TOKAI
+			}
+		}
+		
+		building_furniture_manufactory = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_TOKAI
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Asahi Brewery / Osaka Brewery
+company_asahi = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/asahi.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rice.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANSAI }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_beer
+	}
+	
+	building_types = { #21
+		building_food_industry
+		building_rice_farm
+	}
+	
+	extension_building_types = {
+		building_wheat_farm
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = fractional_distillation
+	}
+	
+	prosperity_modifier = {
+		country_prestige_mult = 0.11 #11
+		state_radicals_from_political_movements_mult = -0.08 #10
+		state_lower_strata_expected_sol_add = -0.25
+		state_middle_strata_expected_sol_add = -0.5
+		state_upper_strata_expected_sol_add = -0.75
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = fractional_distillation
+		any_scope_state = {
+			state_region = s:STATE_KANSAI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANSAI
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Bank of Japan
+company_bank_of_Japan = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bankofjapan.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANTO }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {  
+		building_paper_mill
+		building_gold_mine
+		building_steel_mill
+	}
+	
+	extension_building_types = {	
+		building_railway
+		building_shipyard
+		building_arms_industry
+		building_explosives_factory
+	}
+	
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}		
+
+	possible = { 
+		any_scope_state = {
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 15
+			}
+		}
+		has_technology_researched = investment_banks
+		unique_companies_has_bank = no
+		OR = {
+			AND = {
+				this = c:JAP
+				custom_tooltip = {
+					text = is_meiji_japan
+					has_variable = japan_restoration_complete
+				}
+			}
+			NOT = {
+				this = c:JAP
+			}
+		}
+	}
+	
+	prosperity_modifier = { 
+		country_minting_mult = 0.05
+		country_loan_interest_rate_mult = -0.025
+        country_private_construction_allocation_mult = 0.1
+		unit_offense_mult = 0.02
+		ship_hull_damage_mult = 0.01
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.015
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.04
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.05
+		country_government_dividends_efficiency_add = 0.05
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+	    unique_companies_has_bank = no
+		has_technology_researched = investment_banks
+		OR = {
+			AND = {
+				this = c:JAP
+				custom_tooltip = {
+					text = is_meiji_japan
+					has_variable = japan_restoration_complete
+				}
+			}
+			NOT = {
+				this = c:JAP
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+# Yahata seitetsu-sho
+company_Yahata = {
+	icon = "gfx/interface/icons/company_icons/basic_steel.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KYUSHU }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_steel
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_steel_complete_tt
+			has_variable = prestige_good_generic_steel_var
+		}
+	}
+	
+	building_types = { #16
+		building_steel_mill
+		building_coal_mine
+	}
+	
+	extension_building_types = {
+		building_iron_mine
+		building_tooling_workshop
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KYUSHU	
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KYUSHU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_steel_mill
+				level >= 3
+			}
+		}
+		NOR = {
+			has_law_or_variant = law_type:law_isolationism
+			has_law_or_variant = law_type:law_closed_borders
+		}
+	}
+	
+	prosperity_modifier = {
+		building_steel_mill_throughput_add = 0.04 #4
+		building_power_plant_throughput_add = 0.03 #4
+		interest_group_ig_petty_bourgeoisie_approval_add = 2 #8
+	}
+
+
+	ai_will_do = {
+		NOR = {
+			has_law_or_variant = law_type:law_isolationism
+			has_law_or_variant = law_type:law_closed_borders
+		}
+		any_scope_state = {
+			state_region = s:STATE_KYUSHU
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_steel_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KYUSHU
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Kure Kaigun Kosho
+company_Kure_naval_arsenal = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/kure.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CHUGOKU }
+	
+	possible_prestige_goods = {
+		#prestige_good_japanese_warships
+	}
+	
+	building_types = { #22
+		building_shipyard
+		building_artillery_foundry
+		building_steel_mill
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CHUGOKU	
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_CHUGOKU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 3
+			}
+		}
+		has_technology_researched = dreadnought_tech
+		OR = {
+			AND = {
+				this = c:JAP
+				custom_tooltip = {
+					text = is_meiji_japan
+					has_variable = japan_restoration_complete
+				}
+			}
+			NOT = {
+				this = c:JAP
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		ship_hull_damage_mult = 0.045 #18
+		interest_group_ig_armed_forces_approval_add = 1 #4
+	}
+
+
+	ai_will_do = {
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		has_technology_researched = dreadnought_tech
+		any_scope_state = {
+			state_region = s:STATE_CHUGOKU
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_CHUGOKU
+			}
+		}
+		
+		building_steel_mill = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_CHUGOKU
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Suzuki
+company_Suzuki = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/suzuki.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_TOKAI }
+		
+	possible_prestige_goods = {
+		prestige_good_japanese_planes
+	}
+	
+	building_types = { #21
+		building_tooling_workshop
+		building_motor_industry
+	}
+	
+	extension_building_types = {
+		building_automotive_industry
+		building_munition_plant
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_TOKAI
+			}
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_TOKAI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+		OR = {
+			AND = {
+				this = c:JAP
+				custom_tooltip = {
+					text = is_meiji_japan
+					has_variable = japan_restoration_complete
+				}
+			}
+			NOT = {
+				this = c:JAP
+			}
+		}
+		has_technology_researched = art_silk
+	}
+	
+	prosperity_modifier = {
+		country_production_tech_spread_mult = 0.08 #8
+		goods_output_automobiles_mult = 0.05 #4
+		country_military_goods_cost_mult = -0.03 #6
+	}	
+	
+
+	ai_will_do = {
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		has_technology_researched = art_silk
+		any_scope_state = {
+			state_region = s:STATE_TOKAI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_TOKAI
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Tōyō Kōgyō K.K.
+company_Mazda = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/mazda.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_CHUGOKU }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_machine_parts
+	}
+
+	building_types = { #19
+		building_tooling_workshop
+		building_motor_industry
+		building_logging_camp
+	}
+	
+	extension_building_types = {
+		building_automotive_industry
+		building_arms_industry
+		building_munition_plant
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CHUGOKU
+			}
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_CHUGOKU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_logging_camp
+				level >= 3
+			}
+		}
+		OR = {
+			AND = {
+				this = c:JAP
+				custom_tooltip = {
+					text = is_meiji_japan
+					has_variable = japan_restoration_complete
+				}
+			}
+			NOT = {
+				this = c:JAP
+			}
+		}
+		has_technology_researched = corporate_management
+	}
+	
+	prosperity_modifier = {
+		goods_output_automobiles_mult = 0.13 #10
+		interest_group_ig_industrialists_pop_attraction_mult = 0.15 #10
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = corporate_management
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		any_scope_state = {
+			state_region = s:STATE_CHUGOKU
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_CHUGOKU
+			}
+		}
+		
+		building_logging_camp = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_CHUGOKU
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+# Toyota Industries Corporation
+company_Toyota = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/toyota.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_TOKAI }
+	
+	possible_prestige_goods = {
+		prestige_good_japanese_planes
+	}
+	
+	building_types = { #27
+		building_tooling_workshop
+		building_automotive_industry
+		building_steel_mill
+	}
+	
+	extension_building_types = {
+		building_munition_plant
+		building_motor_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_TOKAI
+			}
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_TOKAI
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+		OR = {
+			AND = {
+				this = c:JAP
+				custom_tooltip = {
+					text = is_meiji_japan
+					has_variable = japan_restoration_complete
+				}
+			}
+			NOT = {
+				this = c:JAP
+			}
+		}
+		has_technology_researched = combustion_engine
+		has_technology_researched = conveyors
+	}
+	
+	prosperity_modifier = {
+		goods_output_automobiles_mult = 0.13 #10
+		building_textile_mill_throughput_add = 0.11 #10
+		state_pop_qualifications_mult = 0.06 #8
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = combustion_engine
+		has_technology_researched = conveyors
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		any_scope_state = {
+			state_region = s:STATE_TOKAI
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_TOKAI
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Nissan Motor Co.Ltd(1934)
+company_Nissan = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/nissan.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANTO }
+	
+	possible_prestige_goods = {
+		prestige_good_japanese_planes
+	}
+
+	building_types = { #33
+		building_motor_industry
+		building_lead_mine
+		building_steel_mill
+	}
+	
+	extension_building_types = {
+		building_automotive_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_motor_industry
+				level >= 3
+			}
+		}
+		OR = {
+			AND = {
+				this = c:JAP
+				custom_tooltip = {
+					text = is_meiji_japan
+					has_variable = japan_restoration_complete
+				}
+			}
+			NOT = {
+				this = c:JAP
+			}
+		}
+		has_technology_researched = combustion_engine
+		has_technology_researched = mutual_funds
+	}
+	
+	prosperity_modifier = {
+		goods_output_automobiles_mult = 0.13 #10
+		unit_supply_consumption_mult = -0.05 #14
+		interest_group_ig_armed_forces_approval_add = 2 #8
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = mutual_funds
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Tetsudō-shō (Ministry of Railways) / Naikaku Tetsudō-in
+company_Tetsudo_sho = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/japaneseminofrailway.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KANTO }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_transportation
+	}
+
+	building_types = { #27
+		building_railway
+		building_port
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANTO	
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_KANTO	
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 3
+		    }
+		}
+		has_technology_researched = steel_railway_cars
+		NOT = { has_law_or_variant = law_type:law_isolationism }
+	}
+	
+	prosperity_modifier = {
+		country_authority_mult = 0.1 #10
+		state_infrastructure_mult = 0.05 #10
+		state_aristocrats_investment_pool_contribution_add = 0.03 #6
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = steel_railway_cars
+		NOT = { has_law_or_variant = law_type:law_isolationism }
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_railway = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Takachiho Seisakusho / Olympus
+company_Olympus = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/olympus.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_KANTO }
+
+	building_types = { #26
+		building_glassworks
+	}
+
+	extension_building_types = {
+		building_lead_mine
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_specialized_glass
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northeast_asia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KANTO	
+			}		
+		}
+	}	
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 3
+			}
+		}
+		has_technology_researched = plastics
+	}
+
+	prosperity_modifier = {
+		building_university_throughput_add = 0.2 #10
+		country_tech_spread_mult = 0.05 #10
+		state_trade_advantage_mult = 0.09 #6
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KANTO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KANTO
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

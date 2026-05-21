@@ -1,0 +1,344 @@
+﻿##############################VANILLA##############################
+
+# San Miguel
+TRY_REPLACE:company_san_miguel = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/manila_la_fabrica_de_cerveza_san_miguel.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+
+	flavored_company = yes
+
+	building_types = {
+		building_food_industry
+	}
+
+	extension_building_types = {
+		building_wheat_farm
+		building_maize_farm
+		building_rye_farm
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_groceries_complete_tt
+			has_variable = prestige_good_generic_groceries_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_indonesia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				region = sr:region_indonesia
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			region = sr:region_indonesia
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult = -0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			region = sr:region_indonesia
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				region = sr:region_indonesia
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################IP-4##############################
+
+
+# Ynchausti y Compañía
+TRY_REPLACE:company_ynchausti_y_compania = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_ynchausti_y_compania.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+
+	flavored_company = yes
+
+	building_types = {
+		building_food_industry
+		building_port
+		building_sugar_plantation
+	}
+
+	extension_building_types = {
+		building_shipyard
+		building_rice_farm
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_merchant_marine
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_merchant_marine_complete_tt
+			has_variable = prestige_good_generic_merchant_marine_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_indonesia
+		has_dlc_feature = ip4_content
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				OR = {
+					state_region = s:STATE_LUZON
+					state_region = s:STATE_VISAYAS
+				}
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_LUZON
+				state_region = s:STATE_VISAYAS
+			}
+			any_scope_building = {
+				OR = {
+					is_building_type = building_food_industry
+					is_building_type = building_port
+					is_building_type = building_sugar_plantation
+				}
+				level >= 5
+			}
+			count >= 2
+		}
+	}
+
+	prosperity_modifier = {
+		state_construction_mult = 0.05
+		state_migration_pull_mult = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_LUZON
+				state_region = s:STATE_VISAYAS
+			}
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_port = {
+			level = 5
+			state_trigger = {
+				OR = {
+					state_region = s:STATE_LUZON
+					state_region = s:STATE_VISAYAS
+				}
+			}
+		}
+
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				OR = {
+					state_region = s:STATE_LUZON
+					state_region = s:STATE_VISAYAS
+				}
+			}
+		}
+		building_sugar_plantation = {
+			level = 5
+			state_trigger = {
+				OR = {
+					state_region = s:STATE_LUZON
+					state_region = s:STATE_VISAYAS
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+
+##############################MODDED##############################
+
+# Manila Electric Railroad and Light Company (Meralco)
+company_Meralco = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/manila.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LUZON }
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = { #16
+		building_railway
+		building_power_plant
+	}
+	
+	extension_building_types = {
+		building_coal_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_indonesia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LUZON
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_LUZON
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_power_plant
+				level >= 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_urban_center_throughput_add = 0.05 #6
+		building_power_plant_throughput_add = 0.08 #10
+	}	
+	
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_LUZON
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_power_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LUZON
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Destileria Limtuaco & Co., Inc
+company_Destileria_Lim = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/limtuaco.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LUZON }
+
+
+	possible_prestige_goods = {
+		prestige_good_generic_beer
+	}
+
+	
+	building_types = { #27
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_livestock_ranch
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_indonesia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LUZON
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_LUZON
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_migration_pull_mult = 0.1 #14
+		state_radicals_from_political_movements_mult = -0.11 #14
+		state_lower_strata_expected_sol_add = -0.35
+		state_middle_strata_expected_sol_add = -0.7
+		state_upper_strata_expected_sol_add = -1.05
+	}	
+	
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_LUZON
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LUZON
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

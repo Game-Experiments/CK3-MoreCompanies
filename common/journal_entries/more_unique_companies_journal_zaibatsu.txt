@@ -1,0 +1,603 @@
+﻿more_unique_companies_zaibatsu_sumitomo = {
+    icon = "gfx/interface/icons/company_icons/historical_company_icons/company_sumitomo.dds"
+
+	group = je_group_historical_content
+
+    is_shown_when_inactive = {
+		has_dlc_feature = mp1_content
+		#any_company = {
+		#is_company_type = company_type:company_sumitomo 
+		#	NOT = {
+		#		has_variable = prestige_goods_zaibatsu_unlocked_var
+		#	}
+        #}
+		country_has_primary_culture = cu:japanese
+		always = no
+    }
+	
+	is_shown_in_lobby = {
+		country_has_primary_culture = cu:japanese
+		always = no
+	}
+	
+    possible = {
+		always = no
+		any_company = {
+			company_is_prosperous = yes
+			is_company_type = company_type:company_sumitomo 
+			is_producing_prestige_goods = no
+			company_owned_levels >= 50
+			NOT = {
+                custom_tooltip = {
+                    text = zaibatsu_required_building_levels_tt
+                    has_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+			
+		}
+		country_has_primary_culture = cu:japanese
+		has_technology_researched = corporatism
+		NOR = {
+			has_law = law_type:law_isolationism
+			has_law = law_type:law_closed_borders
+			has_law = law_type:law_industry_banned
+		}
+		OR = {
+			has_law = law_type:law_corporate_state
+			has_law = law_type:law_technocracy
+			has_law = law_type:law_monarchy
+		}	
+		OR = {	
+			has_law = law_type:law_interventionism
+			has_law = law_type:law_protectionism
+			has_law = law_type:law_command_economy
+		}
+		OR = {	
+			has_law = law_type:law_private_schools
+			has_law = law_type:law_poor_laws
+			has_law = law_type:law_no_womens_rights
+		}
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+    }
+
+    immediate = {
+        random_company = {
+            limit = {
+				is_company_type = company_type:company_sumitomo
+				company_is_prosperous = yes
+				is_producing_prestige_goods = no
+				NOT = {
+                    has_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+            save_scope_as = relevant_company
+        }
+		set_variable = {
+			name = zaibatsu_sumitomo_timer_var
+			value = 0
+		}
+    }
+
+    complete = {
+        trigger_if = {
+            limit = {
+                has_variable = zaibatsu_sumitomo_timer_var
+            }
+            scope:journal_entry = {
+                is_goal_complete = yes
+            }
+        }
+		trigger_if = {
+            limit = {
+                exists = scope:relevant_company
+            }
+            scope:relevant_company ?= {
+                company_is_prosperous = yes
+            }
+        }
+    }
+
+    on_monthly_pulse = {
+         effect = {
+            if = {
+                limit = {
+                    scope:relevant_company ?= {
+                        company_is_prosperous = yes
+                    }
+                }
+                change_variable = { name = zaibatsu_sumitomo_timer_var add = 1 }
+            }
+        }
+    }
+
+    on_complete = {
+        if = {
+            limit = {
+                exists = scope:relevant_company
+            }
+            custom_tooltip = {
+                text = zaibatsu_supremacy_tt
+				scope:relevant_company ?= {
+                    set_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+        }
+        post_notification = unification_notification_generic
+    }
+
+    invalid = {
+        NOT = {
+            exists = scope:relevant_company
+        }
+    }
+
+	current_value = {
+		value = root.var:zaibatsu_sumitomo_timer_var
+	}
+
+	goal_add_value = {
+		add = more_unique_companies_journal_entry_months
+	}
+
+	progressbar = yes
+
+    weight = 1000
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}
+more_unique_companies_zaibatsu_mitsui = {
+    icon = "gfx/interface/icons/company_icons/historical_company_icons/japanese_mitsui.dds"
+
+	group = je_group_historical_content
+	
+    is_shown_when_inactive = {
+        has_dlc_feature = mp1_content
+		#any_company = {
+		#is_company_type = company_type:company_mitsui 
+		#	NOT = {
+		#		has_variable = prestige_goods_zaibatsu_unlocked_var
+		#	}
+        #}
+		country_has_primary_culture = cu:japanese
+		always = no
+    }
+	
+	is_shown_in_lobby = {
+		country_has_primary_culture = cu:japanese
+		always = no
+	}
+	
+    possible = {
+		always = no
+		any_company = {
+			company_is_prosperous = yes
+			is_company_type = company_type:company_mitsui
+			is_producing_prestige_goods = no
+			company_owned_levels >= 50
+			NOT = {
+                custom_tooltip = {
+                    text = zaibatsu_required_building_levels_tt
+                    has_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+			
+		}
+		country_has_primary_culture = cu:japanese
+		has_technology_researched = corporatism
+		NOR = {
+			has_law = law_type:law_isolationism
+			has_law = law_type:law_closed_borders
+			has_law = law_type:law_industry_banned
+		}
+		OR = {
+			has_law = law_type:law_corporate_state
+			has_law = law_type:law_technocracy
+			has_law = law_type:law_monarchy
+		}	
+		OR = {	
+			has_law = law_type:law_interventionism
+			has_law = law_type:law_protectionism
+			has_law = law_type:law_command_economy
+		}
+		OR = {	
+			has_law = law_type:law_private_schools
+			has_law = law_type:law_poor_laws
+			has_law = law_type:law_no_womens_rights
+		}
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+    }
+
+    immediate = {
+        random_company = {
+            limit = {
+				is_company_type = company_type:company_mitsui
+				company_is_prosperous = yes
+				is_producing_prestige_goods = no
+				NOT = {
+                    has_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+            save_scope_as = relevant_company
+        }
+		set_variable = {
+			name = zaibatsu_mitsui_timer_var
+			value = 0
+		}
+    }
+
+    complete = {
+        trigger_if = {
+            limit = {
+                has_variable = zaibatsu_mitsui_timer_var
+            }
+            scope:journal_entry = {
+                is_goal_complete = yes
+            }
+        }
+		trigger_if = {
+            limit = {
+                exists = scope:relevant_company
+            }
+            scope:relevant_company ?= {
+                company_is_prosperous = yes
+            }
+        }
+    }
+
+    on_monthly_pulse = {
+         effect = {
+            if = {
+                limit = {
+                    scope:relevant_company ?= {
+                        company_is_prosperous = yes
+                    }
+                }
+                change_variable = { name = zaibatsu_mitsui_timer_var add = 1 }
+            }
+        }
+    }
+
+    on_complete = {
+        if = {
+            limit = {
+                exists = scope:relevant_company
+            }
+            custom_tooltip = {
+                text = zaibatsu_supremacy_tt
+				scope:relevant_company ?= {
+                    set_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+        }
+        post_notification = unification_notification_generic
+    }
+
+    invalid = {
+        NOT = {
+            exists = scope:relevant_company
+        }
+    }
+
+	current_value = {
+		value = root.var:zaibatsu_mitsui_timer_var
+	}
+
+	goal_add_value = {
+		add = more_unique_companies_journal_entry_months
+	}
+
+	progressbar = yes
+
+    weight = 1000
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}
+more_unique_companies_zaibatsu_mitsubishi = {
+    icon = "gfx/interface/icons/company_icons/historical_company_icons/japanese_mitsubishi.dds"
+
+	group = je_group_historical_content
+
+    is_shown_when_inactive = {
+		has_dlc_feature = mp1_content
+		#any_company = {
+		#is_company_type = company_type:company_mitsubishi 
+		#	NOT = {
+		#		has_variable = prestige_goods_zaibatsu_unlocked_var
+		#	}
+        #}
+		country_has_primary_culture = cu:japanese
+		always = no
+    }
+	
+	is_shown_in_lobby = {
+		country_has_primary_culture = cu:japanese
+		always = no
+	}
+	
+    possible = {
+		always = no
+		any_company = {
+			company_is_prosperous = yes
+			is_company_type = company_type:company_mitsubishi
+
+			is_producing_prestige_goods = no
+			company_owned_levels >= 50
+			NOT = {
+                custom_tooltip = {
+                    text = zaibatsu_required_building_levels_tt
+                    has_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+			
+		}
+		country_has_primary_culture = cu:japanese
+		has_technology_researched = corporatism
+		NOR = {
+			has_law = law_type:law_isolationism
+			has_law = law_type:law_closed_borders
+			has_law = law_type:law_industry_banned
+		}
+		OR = {
+			has_law = law_type:law_corporate_state
+			has_law = law_type:law_technocracy
+			has_law = law_type:law_monarchy
+		}	
+		OR = {	
+			has_law = law_type:law_interventionism
+			has_law = law_type:law_protectionism
+			has_law = law_type:law_command_economy
+		}
+		OR = {	
+			has_law = law_type:law_private_schools
+			has_law = law_type:law_poor_laws
+			has_law = law_type:law_no_womens_rights
+		}
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+    }
+
+    immediate = {
+        random_company = {
+            limit = {
+				is_company_type = company_type:company_mitsubishi
+
+				company_is_prosperous = yes
+				is_producing_prestige_goods = no
+				NOT = {
+                    has_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+            save_scope_as = relevant_company
+        }
+		set_variable = {
+			name = zaibatsu_mitsubishi_timer_var
+			value = 0
+		}
+    }
+
+    complete = {
+        trigger_if = {
+            limit = {
+                has_variable = zaibatsu_mitsubishi_timer_var
+            }
+            scope:journal_entry = {
+                is_goal_complete = yes
+            }
+        }
+		trigger_if = {
+            limit = {
+                exists = scope:relevant_company
+            }
+            scope:relevant_company ?= {
+                company_is_prosperous = yes
+            }
+        }
+    }
+
+    on_monthly_pulse = {
+         effect = {
+            if = {
+                limit = {
+                    scope:relevant_company ?= {
+                        company_is_prosperous = yes
+                    }
+                }
+                change_variable = { name = zaibatsu_mitsubishi_timer_var add = 1 }
+            }
+        }
+    }
+
+    on_complete = {
+        if = {
+            limit = {
+                exists = scope:relevant_company
+            }
+            custom_tooltip = {
+                text = zaibatsu_supremacy_tt
+				scope:relevant_company ?= {
+                    set_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+        }
+        post_notification = unification_notification_generic
+    }
+
+    invalid = {
+        NOT = {
+            exists = scope:relevant_company
+        }
+    }
+
+	current_value = {
+		value = root.var:zaibatsu_mitsubishi_timer_var
+	}
+
+	goal_add_value = {
+		add = more_unique_companies_journal_entry_months
+	}
+
+	progressbar = yes
+
+    weight = 1000
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}
+more_unique_companies_zaibatsu_yasuda = {
+    icon = "gfx/interface/icons/company_icons/historical_company_icons/company_yasuda.dds"
+
+	group = je_group_historical_content
+
+    is_shown_when_inactive = {
+        has_dlc_feature = mp1_content
+		#any_company = {
+		#is_company_type = company_type:company_yasuda
+		#	NOT = {
+		#		has_variable = prestige_goods_zaibatsu_unlocked_var
+		#	}
+        #}
+		country_has_primary_culture = cu:japanese
+		always = no
+    }
+	
+	is_shown_in_lobby = {
+		country_has_primary_culture = cu:japanese
+		always = no
+	}
+	
+    possible = {
+		always = no
+		any_company = {
+			company_is_prosperous = yes
+			is_company_type = company_type:company_yasuda
+			
+			is_producing_prestige_goods = no
+			company_owned_levels >= 50
+			NOT = {
+                custom_tooltip = {
+                    text = zaibatsu_required_building_levels_tt
+                    has_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+			
+		}
+		country_has_primary_culture = cu:japanese
+		has_technology_researched = corporatism
+		NOR = {
+			has_law = law_type:law_isolationism
+			has_law = law_type:law_closed_borders
+			has_law = law_type:law_industry_banned
+		}
+		OR = {
+			has_law = law_type:law_corporate_state
+			has_law = law_type:law_technocracy
+			has_law = law_type:law_monarchy
+		}	
+		OR = {	
+			has_law = law_type:law_interventionism
+			has_law = law_type:law_protectionism
+			has_law = law_type:law_command_economy
+		}
+		OR = {	
+			has_law = law_type:law_private_schools
+			has_law = law_type:law_poor_laws
+			has_law = law_type:law_no_womens_rights
+		}
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+    }
+
+    immediate = {
+        random_company = {
+            limit = {
+				is_company_type = company_type:company_yasuda
+				company_is_prosperous = yes
+				is_producing_prestige_goods = no
+				NOT = {
+                    has_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+            save_scope_as = relevant_company
+        }
+		set_variable = {
+			name = zaibatsu_yasuda_timer_var
+			value = 0
+		}
+    }
+
+    complete = {
+        trigger_if = {
+            limit = {
+                has_variable = zaibatsu_yasuda_timer_var
+            }
+            scope:journal_entry = {
+                is_goal_complete = yes
+            }
+        }
+		trigger_if = {
+            limit = {
+                exists = scope:relevant_company
+            }
+            scope:relevant_company ?= {
+                company_is_prosperous = yes
+            }
+        }
+    }
+
+    on_monthly_pulse = {
+         effect = {
+            if = {
+                limit = {
+                    scope:relevant_company ?= {
+                        company_is_prosperous = yes
+                    }
+                }
+                change_variable = { name = zaibatsu_yasuda_timer_var add = 1 }
+            }
+        }
+    }
+
+    on_complete = {
+        if = {
+            limit = {
+                exists = scope:relevant_company
+            }
+            custom_tooltip = {
+                text = zaibatsu_supremacy_tt
+				scope:relevant_company ?= {
+                    set_variable = prestige_goods_zaibatsu_unlocked_var
+                }
+            }
+        }
+        post_notification = unification_notification_generic
+    }
+
+    invalid = {
+        NOT = {
+            exists = scope:relevant_company
+        }
+    }
+
+	current_value = {
+		value = root.var:zaibatsu_yasuda_timer_var
+	}
+
+	goal_add_value = {
+		add = more_unique_companies_journal_entry_months
+	}
+
+	progressbar = yes
+
+    weight = 1000
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}

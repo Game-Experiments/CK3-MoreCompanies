@@ -1,0 +1,311 @@
+﻿more_unique_companies_ICI = {
+    icon = "gfx/interface/icons/company_icons/historical_company_icons/ICI.png"
+
+	group = je_group_historical_content
+
+    is_shown_when_inactive = {
+        #any_company = {
+		#	OR = {
+		#		is_company_type = company_type:company_Nobel_GB 
+		#		is_company_type = company_type:company_BrunnerMond
+		#		is_company_type = company_type:company_UnitedAlkali
+		#		is_company_type = company_type:company_BritishDyestuffs
+		#	}
+		#}
+		any_scope_state = {
+			region = sr:region_western_europe
+			is_in_geographic_region = geographic_region_england_old
+			is_incorporated = yes
+		}
+    }
+
+	is_shown_in_lobby = {
+		any_scope_state = {
+			region = sr:region_western_europe
+			is_in_geographic_region = geographic_region_england_old
+			is_incorporated = yes
+		}
+	}
+	
+    possible = {
+		any_company = {
+			NOT = { is_company_type = company_type:company_ICI }
+		}
+		any_company = {
+			company_is_prosperous = yes
+			OR = {
+				is_company_type = company_type:company_Nobel_GB 
+				is_company_type = company_type:company_BrunnerMond
+				is_company_type = company_type:company_UnitedAlkali
+				is_company_type = company_type:company_BritishDyestuffs
+			}
+			count >= 2
+		}
+		any_scope_state = {
+			region = sr:region_western_europe
+			OR = {
+				is_in_geographic_region = geographic_region_england_old
+				is_in_geographic_region = geographic_region_north_sea_coast_old
+			}
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_synthetics_plant
+					is_building_type = building_chemical_plant
+					is_building_type = building_explosives_factory
+				}
+				level >= 5
+			}
+			count >=5
+		}
+		has_technology_researched = plastics
+		has_technology_researched = central_planning
+		has_technology_researched = corporate_management
+    }
+
+    immediate = {
+        random_company = {
+            limit = {
+				is_company_type = company_type:company_Nobel_GB
+            }
+            save_scope_as = relevant_company
+        }
+		random_company = {
+            limit = {
+				is_company_type = company_type:company_BrunnerMond
+            }
+            save_scope_as = relevant_company_2
+        }
+		random_company = {
+            limit = {
+				is_company_type = company_type:company_UnitedAlkali
+            }
+            save_scope_as = relevant_company_3
+        }
+		random_company = {
+            limit = {
+				is_company_type = company_type:company_BritishDyestuffs
+            }
+            save_scope_as = relevant_company_4
+        }
+		set_variable = {
+			name = ICI_timer_var
+			value = 0
+		}
+    }
+
+    complete = {
+        trigger_if = {
+            limit = {
+                has_variable = ICI_timer_var
+            }
+            scope:journal_entry = {
+                is_goal_complete = yes
+            }
+        }
+		hidden_trigger = {
+			trigger_if = {
+				limit = {
+					OR = {
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_2
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_3
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_3
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_4
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_4
+						}
+						AND = {
+							exists = scope:relevant_company_3
+							exists = scope:relevant_company_4
+						}
+					}
+				}
+				OR = {
+					AND = {
+						scope:relevant_company ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_2 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_2 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_3 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_3 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_4 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_2 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_4 ?= {
+							company_is_prosperous = yes
+						}
+					}
+					AND = {
+						scope:relevant_company_3 ?= {
+							company_is_prosperous = yes
+						}
+						scope:relevant_company_4 ?= {
+							company_is_prosperous = yes
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = ICI_prosperous_tt
+		}
+    }
+
+    on_monthly_pulse = {
+        effect = {
+            if = {
+                limit = {
+					OR = {
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_2
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_3
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_3
+						}
+						AND = {
+							exists = scope:relevant_company
+							exists = scope:relevant_company_4
+						}
+						AND = {
+							exists = scope:relevant_company_2
+							exists = scope:relevant_company_4
+						}
+						AND = {
+							exists = scope:relevant_company_3
+							exists = scope:relevant_company_4
+						}
+					}
+				}
+                change_variable = { name = ICI_timer_var add = 1 }
+            }
+        }
+    }
+
+    on_complete = {
+        if = {
+            limit = {
+				OR = {
+					AND = {
+						exists = scope:relevant_company
+						exists = scope:relevant_company_2
+					}
+					AND = {
+						exists = scope:relevant_company_2
+						exists = scope:relevant_company_3
+					}
+					AND = {
+						exists = scope:relevant_company
+						exists = scope:relevant_company_3
+					}
+					AND = {
+						exists = scope:relevant_company
+						exists = scope:relevant_company_4
+					}
+					AND = {
+						exists = scope:relevant_company_2
+						exists = scope:relevant_company_4
+					}
+					AND = {
+						exists = scope:relevant_company_3
+						exists = scope:relevant_company_4
+					}
+				}
+			}
+            custom_tooltip = {
+                text = ICI_establishment_tt
+                trigger_event = { id = more_unique_companies_events_ICI.1 popup = no }
+            }
+        }
+        post_notification = unification_notification_generic
+    }
+
+    invalid = {
+        NOT = {
+			OR = {
+				AND = {
+					exists = scope:relevant_company
+					exists = scope:relevant_company_2
+				}
+				AND = {
+					exists = scope:relevant_company_2
+					exists = scope:relevant_company_3
+				}
+				AND = {
+					exists = scope:relevant_company
+					exists = scope:relevant_company_3
+				}
+				AND = {
+					exists = scope:relevant_company
+					exists = scope:relevant_company_4
+				}
+				AND = {
+					exists = scope:relevant_company_2
+					exists = scope:relevant_company_4
+				}
+				AND = {
+					exists = scope:relevant_company_3
+					exists = scope:relevant_company_4
+				}
+			}
+        }
+    }
+
+	current_value = {
+		value = root.var:ICI_timer_var
+	}
+
+	goal_add_value = {
+		add = more_unique_companies_journal_entry_months
+	}
+
+	progressbar = yes
+
+    weight = 1000
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}

@@ -1,0 +1,81 @@
+﻿##############################MODDED##############################
+
+# ANCAP
+company_ANCAP = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/ancap.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_URUGUAY }
+	
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #16
+		building_food_industry
+		building_steel_mill
+		building_oil_rig
+	}
+	
+	extension_building_types = {
+		building_logging_camp
+		building_tooling_workshop
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_brazil
+		OR = {
+			country_has_primary_culture = cu:platinean
+			country_has_primary_culture = cu:uruguayan
+		}
+	}
+		
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_URUGUAY
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_URUGUAY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 25
+			}
+		}
+		has_technology_researched = political_agitation
+	}
+	
+	prosperity_modifier = {
+		country_minting_mult = 0.03 #10
+		country_bureaucracy_investment_cost_factor_mult = -0.03 #6
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = political_agitation
+		any_scope_state = {
+			state_region = s:STATE_URUGUAY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_urban_center = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_URUGUAY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

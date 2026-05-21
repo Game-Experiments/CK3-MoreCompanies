@@ -1,0 +1,1528 @@
+﻿namespace = more_unique_companies_events_ICI
+
+more_unique_companies_events_ICI.1 = {
+	type = country_event
+	hidden = yes
+	#merge chemical and explosives manufacturers into Imperial Chemical Industries
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_company = company_type:company_Nobel_GB
+					has_company = company_type:company_BrunnerMond
+					has_company = company_type:company_UnitedAlkali
+					has_company = company_type:company_BritishDyestuffs
+				}
+			}
+			save_scope_as = company_owner
+			scope:company_owner = {
+				owning_company ?= {
+					if = {
+						limit = {
+							is_company_type = company_type:company_Nobel_GB
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_BrunnerMond
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_UnitedAlkali 
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_BritishDyestuffs
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_BrunnerMond 
+					}
+					remove_company = company_type:company_BrunnerMond 
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_UnitedAlkali
+					}
+					remove_company = company_type:company_UnitedAlkali
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_Nobel_GB
+					}
+					remove_company = company_type:company_Nobel_GB
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_BritishDyestuffs
+					}
+					remove_company = company_type:company_BritishDyestuffs
+				}
+				add_company = company_type:company_ICI
+				company:company_ICI = {
+					set_company_state_region = s:STATE_HOME_COUNTIES
+				}
+			}
+			every_scope_state = {
+				if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 1
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=1
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 2
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=2
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 3
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=3
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 4
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=4
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 5
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=5
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 6
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=6
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 7
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=7
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 8
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=8
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 9
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=9
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 10
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=10
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 11
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=11
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 12
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=12
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 13
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=13
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 14
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=14
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 15
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=15
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 16
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=16
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 17
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=17
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 18
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=18
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 19
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=19
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level >= 20
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=20
+							}
+						}
+						reserves=1
+					}
+				}
+				if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 1
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=1
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 2
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=2
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 3
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=3
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 4
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=4
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 5
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=5
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 6
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=6
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 7
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=7
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 8
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=8
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 9
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=9
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 10
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=10
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 11
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=11
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 12
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=12
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 13
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=13
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 14
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=14
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 15
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=15
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 16
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=16
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 17
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=17
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 18
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=18
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 19
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=19
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level >= 20
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=20
+							}
+						}
+						reserves=1
+					}
+				}
+				if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 1
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=1
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 2
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=2
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 3
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=3
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 4
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=4
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 5
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=5
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 6
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=6
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 7
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=7
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 8
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=8
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 9
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=9
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 10
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=10
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 11
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=11
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 12
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=12
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 13
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=13
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 14
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=14
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 15
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=15
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 16
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=16
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 17
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=17
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 18
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=18
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level = 19
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=19
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_explosives_factory
+							level >= 20
+						}
+						region = sr:region_western_europe
+					}
+					remove_building = building_explosives_factory
+					create_building={
+						building="building_explosives_factory"
+						add_ownership={
+							company={
+								type=company_ICI
+								country=scope:company_owner
+								levels=20
+							}
+						}
+						reserves=1
+					}
+				}
+			}
+			
+		}
+	}
+}

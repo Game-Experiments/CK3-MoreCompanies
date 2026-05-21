@@ -1,0 +1,534 @@
+﻿##############################VANILLA#############################
+
+# None
+
+######################Sphere of Influence#########################
+
+# Arthur Guinness Son & Co. Ltd
+TRY_REPLACE:company_guinness = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/arthur_guinness_son.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_LEINSTER }
+
+	building_types = {
+		building_food_industry
+	}
+
+	extension_building_types = {
+		building_wheat_farm
+		building_rye_farm
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_beer
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_LEINSTER
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult = -0.1
+		state_radicalism_increases_violent_hostility_mult = -0.05
+		state_radicalism_increases_cultural_erasure_mult = -0.05
+		state_radicalism_increases_open_prejudice_mult = -0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_LEINSTER
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+# Jacob's
+company_Jacob = {
+	icon = "gfx/interface/icons/company_icons/basic_food.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LEINSTER }
+
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	
+	building_types = { #27
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_rye_farm
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_LEINSTER
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+			    level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.12 #16
+		state_lower_strata_expected_sol_add = -0.4
+		state_middle_strata_expected_sol_add = -0.8
+		state_upper_strata_expected_sol_add = -1.2
+		country_military_goods_cost_mult = -0.05 #10
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_LEINSTER
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Waterford Glass works
+company_Waterford = {
+	icon = "gfx/interface/icons/company_icons/basic_home_goods.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LEINSTER }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #22
+		building_glassworks
+	}
+	
+	extension_building_types = {
+		building_lead_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_LEINSTER
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+			    level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_weekly_innovation_mult = 0.08 #12
+		country_influence_mult = 0.15 #10
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_LEINSTER
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# William Ewart & Son Ltd
+company_Ewart = {
+	icon = "gfx/interface/icons/company_icons/basic_textiles.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ULSTER }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_clothes
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_clothes_complete_tt
+			has_variable = prestige_good_generic_clothes_var
+		}
+	}
+	
+	
+	building_types = { #26
+		building_textile_mill
+	}
+	
+	extension_building_types = {
+		building_livestock_ranch
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ULSTER
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ULSTER
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+			    level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_textile_mill_throughput_add = 0.15 #16
+		country_ship_group_supply_ships_construction_efficiency_add = 0.15 #10
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ULSTER
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ULSTER
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Powers Irish Whiskey
+company_Powers_Whiskey = {
+	icon = "gfx/interface/icons/company_icons/basic_food.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LEINSTER }
+	
+	category = aristocrat_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	building_types = { #27
+		building_food_industry #liquor
+	}
+	
+	extension_building_types = {
+		building_rye_farm
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_LEINSTER
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		unit_morale_recovery_mult = 0.05 #10
+		state_radicals_from_political_movements_mult = -0.12 #16
+		state_lower_strata_expected_sol_add = -0.4
+		state_middle_strata_expected_sol_add = -0.8
+		state_upper_strata_expected_sol_add = -1.2
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_LEINSTER
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Irish Agricultural Organisation Society
+company_IAOC = {
+	icon = "gfx/interface/icons/company_icons/company_basic_agriculture_1.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LEINSTER }
+	
+	category = bureaucrat_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_meat
+	}
+	
+	building_types = { #28
+		building_rye_farm
+		building_livestock_ranch
+	}
+	
+	extension_building_types = {
+		building_food_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+				state_region = s:STATE_LEINSTER
+			    is_incorporated = yes
+			    any_scope_building = {
+				  is_building_type = building_livestock_ranch
+				  level >= 3
+			}
+		}
+		has_technology_researched = socialism 
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.05 #6
+		state_lower_strata_expected_sol_add = -0.15
+		state_middle_strata_expected_sol_add = -0.3
+		state_upper_strata_expected_sol_add = -0.45
+		interest_group_ig_trade_unions_approval_add = 3 #12
+		interest_group_ig_trade_unions_pop_attraction_mult = 0.15 #10
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = socialism
+		any_scope_state = {
+			state_region = s:STATE_LEINSTER
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_livestock_ranch = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# The Irish Press
+company_Irish_Press = {
+	icon = "gfx/interface/icons/company_icons/basic_paper.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LEINSTER }
+	
+	category = academic_owned
+
+	possible_prestige_goods = {
+		prestige_good_generic_newspaper
+	}
+
+	
+	building_types = { #23
+		building_logging_camp
+		building_paper_mill
+	}
+	
+	extension_building_types = {
+		building_sulfur_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+		has_game_rule = newspapers_enabled
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_LEINSTER
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+		has_technology_researched = political_agitation
+	}
+	
+	prosperity_modifier = {
+		state_assimilation_mult = 0.1 #5
+		interest_group_ig_petty_bourgeoisie_approval_add = 2 #8
+		interest_group_ig_petty_bourgeoisie_pop_attraction_mult = 0.2 #10
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = political_agitation
+		any_scope_state = {
+			state_region = s:STATE_LEINSTER
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LEINSTER
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

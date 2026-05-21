@@ -1,0 +1,163 @@
+﻿##############################VANILLA#############################
+
+# None
+
+##############################IP-4##############################
+
+# Office Chérifien des Phosphates
+TRY_REPLACE:company_office_cherifien_des_phosphates = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_office_cherifien_des_phosphates.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	building_types = {
+		building_sulfur_mine
+		building_chemical_plant
+	}
+
+	extension_building_types = {
+		building_iron_mine
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_fertilizer
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_fertilizer_complete_tt
+			has_variable = prestige_good_generic_fertilizer_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_north_africa
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_MARRAKECH
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_MARRAKECH
+			any_scope_building = {
+				is_building_type = building_sulfur_mine
+				level >= 5
+			}
+		}
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_MARRAKECH
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_sulfur_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_MARRAKECH
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_group_bg_agriculture_throughput_add = 0.1
+		building_sulfur_mine_throughput_add = 0.05
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+# Compagnie de Transports au Maroc
+company_Maroc = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/maroc.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_FEZ }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_merchant_marine
+	}
+	
+	building_types = { #23
+		building_railway
+		building_port
+	}
+	
+	extension_building_types = {
+		building_automotive_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_north_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_FEZ
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+		    region = sr:region_north_africa
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_railway
+			}
+			count >= 4
+		}
+		has_technology_researched = steel_railway_cars
+	}
+	
+	prosperity_modifier = {
+        state_infrastructure_mult = 0.1 #20
+		state_assimilation_mult = 0.06 #3
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = steel_railway_cars
+		any_scope_state = {
+			state_region = s:STATE_FEZ
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_railway = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_FEZ
+			}
+		}
+		
+		building_port = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_FEZ
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

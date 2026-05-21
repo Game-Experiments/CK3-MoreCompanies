@@ -1,0 +1,1144 @@
+﻿##############################VANILLA#############################
+
+# None
+
+##############################DLC-EP2##############################
+
+# Maschinenfabrik Oerlikon
+TRY_REPLACE:company_maschinenfabrik_oerlikon = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_maschinenfabrik_oerlikon.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_EAST_SWITZERLAND }
+
+	building_types = {
+		building_motor_industry
+		building_tooling_workshop
+	}
+
+	extension_building_types = {
+		building_arms_industry
+		building_artillery_foundry
+		building_automotive_industry
+	}
+
+	possible_prestige_goods = {
+		prestige_good_oerlikon_engines
+	}
+
+	potential = {
+		has_dlc_feature = ep2_content
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_EAST_SWITZERLAND = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		s:STATE_EAST_SWITZERLAND = {
+			any_scope_state = {
+				owner = root
+				any_scope_building = {
+					is_building_type = building_motor_industry
+					level >= 5
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_railway_throughput_add = 0.1
+		country_weekly_innovation_mult = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+		}
+	}
+
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+# Maggi
+company_Maggi = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/dufour_company_maggi_icon.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EAST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	
+	building_types = { #25
+		building_food_industry
+		building_wheat_farm
+	}
+	
+	extension_building_types = {
+		building_livestock_ranch
+		building_tooling_workshop
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.05 #6
+		state_lower_strata_expected_sol_add = -0.15
+		state_middle_strata_expected_sol_add = -0.3
+		state_upper_strata_expected_sol_add = -0.45
+		state_birth_rate_mult = 0.05 #20
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# J. R. Geigy
+company_Geigy = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/geigy.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_WEST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_fertilizer
+	}
+
+	
+	building_types = { #20
+		building_dye_plantation
+		building_chemical_plant
+		building_synthetics_plant
+	}
+	
+	extension_building_types = {
+		building_sulfur_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_chemical_plant
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_group_bg_agriculture_throughput_add = 0.05 #18
+		state_pop_qualifications_mult = 0.02 #2
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_WEST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_chemical_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Brown, Boveri & Cie.
+company_BrownB = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/dufour_brown_boveri_icon.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EAST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_compound_engines
+		prestige_good_oerlikon_engines
+	}
+
+	
+	building_types = { #11
+		building_power_plant
+		building_motor_industry
+		building_electrics_industry
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+		building_steel_mill
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_power_plant
+				level >= 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_influence_mult = 0.15 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_power_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Lonza Elektrizitätswerke
+company_LonzaGroup = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/lonza.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_WEST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_fertilizer
+	}
+
+	
+	building_types = { #20
+		building_power_plant
+		building_chemical_plant
+	}
+	
+	extension_building_types = {
+		building_coal_mine
+		building_motor_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_WEST_SWITZERLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_power_plant
+				level >= 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_iron_mine_throughput_add = 0.07 #10
+		building_lead_mine_throughput_add = 0.07 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_WEST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_power_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Zentralverband schweizerischer Milchproduzenten
+company_ZVSM = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/zentralverband.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_WEST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_meat
+	}
+
+	
+	building_types = { #28
+		building_livestock_ranch
+		building_rye_farm
+	}
+	
+	extension_building_types = {
+		building_chemical_plant
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+		    OR = {
+				state_region = s:STATE_WEST_SWITZERLAND
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_livestock_ranch
+				level >= 3
+			}
+		}
+		has_technology_researched = socialism
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_trade_unions_pop_attraction_mult = 0.15 #10
+		interest_group_ig_trade_unions_approval_add = 2 #8
+		country_bureaucracy_investment_cost_factor_mult = -0.05 #10
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = socialism
+		any_scope_state = {
+			state_region = s:STATE_WEST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_livestock_ranch = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Nestlé
+company_Nestle = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/nestle.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_WEST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	
+	building_types = { #27
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_rye_farm
+		building_tooling_workshop
+		building_motor_industry
+		building_livestock_ranch
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				OR = {
+					state_region = s:STATE_WEST_SWITZERLAND
+					state_region = s:STATE_EAST_SWITZERLAND
+				}
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+		    OR = {
+				state_region = s:STATE_WEST_SWITZERLAND
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.05 #6
+		state_lower_strata_expected_sol_add = -0.15
+		state_middle_strata_expected_sol_add = -0.30
+		state_upper_strata_expected_sol_add = -0.45
+		country_company_throughput_bonus_add = 0.05 #18
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_WEST_SWITZERLAND
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# J. J. Rieter & Cie.
+company_Rieter = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/dufour_jj_rieter_icon.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EAST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_machine_parts
+	}
+
+	
+	building_types = { #18
+		building_textile_mill
+		building_tooling_workshop
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+		building_automotive_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_weekly_innovation_mult = 0.06 #10
+		country_weekly_innovation_max_add = 4 #8
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Von Roll
+company_VonRoll = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/dufour_company_von_roll_icon.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_WEST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #22
+		building_iron_mine
+	}
+	
+	extension_building_types = {
+		building_coal_mine
+		building_steel_mill
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_WEST_SWITZERLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_iron_mine
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_steel_mill_throughput_add = 0.04 #4
+        state_construction_mult = 0.05 #18
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_WEST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_iron_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Sulzer Brothers Ltd.
+company_Sulzer = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/dufour_sulzer_icon.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_WEST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_machine_parts
+	}
+
+	
+	building_types = { #16
+		building_tooling_workshop
+		building_motor_industry
+	}
+	
+	extension_building_types = {
+		building_steel_mill
+		building_iron_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_WEST_SWITZERLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_weekly_innovation_mult = 0.04 #8
+		country_weekly_innovation_max_add = 4 #8
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_WEST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_WEST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Chocoladefabriken Lindt & Sprüngli AG
+company_Lindt = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/lindt.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EAST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_sweets
+	}
+
+	
+	building_types = { #27
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_livestock_ranch
+		building_tooling_workshop
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.12 #16
+		state_lower_strata_expected_sol_add = -0.4
+		state_middle_strata_expected_sol_add = -0.8
+		state_upper_strata_expected_sol_add = -1.2
+		unit_morale_recovery_mult = 0.05 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Escher Wyss & Cie
+dufour_company_escher_wyss = {
+    icon = "gfx/interface/icons/company_icons/historical_company_icons/escher_wyss.dds"
+    background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+    flavored_company = yes
+	preferred_headquarters = { STATE_EAST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+	    prestige_good_generic_machine_parts
+	}
+
+
+    building_types = { #16
+        building_tooling_workshop
+        building_motor_industry
+    }
+	
+	extension_building_types = {
+		building_steel_mill
+		building_coal_mine
+	}
+
+    potential = {
+        OR = {
+            has_state_in_state_region = STATE_EAST_SWITZERLAND
+        }
+    }
+
+    possible = {
+        any_scope_state = {
+            state_region = s:STATE_EAST_SWITZERLAND
+            is_incorporated = yes
+            any_scope_building = {
+                OR = {
+                    is_building_type = building_tooling_workshop
+                    is_building_type = building_motor_industry
+                }
+                level >= 3
+            }
+        }
+    }
+
+    prosperity_modifier = {
+        building_motor_industry_throughput_add = 0.05 #6
+        building_textile_mill_throughput_add = 0.11 #10
+    }
+
+    ai_weight = {
+        value = 3 # Higher base value for flavored companies
+    }
+	
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+ # Schweizerische Lokomotiv- und Maschinenfabrik
+dufour_company_slm = {
+    icon = "gfx/interface/icons/company_icons/historical_company_icons/slm.dds"
+    background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+    flavored_company = yes
+	preferred_headquarters = { STATE_EAST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_machine_parts
+	}
+
+
+    building_types = { #24
+        building_motor_industry
+    }
+	
+	extension_building_types = {
+		building_tooling_workshop
+		building_steel_mill
+	}
+
+    potential = {
+        OR = {
+            has_state_in_state_region = STATE_EAST_SWITZERLAND
+        }
+    }
+
+    possible = {
+        any_scope_state = {
+            state_region = s:STATE_EAST_SWITZERLAND
+            is_incorporated = yes
+            any_scope_building = {
+                is_building_type = building_motor_industry
+                level >= 3
+            }
+        }
+    }
+
+    prosperity_modifier = {
+        building_motor_industry_throughput_add = 0.03 #4
+        building_railway_throughput_add = 0.15 #20
+    }
+
+    ai_weight = {
+        value = 3 # Higher base value for flavored companies
+    }
+	
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Werkzeugmaschinenfabrik Oerlikon
+company_WerkMasFab_Oerlikon = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/oerlikon.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EAST_SWITZERLAND }
+	
+
+	possible_prestige_goods = {
+		prestige_good_generic_machine_parts
+	}
+
+	
+	building_types = { #20
+		building_tooling_workshop
+		building_artillery_foundry
+		building_automotive_industry
+	}
+	
+	extension_building_types = {
+		building_munition_plant
+		building_steel_mill
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_artillery_foundry
+				level >= 3
+			}
+		}
+		has_technology_researched = breech_loading_artillery
+	}
+	
+	prosperity_modifier = {
+		unit_army_offense_mult = 0.05 #10
+		unit_morale_damage_mult = 0.05 #10
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = breech_loading_artillery
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_artillery_foundry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_Bankenverein = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/ubs.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EAST_SWITZERLAND }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {  
+		building_paper_mill
+		building_railway
+		building_textile_mill
+	}
+	
+	extension_building_types = {	
+		building_iron_mine
+		building_chemical_plant
+		building_tooling_workshop
+		building_food_industry
+	}
+	
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_central_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}		
+		}
+	}		
+
+	possible = { 
+		any_scope_state = {
+		state_region = s:STATE_EAST_SWITZERLAND
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 15
+			}
+		}
+		unique_companies_has_bank = no
+		has_technology_researched = investment_banks
+	}
+	
+	prosperity_modifier = { 
+		interest_group_ig_trade_unions_approval_add = 2
+	   
+		country_loan_interest_rate_mult = -0.1
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.015
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.04
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.025
+		country_government_dividends_efficiency_add = 0.025
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+		unique_companies_has_bank = no
+		has_technology_researched = investment_banks
+		any_scope_state = {
+			state_region = s:STATE_EAST_SWITZERLAND
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EAST_SWITZERLAND
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}

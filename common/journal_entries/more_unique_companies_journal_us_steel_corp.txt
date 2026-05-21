@@ -1,0 +1,159 @@
+﻿more_unique_companies_us_steel_corp = {
+    icon = "gfx/interface/icons/company_icons/historical_company_icons/USSteel.png"
+
+	group = je_group_historical_content
+
+    is_shown_when_inactive = {
+        #any_company = {
+		#	OR = {
+		#		is_company_type = company_type:company_us_steel 
+		#		is_company_type = company_type:company_Bank_JP_Morgan
+		#	}
+        #}
+		any_scope_state = {
+			state_region = s:STATE_NEW_YORK
+			is_incorporated = yes
+		}
+    }
+	
+	is_shown_in_lobby = {
+		any_scope_state = {
+			state_region = s:STATE_NEW_YORK
+			is_incorporated = yes
+		}
+	}
+	
+    possible = {
+		any_company = {
+			NOT = { is_company_type = company_type:company_us_steel_corp }
+		}
+		AND = {
+			any_company = {
+				#company_has_building_type_monopoly = bt:building_steel_mill
+				company_is_prosperous = yes
+				is_producing_prestige_goods = yes
+				company_owned_levels >= 50
+				custom_tooltip = {
+					text = us_steel_corp_required_building_levels_tt
+				}
+				is_company_type = company_type:company_us_steel
+			}
+			any_company = {
+				OR = {
+					is_company_type = company_type:company_federal_steel
+					is_company_type = company_type:company_national_steel
+					is_company_type = company_type:company_american_tin
+					is_company_type = company_type:company_consolidated_lake_superior
+					is_company_type = company_type:company_american_wire
+					is_company_type = company_type:company_national_tube
+				}
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_NEW_YORK
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 50
+			}
+		}
+		OR = {
+			any_company = {
+				is_company_type = company_type:company_Bank_JP_Morgan
+				company_owned_levels >= 50
+				custom_tooltip = {
+					text = us_steel_corp_required_building_levels_tt
+				}
+			}
+			country_has_building_group_levels = {
+				type = bg_financial_districts
+				value  >= 500
+			}
+		}
+		
+		has_technology_researched = electric_arc_process
+		has_technology_researched = mutual_funds
+		has_technology_researched = corporatism
+    }
+
+    immediate = {   
+		random_company = {
+            limit = {
+				company_is_prosperous = yes
+				is_producing_prestige_goods = yes
+				is_company_type = company_type:company_us_steel
+				company_owned_levels >= 50
+            }
+            save_scope_as = relevant_company
+        }
+		set_variable = {
+			name = us_steel_corp_timer_var
+			value = 0
+		}
+    }
+
+    complete = {
+        trigger_if = {
+            limit = {
+                has_variable = us_steel_corp_timer_var
+            }
+            scope:journal_entry = {
+                is_goal_complete = yes
+            }
+        }
+		trigger_if = {
+			limit = {
+				exists = scope:relevant_company
+			}
+			scope:relevant_company ?= {
+				company_is_prosperous = yes
+			}
+		}
+    }
+
+    on_monthly_pulse = {
+        effect = {
+            if = {
+                limit = {
+					scope:relevant_company ?= {
+                        company_is_prosperous = yes
+                    }
+				}
+                change_variable = { name = us_steel_corp_timer_var add = 1 }
+            }
+        }
+    }
+
+    on_complete = {
+        if = {
+            limit = {
+				exists = scope:relevant_company
+			}
+            custom_tooltip = {
+                text = us_steel_corp_establishment_tt
+                trigger_event = { id = more_unique_companies_events_us_steel_corp.1 popup = no }
+            }
+        }
+        post_notification = unification_notification_generic
+    }
+
+    invalid = {
+        NOT = {
+			exists = scope:relevant_company
+        }
+    }
+
+	current_value = {
+		value = root.var:us_steel_corp_timer_var
+	}
+
+	goal_add_value = {
+		add = more_unique_companies_journal_entry_months
+	}
+
+	progressbar = yes
+
+    weight = 1000
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}

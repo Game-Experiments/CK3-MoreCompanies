@@ -1,0 +1,2733 @@
+﻿##############################VANILLA##############################
+
+# Société Mokta El Hadid
+TRY_REPLACE:company_societe_mokta_el_hadid = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/france_société_mokta_el_hadid.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_CONSTANTINE }
+
+	building_types = {
+		building_iron_mine
+		building_sulfur_mine
+	}
+
+	extension_building_types = {
+		building_lead_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_north_africa
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_CONSTANTINE
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = bessemer_process
+		any_scope_state = {
+			state_region = s:STATE_CONSTANTINE
+			any_scope_building = {
+				is_building_type = building_iron_mine
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_non_homeland_colony_growth_speed_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = bessemer_process
+		any_scope_state = {
+			state_region = s:STATE_CONSTANTINE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_iron_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CONSTANTINE
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Schneider et Cie
+TRY_REPLACE:company_schneider_creusot = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/france_schneider_et_cie.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_BURGUNDY }
+
+	building_types = {
+		building_steel_mill
+		building_artillery_foundry
+		building_motor_industry
+	}
+
+	extension_building_types = {
+		building_automotive_industry
+		building_shipyard
+	}
+
+	possible_prestige_goods = {
+		prestige_good_schneider_guns
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BURGUNDY
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = steelworking
+		any_scope_state = {
+			state_region = s:STATE_BURGUNDY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_steel_mill
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		unit_morale_loss_mult = -0.1
+		unit_morale_recovery_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = steelworking
+		any_scope_state = {
+			state_region = s:STATE_BURGUNDY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_steel_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BURGUNDY
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Dollfus-Mieg et Compagnie
+TRY_REPLACE:company_dmc = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/france_dmc.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_BURGUNDY }
+
+	building_types = {
+		building_textile_mill
+		building_coal_mine
+	}
+
+	extension_building_types = {
+		building_dye_plantation
+		building_cotton_plantation
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_clothes
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_clothes_complete_tt
+			has_variable = prestige_good_generic_clothes_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BURGUNDY
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BURGUNDY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 5
+			}
+		}
+		has_technology_researched = cotton_gin
+	}
+
+	prosperity_modifier = {
+		state_assimilation_mult = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_BURGUNDY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BURGUNDY
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+# Confédération générale des vignerons
+TRY_REPLACE:company_cgv = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/france_cgv.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rice.dds"
+
+	category = shopkeeper_owned
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_CHAMPAGNE }
+
+	building_types = {
+		building_vineyard
+	}
+
+	extension_building_types = {
+		building_food_industry
+	}
+
+	possible_prestige_goods = {
+		prestige_good_champagne
+	}
+
+	potential = {
+		OR = {
+			country_has_primary_culture = cu:french
+			country_has_primary_culture = cu:occitan
+		}
+	}
+
+	possible = {
+		has_technology_researched = joint_stock_companies
+		any_scope_state = {
+			state_region = s:STATE_CHAMPAGNE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_vineyard
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_prestige_mult = 0.15
+		building_vineyard_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = joint_stock_companies
+		any_scope_state = {
+			state_region = s:STATE_CHAMPAGNE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_vineyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_CHAMPAGNE
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+
+# Manufacture d'armes de Saint-Étienne
+TRY_REPLACE:company_saint_etienne = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/france_saint_etienne.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_RHONE }
+
+	building_types = {
+		building_arms_industry
+		building_artillery_foundry
+		building_munition_plant
+	}
+
+	extension_building_types = {
+		building_explosives_factory
+	}
+
+	possible_prestige_goods = {
+		prestige_good_saint_etienne_rifles
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_RHONE
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = bolt_action_rifles
+		any_scope_state = {
+			state_region = s:STATE_RHONE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_arms_industry
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		unit_offense_mult = 0.05
+		unit_defense_mult = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = bolt_action_rifles
+		any_scope_state = {
+			state_region = s:STATE_RHONE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_arms_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_RHONE
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Société Nouvelle des Forges et Chantiers de la Méditerranée
+TRY_REPLACE:company_fcm = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/france_forges_et_chantiers_de_la_méditerranée.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_PROVENCE }
+
+	building_types = {
+		building_shipyard
+		building_automotive_industry # Produced the Char 2C
+	}
+
+	extension_building_types = {
+		building_steel_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_PROVENCE
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = ironclad_tech
+		any_scope_state = {
+			state_region = s:STATE_PROVENCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		ship_hull_damage_mult = 0.025
+		unit_combat_unit_type_heavy_tank_offense_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = ironclad_tech
+		any_scope_state = {
+			state_region = s:STATE_PROVENCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_PROVENCE
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Compagnie des mines d'Anzin
+TRY_REPLACE:company_mines_anzin = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/france_compagnie_des_mines_danzin.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_FRENCH_LOW_COUNTRIES }
+
+	building_types = {
+		building_coal_mine
+	}
+
+	extension_building_types = {
+		building_iron_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_FRENCH_LOW_COUNTRIES
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_FRENCH_LOW_COUNTRIES
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_coal_mine
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_steel_mill_throughput_add = 0.05
+		building_railway_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_FRENCH_LOW_COUNTRIES
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_coal_mine = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_FRENCH_LOW_COUNTRIES
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################DLC-MP1##############################
+
+# Maison Worth
+TRY_REPLACE:company_maison_worth = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_maison_worth.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	category = shopkeeper_owned
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+
+	building_types = {
+		building_textile_mill
+	}
+
+	extension_building_types = {
+		building_cotton_plantation
+		building_art_academy
+	}
+
+	possible_prestige_goods = {
+		prestige_good_haute_couture
+	}
+
+	potential = {
+		has_dlc_feature = mp1_content
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			s:STATE_ILE_DE_FRANCE = {
+				any_scope_state = {
+					owner = root
+				}
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_influence_mult = 0.05
+		country_leverage_generation_mult = 0.05
+		state_assimilation_mult = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+company_CompagnieFraissinet = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/fraissinet.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_FRENCH_LOW_COUNTRIES }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_merchant_marine
+	}
+	
+	building_types = {  #23
+		building_shipyard
+		building_port
+	}
+	
+	extension_building_types = {
+		building_logging_camp
+		building_paper_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_PROVENCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_PROVENCE
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_port
+					is_building_type = building_shipyard
+				}
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_migration_pull_mult = 0.1 #14
+		state_trade_advantage_mult = 0.14 #9
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_PROVENCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_PROVENCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_HermesFreres = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/hermes.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_FRENCH_LOW_COUNTRIES }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_haute_couture
+	}
+
+	building_types = {  #22
+		building_furniture_manufactory
+		building_textile_mill
+	}
+	
+	extension_building_types = {
+		building_chemical_plant
+		building_livestock_ranch
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_furniture_manufactory
+					is_building_type = building_textile_mill
+				}
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_prestige_mult = 0.2 #20
+		state_trade_advantage_mult = 0.03 #2
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_SocieteJF = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/jfcail.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_FRENCH_LOW_COUNTRIES }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_steel
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_steel_complete_tt
+			has_variable = prestige_good_generic_steel_var
+		}
+	}
+	
+	building_types = {  #12
+		building_sugar_plantation
+		building_railway
+		building_steel_mill
+	}
+	
+	extension_building_types = {
+		building_wheat_farm
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_railway
+					is_building_type = building_steel_mill
+				}
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_infrastructure_from_population_add = 1 #2
+		state_infrastructure_from_population_max_add = 15 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_steel_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_LouisVuitton = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/lv.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_FRENCH_LOW_COUNTRIES }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_haute_couture
+	}
+
+	building_types = {  #26
+		building_textile_mill
+	}
+	
+	extension_building_types = {
+		building_furniture_manufactory
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_migration_pull_mult = 0.06 #8
+		country_prestige_mult = 0.10 #10
+		building_silk_plantation_throughput_add = 0.06 #8
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Peugeot
+company_Peugeot = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/peugeot.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	category = aristocrat_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = {  #8
+		building_steel_mill
+		building_tooling_workshop
+		building_textile_mill
+	}
+	
+	extension_building_types = {
+		building_automotive_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_steel_mill
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		military_formation_army_movement_speed_mult = 0.04 #4
+		goods_output_automobiles_mult = 0.05 #4
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_steel_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Bonduelle
+company_Bonduelle = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bonduelle.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_grain
+	}
+
+	building_types = {  #25
+		building_wheat_farm
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_rye_farm
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_wheat_farm
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_birth_rate_mult = 0.05 #20
+		state_loyalists_from_political_movements_mult = 0.03 #4
+		state_lower_strata_expected_sol_add = -0.1
+		state_middle_strata_expected_sol_add = -0.2
+		state_upper_strata_expected_sol_add = -0.3
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_wheat_farm = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Établissements Jules Bel
+company_EJB = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bel.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BURGUNDY }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+
+	building_types = {  #25
+		building_food_industry
+		building_livestock_ranch
+	}
+	
+	extension_building_types = {
+		building_wheat_farm
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BURGUNDY
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_BURGUNDY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.12 #16
+		state_lower_strata_expected_sol_add = -0.4
+		state_middle_strata_expected_sol_add = -0.8
+		state_upper_strata_expected_sol_add = -1.2
+		country_prestige_mult = 0.1 #10
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_BURGUNDY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BURGUNDY
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Thomson-CSF
+company_ThomsonCSF = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/telegraphie.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	building_types = {  #24
+		building_electrics_industry
+	}
+	
+	extension_building_types = {
+		building_arms_industry
+		building_artillery_foundry
+		building_lead_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_electrics_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = electrical_capacitors
+		has_technology_researched = mutual_funds
+	}
+	
+	prosperity_modifier = {
+		unit_supply_consumption_mult = -0.05 #14
+		unit_army_defense_mult = 0.05 #10
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = electrical_capacitors
+		has_technology_researched = mutual_funds
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_electrics_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+# Montagut
+company_Montagut = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/montagut.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_RHONE }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_haute_couture
+	}
+
+	building_types = {  #20
+		building_silk_plantation
+		building_textile_mill
+	}
+	
+	extension_building_types = {
+		building_furniture_manufactory
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_southern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_RHONE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_RHONE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_silk_plantation
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult = -0.08 #10
+		state_lower_strata_expected_sol_add = -0.25
+		state_middle_strata_expected_sol_add = -0.5
+		state_upper_strata_expected_sol_add = -0.75
+		interest_group_ig_petty_bourgeoisie_pop_attraction_mult = 0.2 #10
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_RHONE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_silk_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_RHONE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Naval Group
+company_NavalGroup = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/direction.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	category = bureaucrat_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = {  #17
+		building_shipyard
+		building_motor_industry
+	}
+	
+	extension_building_types = {
+		building_artillery_foundry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_construction_sector
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		ship_armor_mult = 0.025 #10
+		country_max_weekly_construction_progress_add = 5 #6
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Saint-Gobain
+company_SaintGobain = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/saintgobain.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = {  #18
+		building_glassworks
+		building_textile_mill
+	}
+	
+	extension_building_types = {
+		building_coal_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_prestige_mult = 0.06 #6
+		interest_group_ig_landowners_approval_add = 2 #8
+		building_silk_plantation_throughput_add = 0.03 #4
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Baccarat
+company_Baccarat = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/baccarat.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LORRAINE }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = {  #22
+		building_glassworks
+	}
+	
+	extension_building_types = {
+		building_furniture_manufactory
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LORRAINE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_LORRAINE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_prestige_mult = 0.1 #10
+		country_ship_group_supply_ships_construction_efficiency_add = 0.06 #4
+		building_group_bg_logging_throughput_add = 0.06 #8
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_LORRAINE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LORRAINE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Société Générale d’Entreprises S.A.
+company_Vinci = {
+	icon = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_steel
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_steel_complete_tt
+			has_variable = prestige_good_generic_steel_var
+		}
+	}
+	
+	building_types = {  #24
+		building_steel_mill
+	}
+	
+	extension_building_types = {
+		building_furniture_manufactory
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_construction_sector
+				level >= 3
+			}
+		}
+		has_technology_researched = steel_frame_buildings
+	}
+	
+	prosperity_modifier = {
+		state_construction_mult = 0.05 #20
+		building_power_plant_throughput_add = 0.03 #4
+		
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = steel_frame_buildings
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_steel_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Pernod
+company_Pernord_Ricard = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/pernod.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_FRANCHE_COMTE }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+	
+	building_types = {  #24
+		building_food_industry
+		building_wheat_farm
+	}
+	
+	extension_building_types = {
+		building_sugar_plantation
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_FRANCHE_COMTE
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_FRANCHE_COMTE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_prestige_mult = 0.04 #4
+		state_radicals_from_political_movements_mult = -0.15 #20
+		state_lower_strata_expected_sol_add = -0.5
+		state_middle_strata_expected_sol_add = -1
+		state_upper_strata_expected_sol_add = -1.5
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_FRANCHE_COMTE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_FRANCHE_COMTE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Bouasse-Lebel
+company_Bouasse_Lebel = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bouasse.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	category = academic_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_religious_icons
+	}
+
+	building_types = {  #24
+		building_paper_mill 
+		building_art_academy
+	}
+	
+	extension_building_types = {
+		building_dye_plantation
+		building_furniture_manufactory
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+		OR = {
+			country_has_state_religion = rel:catholic
+			country_has_state_religion = rel:protestant
+		}
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}		
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_conversion_mult = 0.15 #10
+		country_state_religion_wages_mult = 0.09 #6
+		interest_group_ig_devout_approval_add = 2 #8
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_bank_of_france = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bankefrance.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	category = aristocrat_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {  
+		building_paper_mill
+		building_artillery_foundry
+		building_gold_mine
+	}
+	
+	extension_building_types = {	
+		building_steel_mill
+		building_munition_plant
+		building_railway
+		building_textile_mill
+	}
+
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}		
+		}
+	}		
+
+	possible = { 
+		any_scope_state = {
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 15
+			}
+		}
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = { 
+		country_minting_mult = 0.025
+		building_cash_reserves_mult = 0.1
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.015
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.065
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.05
+		country_government_dividends_efficiency_add = 0.05
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+	    unique_companies_has_bank = no
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+company_Bank_Credit_Lyonnais = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/creditlyo.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_RHONE }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {  
+		building_paper_mill
+		building_trade_center
+		building_railway
+	}
+	
+	extension_building_types = {	
+		building_textile_mill
+		building_shipyard
+		building_dye_plantation
+		building_cotton_plantation
+	}
+	
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_southern_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_RHONE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_RHONE
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 15
+			}
+		}
+		has_technology_researched = investment_banks
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = { 
+		country_influence_mult = 0.05
+		state_non_homeland_colony_growth_speed_mult = 0.1
+		
+		country_minting_mult = 0.025
+		country_loan_interest_rate_mult = -0.025
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.015
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.04
+		state_capitalists_investment_pool_contribution_add = 0.07 #<--
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.05
+		country_government_dividends_efficiency_add = 0.05
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+	    unique_companies_has_bank = no
+		has_technology_researched = investment_banks
+		any_scope_state = {
+			state_region = s:STATE_RHONE
+			is_incorporated = yes
+		}
+	}
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_RHONE
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+company_Renault = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/renault.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	possible_prestige_goods = {
+		prestige_good_renault_tanks
+	}
+
+	building_types = {  #20
+		building_motor_industry
+		building_munition_plant
+		building_automotive_industry
+	}
+	
+	extension_building_types = {
+		building_steel_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_motor_industry
+				level >= 5
+			}
+		}
+		has_technology_researched = combustion_engine
+	}
+	
+	prosperity_modifier = {
+		unit_supply_consumption_mult = -0.03 #10
+		goods_output_automobiles_mult = 0.07 #5
+		goods_output_tanks_mult = 0.10 #5
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = combustion_engine
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_Panhard = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/panhard.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	building_types = {  #20
+		building_motor_industry
+		building_munition_plant
+		building_automotive_industry
+	}
+	
+	extension_building_types = {
+		building_steel_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_motor_industry
+				level >= 5
+			}
+		}
+		has_technology_researched = combustion_engine
+	}
+	
+	prosperity_modifier = {
+		unit_army_defense_mult = 0.03 #6
+		goods_output_automobiles_mult = 0.13 #10
+		goods_output_tanks_mult = 0.08 #4
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = combustion_engine
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_Duveen_Brothers = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/duveen.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_glass_jars
+		prestige_good_generic_religious_icons
+		prestige_good_english_upholstery
+	}
+
+	building_types = {  #27
+		building_trade_center
+		building_port
+	}
+	
+	extension_building_types = {
+		building_shipyard
+		building_glassworks
+		building_furniture_manufactory
+		building_art_academy
+	}
+
+	potential = {
+		OR = {
+			has_interest_marker_in_region = sr:region_western_europe
+			has_interest_marker_in_region = sr:region_atlantic_coast
+		}
+	}
+		
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+			    OR = {
+				   region = sr:region_western_europe
+				   region = sr:region_atlantic_coast
+			    }
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			OR = {
+				region = sr:region_western_europe
+				region = sr:region_atlantic_coast
+			}
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_art_academy
+					is_building_type = building_furniture_manufactory
+					is_building_type = building_textile_mill
+					is_building_type = building_glassworks
+				}
+				level >= 3
+			}
+			count >=5
+		}
+		has_technology_researched = civilizing_mission
+		has_technology_researched = gantry_cranes
+	}
+	
+	prosperity_modifier = {
+		state_trade_advantage_mult = 0.14 #9
+		building_group_bg_light_industry_throughput_add = 0.05 #18
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = civilizing_mission
+		has_technology_researched = gantry_cranes
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_trade_center = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Bugatti
+company_Bugatti = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/bugatti.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ALSACE_LORRAINE }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = {  #22
+		building_motor_industry
+		building_automotive_industry
+	}
+	
+	extension_building_types = {
+		building_railway
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ALSACE_LORRAINE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ALSACE_LORRAINE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_motor_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = combustion_engine
+	}
+	
+	prosperity_modifier = {
+		building_urban_center_throughput_add = 0.06 #8
+		country_prestige_mult = 0.04 #4
+		goods_output_automobiles_mult = 0.13 #10
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = combustion_engine
+		any_scope_state = {
+			state_region = s:STATE_ALSACE_LORRAINE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ALSACE_LORRAINE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# CITROËN
+company_Citroen = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/citroen.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = {  #18
+		building_automotive_industry
+		building_munition_plant
+		building_tooling_workshop
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 5
+			}
+		}
+		has_technology_researched = combustion_engine
+	}
+	
+	prosperity_modifier = {
+		country_society_tech_spread_mult = 0.08 #8
+		goods_output_automobiles_mult = 0.13 #10
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = combustion_engine
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# COMPAGNIE GÉNÉRALE DES ÉTABLISSEMENTS MICHELIN
+company_Michelin = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/michelin.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_AUVERGNE_LIMOUSIN }
+	
+	possible_prestige_goods = {
+		prestige_good_michelin_rubber
+	}
+	
+	building_types = { #28
+		building_rubber_plantation
+	}
+	
+	extension_building_types = {
+		building_automotive_industry
+		building_motor_industry
+		building_synthetics_plant
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_AUVERGNE_LIMOUSIN
+			}
+		}
+	}			
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_AUVERGNE_LIMOUSIN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_motor_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = combustion_engine
+	}
+	
+	prosperity_modifier = {
+		goods_output_automobiles_mult = 0.10 #8
+		building_food_industry_throughput_add = 0.12 #12
+		building_urban_center_throughput_add = 0.06 #8
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = combustion_engine
+		any_scope_state = {
+			state_region = s:STATE_AUVERGNE_LIMOUSIN
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_AUVERGNE_LIMOUSIN
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Société anonyme des Hauts-Fourneaux et Fonderies de Pont-à-Mousson
+company_Hauts_fourneaux = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/hauts_fourneaux.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LORRAINE }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_steel
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_steel_complete_tt
+			has_variable = prestige_good_generic_steel_var
+		}
+	}
+	
+	building_types = {  #8
+		building_steel_mill
+		building_iron_mine
+		building_coal_mine
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LORRAINE
+			}
+		}
+	}			
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_LORRAINE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_steel_mill
+				level >= 3
+			}
+		}
+		has_technology_researched = open_hearth_process
+	}
+	
+	prosperity_modifier = {
+		state_infrastructure_mult = 0.04 #8
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = open_hearth_process
+		any_scope_state = {
+			state_region = s:STATE_LORRAINE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_steel_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LORRAINE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Compagnie Française de Pétrole
+company_French_Petrol = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/french_petrol.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	category = bureaucrat_owned
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	possible_prestige_goods = {
+		prestige_good_arabian_oil
+	}
+
+	building_types = {  #26
+		building_oil_rig
+	}
+	
+	extension_building_types = {
+		building_chemical_plant
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+		}
+		
+	}			
+	
+	possible = { 
+		any_scope_state = {
+			region = sr:region_arabia
+			any_scope_building = {
+				is_building_type = building_oil_rig
+				level >= 3
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+		has_technology_researched = pumpjacks
+		has_technology_researched = corporate_management
+	}
+	
+	prosperity_modifier = {
+		state_capitalists_investment_pool_contribution_add = 0.05 #10
+		country_influence_mult = 0.24 #16
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = pumpjacks
+		has_technology_researched = corporate_management
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+		any_scope_state = {
+			region = sr:region_arabia
+		}
+	}
+
+	ai_construction_targets = {
+		building_oil_rig = {
+			level = 5
+			state_trigger = {
+				region = sr:region_arabia
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+
+# Lalique
+company_lalique = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/lalique.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_glass_jars
+	}
+	
+	building_types = {  #22
+		building_glassworks
+		building_furniture_manufactory
+	}
+	
+	extension_building_types = {
+		building_art_academy
+		building_lead_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}			
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 3
+			}
+		}
+		has_technology_researched = corporatism
+		has_technology_researched = rotary_valve_engine
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_petty_bourgeoisie_approval_add = 2 #8
+		country_prestige_mult = 0.08 #8
+		building_chemical_plant_throughput_add = 0.06 #6 perfume bottles
+	}	
+	
+
+	
+	ai_will_do = {
+		has_technology_researched = corporatism
+		has_technology_researched = rotary_valve_engine
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Maison Jansen Co.
+company_maison_jansen = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/maisonjansen.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	category = academic_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_furniture
+	}
+	
+	building_types = {  #26
+		building_furniture_manufactory
+		building_art_academy
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+		building_glassworks
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}			
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_furniture_manufactory
+				level >= 3
+			}
+		}
+		has_technology_researched = civilizing_mission
+		has_technology_researched = mechanized_workshops
+	}
+	
+	prosperity_modifier = {
+		interest_group_in_government_approval_add = 2 #12
+		country_prestige_mult = 0.08 #8
+		country_influence_mult = 0.09 #6
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = civilizing_mission
+		has_technology_researched = mechanized_workshops
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_furniture_manufactory = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Oberkampf Manufactury
+company_Oberkampf = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/oberkampf.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_ILE_DE_FRANCE }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_toile
+	}
+	
+	building_types = {  #24
+		building_cotton_plantation
+	}
+	
+	extension_building_types = {
+		building_livestock_ranch
+		building_textile_mill
+		building_dye_plantation
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_western_europe
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}			
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_furniture_manufactory
+				level >= 3
+			}
+		}
+		has_technology_researched = cotton_gin
+	}
+	
+	prosperity_modifier = {
+		country_prestige_mult = 0.1 #10
+		interest_group_ig_landowners_approval_add = 1 #4
+		building_textile_mill_throughput_add = 0.11 #10
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_ILE_DE_FRANCE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_ILE_DE_FRANCE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

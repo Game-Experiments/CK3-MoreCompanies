@@ -1,0 +1,629 @@
+﻿##############################VANILLA##############################
+
+# Misr Spinning and Weaving Company
+TRY_REPLACE:company_misr = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/misr.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_LOWER_EGYPT }
+
+	building_types = {
+		building_textile_mill
+		building_cotton_plantation
+	}
+
+	extension_building_types = {
+		building_silk_plantation
+	}
+
+	possible_prestige_goods = {
+		prestige_good_mit_afifi
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_nile_basin
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LOWER_EGYPT
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_LOWER_EGYPT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_LOWER_EGYPT
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LOWER_EGYPT
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Egyptian National Railways
+TRY_REPLACE:company_egyptian_rail = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/egyptian_rail.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	building_types = {
+		building_railway
+	}
+
+	extension_building_types = {
+		building_motor_industry
+	}
+
+	potential = {
+		country_has_primary_culture = cu:misri
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			is_in_geographic_region = geographic_region_nile_basin
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 5
+			}
+			count >= 2
+		}
+	}
+
+	prosperity_modifier = {
+		state_infrastructure_from_population_max_add = 20
+		state_trade_capacity_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			is_in_geographic_region = geographic_region_nile_basin
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_railway = {
+			level = 5
+			state_trigger = {
+				is_in_geographic_region = geographic_region_nile_basin
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Suez Canal Company
+TRY_REPLACE:company_suez_company = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/suez_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_SINAI }
+
+	building_types = {
+		building_trade_center
+		building_port
+	}
+
+	extension_building_types = {
+		building_shipyard
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_merchant_marine
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_merchant_marine_complete_tt
+			has_variable = prestige_good_generic_merchant_marine_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_nile_basin
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_SINAI
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_SINAI
+			any_scope_building = {
+				is_building_type = building_suez_canal
+				occupancy >= 0.5
+			}
+		}
+		any_scope_state = {
+			any_scope_building = {
+				OR = {
+					is_building_type = building_trade_center
+					is_building_type = building_port
+				}
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_trade_advantage_mult = 0.25
+		country_tax_income_add = 50000
+		country_free_charters_add = 1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_SINAI
+			any_scope_building = {
+				is_building_type = building_suez_canal
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_trade_center = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_SINAI
+			}
+		}
+		building_port = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_SINAI
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+######################Sphere of Influence#########################
+
+# MM. Nicolas Portalis et Cie.
+TRY_REPLACE:company_nicolas_portalis = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/historical_mm_nicolas_portalis_et_cie.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_LEBANON }
+
+	building_types = {
+		building_silk_plantation
+	}
+
+	extension_building_types = {
+		building_cotton_plantation
+	}
+
+	potential = {
+		has_dlc_feature = ep1_content
+		has_interest_marker_in_region = sr:region_arabia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LEBANON
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_LEBANON
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_silk_plantation
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_prestige_mult = 0.1
+		state_radicalism_increases_violent_hostility_mult = -0.05
+		state_radicalism_increases_cultural_erasure_mult = -0.05
+		state_radicalism_increases_open_prejudice_mult = -0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_LEBANON
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_silk_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LEBANON
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+# Royal Chocolate Works of Egypt
+company_RCWoE = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/rcwe.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LOWER_EGYPT }
+	
+	category = aristocrat_owned
+
+	possible_prestige_goods = {
+		prestige_good_generic_sweets
+	}
+
+	
+	building_types = { #26
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_sugar_plantation
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_nile_basin
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LOWER_EGYPT
+			}	
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_LOWER_EGYPT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = corporate_charters
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.11 #14
+		state_lower_strata_expected_sol_add = -0.35
+		state_middle_strata_expected_sol_add = -0.7
+		state_upper_strata_expected_sol_add = -1.05
+		interest_group_ig_landowners_approval_add = 3 #12
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_LOWER_EGYPT
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LOWER_EGYPT
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Banque Misr
+company_EgyptianBank = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/banquemisr.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LOWER_EGYPT }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {
+		building_paper_mill
+		building_automotive_industry
+		building_textile_mill
+	}
+	
+	extension_building_types = {		
+		building_sugar_plantation
+		building_arms_industry
+		building_cotton_plantation
+		building_steel_mill
+	}
+
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_nile_basin	
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LOWER_EGYPT
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_LOWER_EGYPT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 20
+			}
+		}
+		has_technology_researched = investment_banks
+		has_technology_researched = nationalism
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = {
+	    country_influence_mult = 0.15
+		
+		country_minting_mult = 0.025
+		country_loan_interest_rate_mult = -0.025
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.02  
+		state_shopkeepers_investment_pool_contribution_add = 0.03
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.05 
+		state_capitalists_investment_pool_contribution_add = 0.07 
+		
+		building_nationalization_investment_return_add = 0.05 
+		country_government_dividends_reinvestment_add = 0.05 
+		country_government_dividends_efficiency_add = 0.05 
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+	    unique_companies_has_bank = no
+		has_technology_researched = investment_banks
+		has_technology_researched = nationalism
+		any_scope_state = {
+			state_region = s:STATE_LOWER_EGYPT
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LOWER_EGYPT
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+# Barid el-Maṣri / Egypt Post
+company_EgyptPost = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/egyptpost.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LOWER_EGYPT }
+	
+	category = bureaucrat_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_paper
+	}
+
+	building_types = { #26
+		building_paper_mill
+	}
+	
+	extension_building_types = {
+		building_railway
+		building_port
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_nile_basin
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LOWER_EGYPT
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_LOWER_EGYPT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 5
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_authority_mult = 0.1 #10
+		state_assimilation_mult = 0.20 #10
+		state_infrastructure_from_population_mult = 0.04 #6
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_LOWER_EGYPT
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_urban_center = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LOWER_EGYPT
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Eastern Telephone Company
+company_TelecomEgypt = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/telecomegypt.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LOWER_EGYPT }
+	
+	category = bureaucrat_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	building_types = {  #28
+		building_electrics_industry
+	}
+	
+	extension_building_types = {
+		building_lead_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_nile_basin
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LOWER_EGYPT		
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_LOWER_EGYPT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_electrics_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = electric_telegraph
+	}
+	
+	prosperity_modifier = {
+		country_influence_mult = 0.15 #10
+		interest_group_ig_armed_forces_pop_attraction_mult = 0.24 #12
+		interest_group_ig_armed_forces_approval_add = -3 #+6
+		interest_group_ig_landowners_approval_add = 3 #12
+	}	
+	
+
+	ai_will_do = {
+		has_technology_researched = electric_telegraph
+		any_scope_state = {
+			state_region = s:STATE_LOWER_EGYPT
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_electrics_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LOWER_EGYPT
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+

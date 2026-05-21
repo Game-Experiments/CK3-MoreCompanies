@@ -1,0 +1,469 @@
+﻿##############################MODDED##############################
+
+# Société congolaise des postes et télécommunications
+company_CongoPost = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/congopost.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BAS_CONGO }
+	
+	category = bureaucrat_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = {  #20
+		building_paper_mill
+		building_electrics_industry
+	}
+	
+	extension_building_types = {
+		building_furniture_manufactory
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_equatorial_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BAS_CONGO
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BAS_CONGO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_paper_mill
+				level >= 3
+			}
+		}
+		has_technology_researched = chemical_bleaching
+	}
+	
+	prosperity_modifier = {
+		country_bureaucracy_mult = 0.15 #20
+	}
+
+
+	ai_will_do = {
+	    has_technology_researched = chemical_bleaching
+		any_scope_state = {
+			state_region = s:STATE_BAS_CONGO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BAS_CONGO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Société nationale des chemins de fer du Congo
+company_CongoRailway = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/congorailway.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BAS_CONGO }
+	
+	category = bureaucrat_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = {  #23
+		building_railway
+		building_port
+	}
+	
+	extension_building_types = {
+		building_shipyard
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_equatorial_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BAS_CONGO
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BAS_CONGO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		military_formation_army_movement_speed_mult = 0.1 #10
+		state_infrastructure_mult = 0.06 #12
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_BAS_CONGO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_railway = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BAS_CONGO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Union Minière du Haut-Katanga
+company_KatangaMines = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/katangamines.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KATANGA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_copper
+	}
+	
+	building_types = { #18
+		building_gold_mine
+		building_lead_mine
+	}
+	
+	extension_building_types = {
+		building_steel_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_equatorial_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KATANGA
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_KATANGA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		country_private_construction_allocation_mult = 0.15	#14
+		country_resource_discovery_chance_mult = 0.08 #4
+ 		state_radicals_from_political_movements_mult = 0.3 #+20 
+		state_lower_strata_expected_sol_add = 1
+		state_middle_strata_expected_sol_add = 2
+		state_upper_strata_expected_sol_add = 3
+		building_gold_mine_throughput_add = 0.12 #20
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KATANGA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_urban_center = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KATANGA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Banque du Congo Belge
+company_CongoBank = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/congobank.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BAS_CONGO }
+	
+	category = aristocrat_owned
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {  
+		building_paper_mill
+		building_gold_mine
+		building_cotton_plantation
+	}
+	
+	extension_building_types = {		
+		building_lead_mine
+		building_dye_plantation
+		building_coffee_plantation
+		building_sugar_plantation
+	}
+
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_equatorial_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BAS_CONGO
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BAS_CONGO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 20
+			}
+		}
+		has_technology_researched = investment_banks
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = {		
+		country_institution_colonial_affairs_max_investment_add = 1
+		
+        country_private_construction_allocation_mult = 0.1		
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.015 
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.05
+		state_capitalists_investment_pool_contribution_add = 0.065 
+		
+		building_nationalization_investment_return_add = 0.05
+		country_government_dividends_reinvestment_add = 0.05
+		country_government_dividends_efficiency_add = 0.05
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+	    unique_companies_has_bank = no
+	    has_technology_researched = investment_banks
+		any_scope_state = {
+			state_region = s:STATE_BAS_CONGO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BAS_CONGO
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+# Feronia
+company_Feronia = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/feronia.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BAS_CONGO }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	building_types = {  #22
+		building_millet_farm
+		building_logging_camp
+		building_banana_plantation
+	}
+	
+	extension_building_types = {
+		building_sugar_plantation
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_equatorial_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BAS_CONGO
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BAS_CONGO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_millet_farm
+				level >= 3
+			}
+		}
+		has_technology_researched = pneumatic_tools
+	}
+	
+	prosperity_modifier = {
+		building_food_industry_throughput_add = 0.18 #20
+		state_colony_growth_speed_mult = 0.02 #2
+	}
+
+
+	ai_will_do = {
+	    has_technology_researched = pneumatic_tools
+		any_scope_state = {
+			state_region = s:STATE_BAS_CONGO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_millet_farm = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BAS_CONGO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Société Textile Africaine
+company_TEXAF = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/texaf.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BAS_CONGO }
+
+	possible_prestige_goods = {
+		prestige_good_generic_clothes
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_clothes_complete_tt
+			has_variable = prestige_good_generic_clothes_var
+		}
+	}
+	
+	building_types = {  #24
+		building_textile_mill
+		building_cotton_plantation
+	}
+	extension_building_types = {
+		building_power_plant
+		building_shipyard
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_equatorial_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BAS_CONGO
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_BAS_CONGO
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 3
+			}
+		}
+		has_technology_researched = electrical_capacitors
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.15 #20
+		state_lower_strata_expected_sol_add = -0.5
+		state_middle_strata_expected_sol_add = -1
+		state_upper_strata_expected_sol_add = -1.5
+		building_textile_mill_throughput_add = 0.06 #4
+	}
+
+
+	ai_will_do = {
+	    has_technology_researched = electrical_capacitors
+		any_scope_state = {
+			state_region = s:STATE_BAS_CONGO
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BAS_CONGO
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}

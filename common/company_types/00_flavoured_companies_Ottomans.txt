@@ -1,0 +1,1369 @@
+﻿##############################VANILLA##############################
+
+# Imperial Arsenal
+TRY_REPLACE:company_imperial_arsenal = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/imperial_arsenal.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+
+	building_types = {
+		building_shipyard
+		building_artillery_foundry
+	}
+
+	extension_building_types = {
+		building_steel_mill
+		building_explosives_factory
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_balkans
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = hydraulic_cranes
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		ship_armor_mult = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = hydraulic_cranes
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Ottoman Tobacco Company, later Tekel
+TRY_REPLACE:company_ottoman_tobacco_regie = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/ottoman_tobacco_regie.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	flavored_company = yes
+
+	building_types = {
+		building_tobacco_plantation
+	}
+
+	extension_building_types = {
+		building_opium_plantation
+	}
+
+	possible_prestige_goods = {
+		prestige_good_turkish_tobacco
+	}
+
+	potential = {
+		country_has_primary_culture = cu:turkish
+	}
+
+	possible = {
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 5
+			}
+			count >= 4
+		}
+	}
+
+	prosperity_modifier = {
+		country_production_tech_spread_mult = 0.1
+	}
+
+	ai_will_do = {
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+		any_scope_state = {
+			is_incorporated = yes
+			has_potential_resource = building_tobacco_plantation
+			count >= 4
+		}
+	}
+
+	ai_construction_targets = {
+		building_tobacco_plantation = {
+			level = 5
+			state_trigger = {
+				has_potential_resource = building_tobacco_plantation
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Allatini Mills
+TRY_REPLACE:company_allatini_mills = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/allatini_mills.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_rye.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_MACEDONIA }
+
+	building_types = {
+		building_wheat_farm
+		building_rye_farm
+	}
+
+	extension_building_types = {
+		building_food_industry
+	}
+
+	possible_prestige_goods = {
+		prestige_good_generic_grain
+	}
+
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_grain_complete_tt
+			has_variable = prestige_good_generic_grain_var
+		}
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_balkans
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_MACEDONIA
+			}
+		}
+	}
+
+	possible = {
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+		any_scope_state = {
+			state_region = s:STATE_MACEDONIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_wheat_farm
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_food_industry_throughput_add = 0.1
+		state_radicalism_increases_violent_hostility_mult = -0.05
+		state_radicalism_increases_cultural_erasure_mult = -0.05
+		state_radicalism_increases_open_prejudice_mult = -0.05
+	}
+
+	ai_will_do = {
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+		any_scope_state = {
+			state_region = s:STATE_MACEDONIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_wheat_farm = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_MACEDONIA
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Chemins de fer Orientaux
+TRY_REPLACE:company_orient_express = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/chemins_de_fer_orientaux.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+
+	category = bureaucrat_owned
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+
+    possible_prestige_goods = {
+		prestige_good_generic_transportation
+	}
+
+	building_types = { #23
+		building_railway
+	}
+
+	extension_building_types = {
+		building_motor_industry
+	}
+
+	potential = {
+		OR = {
+			has_interest_marker_in_region = sr:region_near_east
+			has_interest_marker_in_region = sr:region_balkans
+		}
+	}
+
+	attainable = {
+		owns_entire_state_region = STATE_EASTERN_THRACE
+	}
+
+	possible = {
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+		any_scope_state = {
+			region = sr:region_balkans
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 5
+			}
+			count >= 3
+		}
+	}
+
+	prosperity_modifier = {
+		country_prestige_mult = 0.15 #15
+		country_influence_mult = 0.12 #8
+	}
+
+	ai_will_do = {
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+		any_scope_state = {
+			region = sr:region_balkans
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_railway = {
+			level = 5
+			state_trigger = {
+				region = sr:region_balkans
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+######################Sphere of Influence#########################
+
+# Turkish Petroleum Company
+TRY_REPLACE:company_turkish_petroleum = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/turkish_petroleum_company.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_oil_drills.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_BAGHDAD STATE_BASRA STATE_MOSUL }
+
+	building_types = {
+		building_oil_rig
+	}
+
+	extension_building_types = {
+		building_power_plant
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_arabia
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				OR = {
+					state_region = s:STATE_BAGHDAD
+					state_region = s:STATE_BASRA
+					state_region = s:STATE_MOSUL
+				}
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = pumpjacks
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_BAGHDAD
+				state_region = s:STATE_BASRA
+				state_region = s:STATE_MOSUL
+			}
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_oil_rig
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		state_trade_capacity_mult = 0.05
+		building_railway_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = pumpjacks
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_BAGHDAD
+				state_region = s:STATE_BASRA
+				state_region = s:STATE_MOSUL
+			}
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_oil_rig = {
+			level = 5
+			state_trigger = {
+				OR = {
+					state_region = s:STATE_BAGHDAD
+					state_region = s:STATE_BASRA
+					state_region = s:STATE_MOSUL
+				}
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+################## National Awakening ##################
+
+# Săedineni Tyutyunevi Fabriki AD
+TRY_REPLACE:company_united_tobacco_factories = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_united_tobacco_factories.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	category = aristocrat_owned
+
+	flavored_company = yes
+
+	building_types = {
+		building_tobacco_plantation
+	}
+
+	extension_building_types = {
+		building_opium_plantation
+	}
+
+	possible_prestige_goods = {
+		prestige_good_basma_tobacco
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_balkans
+		has_dlc_feature = ip3_content
+	}
+
+	attainable = {
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = {
+				is_homeland = cu:bulgarian
+			}
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 5
+			}
+			count >= 2
+		}
+		has_technology_researched = corporate_charters
+	}
+
+	prosperity_modifier = {
+		building_trade_center_throughput_add = 0.05
+		interest_group_ig_industrialists_pop_attraction_mult = 0.2
+		interest_group_ig_industrialists_approval_add = 3
+	}
+
+	ai_will_do = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = {
+				is_homeland = cu:bulgarian
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_tobacco_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = {
+					is_homeland = cu:bulgarian
+				}
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+##############################MODDED##############################
+
+company_Kuzguncuk = {
+	icon = "gfx/interface/icons/company_icons/basic_mineral_mining.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	building_types = { #18
+		building_coal_mine
+		building_power_plant
+	}
+	
+	extension_building_types = {
+		building_oil_rig
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_near_east
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_power_plant
+				level >= 5
+			}
+		}
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_landowners_approval_add = 3 #12
+		state_loyalists_from_political_movements_mult = 0.05 #6
+		state_lower_strata_expected_sol_add = -0.15
+		state_middle_strata_expected_sol_add = -0.3
+		state_upper_strata_expected_sol_add = -0.45
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_power_plant = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+company_SarsilmazArms = {
+	icon = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+
+	possible_prestige_goods = {
+		prestige_good_generic_small_arms
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_small_arms_complete_tt
+			has_variable = prestige_good_generic_small_arms_var
+		}
+	}
+	
+	building_types = { #27
+		building_arms_industry
+		building_munition_plant
+	}
+	
+	extension_building_types = {
+		building_artillery_foundry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_near_east
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_arms_industry
+					is_building_type = building_munition_plant
+				}
+				level >= 3
+			}
+		}
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+		has_technology_researched = rifling
+	}
+	
+	prosperity_modifier = {
+		unit_army_offense_mult = 0.08 #16
+		unit_army_defense_mult = 0.05 #10
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = rifling
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_arms_industry = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+		
+		building_munition_plant = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Basak Traktor
+company_BasakTraktor = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/basak.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+	
+
+	possible_prestige_goods = {
+		#prestige_good_generic_tractors
+		prestige_good_generic_compound_engines
+		prestige_good_oerlikon_engines
+	}
+
+	
+	building_types = { #28 
+		building_motor_industry
+	}
+	
+	extension_building_types = {
+		building_automotive_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_near_east
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_motor_industry
+				level >= 5
+			}
+		}
+		has_technology_researched = combustion_engine
+	}
+	
+	prosperity_modifier = {
+		building_group_bg_agriculture_throughput_add = 0.05 #18
+		interest_group_ig_rural_folk_pop_attraction_mult = 0.1 #+5
+		interest_group_ig_rural_folk_approval_add = 3 #12
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = combustion_engine
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_motor_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Istanbul Electric Tramway and Lighting Company
+company_IETT = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/istanbul.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+	
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	
+	building_types = { #21
+		building_power_plant
+		building_railway
+	}
+	
+	extension_building_types = {
+		building_coal_mine
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_near_east
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_railway
+					is_building_type = building_power_plant
+				}
+				level >= 3
+			}
+		}
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+		has_technology_researched = electrical_generation
+	}
+	
+	prosperity_modifier = {
+		building_urban_center_throughput_add = 0.1 #14
+		state_pollution_reduction_health_mult = -0.05 #6
+	}
+
+
+	ai_will_do = {
+		has_technology_researched = electrical_generation
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_railway = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+		
+		building_power_plant = {
+			level = 3
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Osmanlı İmparatorluk Havacılık Şirketi
+company_OIHS = {
+	icon = "gfx/interface/icons/company_icons/basic_metalworks.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_THRACE }	
+
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = { #27
+		building_automotive_industry
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_near_east
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_automotive_industry
+				level >= 3
+			}
+		}
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+	}
+	
+	prosperity_modifier = {
+		building_urban_center_throughput_add = 0.1 #14
+		interest_group_ig_armed_forces_approval_add = 3 #12
+	}
+
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_automotive_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Sarajevska pivara (Bosnia)
+company_Saraj = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/sarajevska.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_BOSNIA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_beer
+	}
+
+	building_types = { #27  
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_livestock_ranch
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_balkans
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_BOSNIA
+			}
+		}
+	}		
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_BOSNIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_radicalism_increases_violent_hostility_mult = -0.24 #16
+		state_radicalism_increases_cultural_erasure_mult = -0.16
+		state_radicalism_increases_open_prejudice_mult = -0.08
+		unit_morale_recovery_mult = 0.05 #10
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_BOSNIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_BOSNIA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Tutunski kombinat Prilep
+company_Tutunski_Prilep = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/tutunski.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_SKOPIA }
+
+	possible_prestige_goods = {
+		prestige_good_turkish_tobacco
+	}
+
+	building_types = { #26
+		building_tobacco_plantation
+	}
+	
+	extension_building_types = {
+		building_tooling_workshop
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_balkans
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_SKOPIA
+			}		
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_SKOPIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.08 #10
+		state_lower_strata_expected_sol_add = -0.25
+		state_middle_strata_expected_sol_add = -0.5
+		state_upper_strata_expected_sol_add = -0.75
+		interest_group_ig_rural_folk_approval_add = 4 #16
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_SKOPIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tobacco_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_SKOPIA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Sursock and Brothers
+company_Sursock = {
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_LEBANON }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_merchant_marine
+	}
+
+	building_types = { #19
+		building_shipyard
+		building_trade_center
+	}
+	
+	extension_building_types = {
+		building_port
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_arabia
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_LEBANON
+			}		
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_LEBANON
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_port
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_petty_bourgeoisie_pop_attraction_mult = 0.20 #10
+		country_ship_group_supply_ships_construction_efficiency_add = 0.15 #10
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_LEBANON
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_port = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_LEBANON
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+#Imperial Ottoman Bank
+company_Bank_BIO = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/ottoman_bank.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+	
+	possible_prestige_goods = {
+		#prestige_good_generic_currency_paper
+	}
+	
+	building_types = {
+		building_paper_mill
+		building_tobacco_plantation
+		building_railway
+	}
+	
+	extension_building_types = {	
+		building_textile_mill
+		building_arms_industry
+		building_cotton_plantation
+		building_iron_mine
+	}
+	
+	potential = {
+		has_game_rule = banks_enabled
+		has_interest_marker_in_region = sr:region_near_east
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}	
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			any_scope_building = {
+				is_building_type = building_financial_district
+				level >= 15
+			}
+		}
+		OR = {
+			NOR = {
+				has_modifier = sick_man_of_europe
+				is_country_type = unrecognized
+				NOT = { has_technology_researched = investment_banks }
+			}
+			AND = {
+				exists = c:GBR
+				c:GBR = { relations:root >= relations_threshold:amicable }
+				has_technology_researched = central_banking
+				has_technology_researched = joint_stock_companies
+			}
+			AND = {
+				exists = c:FRA
+				c:FRA = { relations:root >= relations_threshold:amicable }
+				has_technology_researched = central_banking
+				has_technology_researched = joint_stock_companies
+			}
+		}
+		unique_companies_has_bank = no
+	}
+	
+	prosperity_modifier = {
+		interest_group_ig_intelligentsia_approval_add = 2
+		
+		country_minting_mult = 0.025
+		country_loan_interest_rate_mult = -0.05
+        country_private_construction_allocation_mult = 0.15		
+		
+		state_farmers_investment_pool_contribution_add = 0.015
+		state_shopkeepers_investment_pool_contribution_add = 0.015
+		state_clergymen_investment_pool_contribution_add = 0.04
+		state_aristocrats_investment_pool_contribution_add = 0.04
+		state_capitalists_investment_pool_contribution_add = 0.065
+		
+		building_nationalization_investment_return_add = 0.025 #<--
+		country_government_dividends_reinvestment_add = 0.025 #<--
+		country_government_dividends_efficiency_add = 0.025 #<--
+		
+		country_max_companies_add = 1
+	}
+	
+	ai_will_do = {
+		unique_companies_has_bank = no
+		OR = {
+			NOR = {
+				has_modifier = sick_man_of_europe
+				is_country_type = unrecognized
+				NOT = {has_technology_researched = investment_banks}
+			}
+			AND = {
+				exists = c:GBR
+				c:GBR = { relations:root >= relations_threshold:amicable }
+				has_technology_researched = central_banking
+				has_technology_researched = joint_stock_companies
+			}
+			AND = {
+				exists = c:FRA
+				c:FRA = { relations:root >= relations_threshold:amicable }
+				has_technology_researched = central_banking
+				has_technology_researched = joint_stock_companies
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_paper_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+	ai_weight = {
+		value = 5 # Higher base value for flavored companies
+	}
+}
+
+# Bursa İpek Fabrikası
+company_bursa_silk_company = {
+	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_2.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_HUDAVENDIGAR }
+	
+	possible_prestige_goods = {
+		## 
+	}
+
+	building_types = { #23
+		building_silk_plantation
+		building_trade_center #most of the silk got exported
+	}
+	
+	extension_building_types = {
+		building_textile_mill
+		building_port
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_near_east
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_HUDAVENDIGAR
+			}		
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_HUDAVENDIGAR
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_silk_plantation
+				level >= 3
+			}
+		}
+		NOR = {
+			has_modifier = sick_man_of_europe
+			is_country_type = unrecognized
+		}
+	}
+	
+	prosperity_modifier = {
+		building_silk_plantation_throughput_add = 0.15 #20
+		state_trade_advantage_mult = 0.05 #3
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_HUDAVENDIGAR
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_silk_plantation = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_HUDAVENDIGAR
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Yildiz Tile and Porcelain-Factory
+company_yildiz_porcelain = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/yildiz_porcelain.png" 
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_EASTERN_THRACE }
+
+	building_types = { #26
+		building_glassworks
+	}
+
+	extension_building_types = {
+		building_lead_mine
+		building_dye_plantation
+		building_synthetics_plant
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_near_east
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 5
+			}
+		}
+		has_technology_researched = aniline
+		has_technology_researched = steel_frame_buildings
+	}
+
+	prosperity_modifier = {
+		state_pop_qualifications_mult = 0.08 #10
+		country_loyalists_from_legitimacy_mult = 0.16 #16
+	}
+
+	ai_will_do = {
+		has_technology_researched = aniline
+		has_technology_researched = steel_frame_buildings
+		any_scope_state = {
+			state_region = s:STATE_EASTERN_THRACE
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

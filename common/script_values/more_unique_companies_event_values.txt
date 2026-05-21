@@ -1,0 +1,5 @@
+﻿#JE companies timer 
+
+more_unique_companies_deutsche_reichsbahn_months = 120
+
+more_unique_companies_journal_entry_months = 36

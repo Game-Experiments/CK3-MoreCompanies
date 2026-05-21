@@ -1,0 +1,715 @@
+﻿namespace = more_unique_companies_events_deutsche_reichsbahn
+
+more_unique_companies_events_deutsche_reichsbahn.1 = {
+	type = country_event
+	hidden = yes
+	#merge railways + railway company into Deutsche Reichsbahn
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_company = company_type:company_Wurttemberg_eisenbahn 
+					has_company = company_type:company_Sachsen_eisenbahn
+					has_company = company_type:company_Bayern_eisenbahn
+					has_company = company_type:company_Oldenburg_eisenbahn
+					has_company = company_type:company_Mecklenburg_eisenbahn
+					has_company = company_type:company_Baden_eisenbahn
+					has_company = company_type:company_prussian_state_railways
+					has_company = company_type:company_sueddeutsche_eisenbahn
+				}
+			}
+			save_scope_as = company_owner
+			scope:company_owner = {
+				owning_company ?= {
+					if = {
+						limit = {
+							is_company_type = company_type:company_Wurttemberg_eisenbahn
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_Sachsen_eisenbahn
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_Bayern_eisenbahn
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_Oldenburg_eisenbahn
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_Mecklenburg_eisenbahn
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_Baden_eisenbahn
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_prussian_state_railways
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_sueddeutsche_eisenbahn
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_Wurttemberg_eisenbahn
+					}
+					remove_company = company_type:company_Wurttemberg_eisenbahn
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_Sachsen_eisenbahn
+					}
+					remove_company = company_type:company_Sachsen_eisenbahn
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_Bayern_eisenbahn
+					}
+					remove_company = company_type:company_Bayern_eisenbahn
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_Oldenburg_eisenbahn
+					}
+					remove_company = company_type:company_Oldenburg_eisenbahn
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_Mecklenburg_eisenbahn
+					}
+					remove_company = company_type:company_Mecklenburg_eisenbahn
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_Baden_eisenbahn
+					}
+					remove_company = company_type:company_Baden_eisenbahn
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_prussian_state_railways
+					}
+					remove_company = company_type:company_prussian_state_railways
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_sueddeutsche_eisenbahn
+					}
+					remove_company = company_type:company_sueddeutsche_eisenbahn
+				}
+				add_company = company_type:company_Deutsche_Reichsbahn
+				company:company_Deutsche_Reichsbahn = {
+					set_company_state_region = s:STATE_BRANDENBURG
+				}
+			}
+			every_scope_state = {
+				if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 1
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=1
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 2
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=2
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 3
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=3
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 4
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=4
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 5
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=5
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 6
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=6
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 7
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=7
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 8
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=8
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 9
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=9
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 10
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=10
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 11
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=11
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 12
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=12
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 13
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=13
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 14
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=14
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 15
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=15
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 16
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=16
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 17
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=17
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 18
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=18
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level = 19
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=19
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_railway
+							level >= 20
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+							region = sr:region_eastern_europe
+						}
+					}
+					remove_building = building_railway
+					create_building={
+						building="building_railway"
+						add_ownership={
+							company={
+								type=company_Deutsche_Reichsbahn
+								country=scope:company_owner
+								levels=20
+							}
+						}
+						reserves=1
+					}
+				}
+				
+			}
+			
+		}
+	}
+}

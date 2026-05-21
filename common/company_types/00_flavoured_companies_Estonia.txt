@@ -1,0 +1,304 @@
+﻿##############################MODDED##############################
+
+# Rotermanni Tehased
+company_Rotermanni = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/rottermanni.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_TALINN }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = {  #12
+		building_logging_camp
+		building_tooling_workshop
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_furniture_manufactory
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+		
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_TALINN
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_TALINN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_logging_camp
+				level >= 3
+			}
+		}
+		has_technology_researched = mechanical_tools
+	}
+	
+	prosperity_modifier = {
+		building_group_bg_agriculture_throughput_add = 0.02 #12
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = mechanical_tools
+		any_scope_state = {
+			state_region = s:STATE_TALINN
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_logging_camp = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_TALINN
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Thomas Clayhills and Son
+company_Clayhills_and_Son = {
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_TALINN }
+	
+	category = shopkeeper_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_merchant_marine
+	}
+
+	building_types = {  #21
+		building_port
+		building_livestock_ranch
+		building_shipyard
+	}
+	
+	extension_building_types = {
+		building_lead_mine
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+		
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_TALINN
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_TALINN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_urban_center
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_trade_advantage_mult = 0.14 #9 
+		building_railway_throughput_add = 0.1 #12
+	}	
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_TALINN
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_urban_center = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_TALINN
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Russo-Baltic Shipbuilding Yard (BLRT Group)
+company_BLRT_Grupp = { 
+	icon = "gfx/interface/icons/company_icons/basic_shipyards.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_harbor_shipbuilding.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_INGRIA }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+
+	building_types = {  #23
+		building_shipyard
+	}
+	
+	extension_building_types = {
+		building_steel_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+		
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_INGRIA
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_INGRIA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_shipyard
+				level >= 3
+			}
+		}
+		has_technology_researched = floating_harbor 
+	}
+	
+	prosperity_modifier = {
+		ship_armor_mult = 0.035 #14
+		building_fishing_wharf_throughput_add = 0.1 #10
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = floating_harbor
+		any_scope_state = {
+			state_region = s:STATE_INGRIA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_shipyard = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_INGRIA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Kreeholm Manufacturing Company
+company_Kreeholm = {
+	icon = "gfx/interface/icons/company_icons/basic_textiles.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_TALINN }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_clothes
+	}
+	
+	prestige_goods_trigger = {
+		custom_tooltip = {
+			text = je_prestige_goods_clothes_complete_tt
+			has_variable = prestige_good_generic_clothes_var
+		}
+	}
+	
+	building_types = {  #20
+		building_textile_mill
+		building_cotton_plantation
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+		building_rubber_plantation
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_northern_europe
+		
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_TALINN
+			}
+		}
+	}
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_TALINN
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 3
+			}
+		}
+		has_technology_researched = lathe
+	}
+	
+	prosperity_modifier = {
+		state_radicals_from_political_movements_mult = -0.06 #8
+		state_lower_strata_expected_sol_add = -0.2
+		state_middle_strata_expected_sol_add = -0.4
+		state_upper_strata_expected_sol_add = -0.6
+		interest_group_ig_trade_unions_approval_add = 3 #12
+	}	
+	
+
+	ai_will_do = {
+	    has_technology_researched = lathe
+		any_scope_state = {
+			state_region = s:STATE_TALINN
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_textile_mill = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_TALINN
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

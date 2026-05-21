@@ -1,0 +1,289 @@
+﻿##########################MODDED################################
+
+# Sisal Ltd
+company_Sisal = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/kakuzi.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KENYA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_coffee
+	}
+
+	
+	building_types = { #20
+		building_millet_farm
+		building_tea_plantation
+		building_coffee_plantation
+	}
+	
+	extension_building_types = {
+		building_food_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_east_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KENYA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_KENYA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_millet_farm
+				level >= 3
+			}
+		}
+		has_technology_researched = mechanized_farming
+	}
+	
+	prosperity_modifier = {
+		state_birth_rate_mult = 0.05 #20
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = mechanized_farming
+		any_scope_state = {
+			state_region = s:STATE_KENYA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_millet_farm = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KENYA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Unga Group
+company_UngaGroup = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/ungagroup.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_farm_wheat.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KENYA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+	
+	building_types = { #31
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_livestock_ranch
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_east_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KENYA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_KENYA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = mechanized_farming
+	}
+	
+	prosperity_modifier = {
+		state_birth_rate_mult = 0.05 #20
+		building_livestock_ranch_throughput_add = 0.12 #12
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = mechanized_farming
+		any_scope_state = {
+			state_region = s:STATE_KENYA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KENYA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Nairobi Motor Garage / Cooper Motor Group
+company_NairobiMotor = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/coopermotorgroup.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KENYA }
+	
+	possible_prestige_goods = {
+		#prestige_good_saint_etienne_rifles
+	}
+	
+	building_types = { #28
+		building_automotive_industry
+	}
+	
+	extension_building_types = {
+		building_motor_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_east_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KENYA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_KENYA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_automotive_industry
+				level >= 3
+			}
+		}
+		has_technology_researched = mechanized_farming
+	}
+	
+	prosperity_modifier = {
+		state_loyalists_from_political_movements_mult = 0.09 #12
+		state_lower_strata_expected_sol_add = -0.3
+		state_middle_strata_expected_sol_add = -0.6
+		state_upper_strata_expected_sol_add = -0.9
+		state_trade_advantage_mult = 0.24 #16
+	}
+	
+
+	ai_will_do = {
+		has_technology_researched = mechanized_farming
+		any_scope_state = {
+			state_region = s:STATE_KENYA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_automotive_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KENYA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# East African Breweries
+company_EastAfricanBreweries = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/eastafricanbreweries.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_KENYA }
+	
+	possible_prestige_goods = {
+		prestige_good_generic_groceries
+	}
+	building_types = { #27
+		building_food_industry
+	}
+	
+	extension_building_types = {
+		building_millet_farm
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_east_africa
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_KENYA
+			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_KENYA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		state_radicalism_increases_violent_hostility_mult = -0.30 #20
+		state_radicalism_increases_cultural_erasure_mult = -0.20
+		state_radicalism_increases_open_prejudice_mult = -0.10
+		state_trade_advantage_mult = 0.11 #7
+	}
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_KENYA
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_food_industry = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_KENYA
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

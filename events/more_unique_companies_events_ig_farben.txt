@@ -1,0 +1,1201 @@
+﻿namespace = more_unique_companies_events_ig_farben
+
+more_unique_companies_events_ig_farben.1 = {
+	type = country_event
+	hidden = yes
+	#merge chemical companies into IG-Farben
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_company = company_type:company_basf
+					has_company = company_type:company_Bayer
+					has_company = company_type:company_AGFA
+					has_company = company_type:company_Hoechst
+					has_company = company_type:company_Griesheim_Elektron
+					has_company = company_type:company_MeerChemicals
+				}
+			}
+			save_scope_as = company_owner
+			scope:company_owner = {
+				owning_company ?= {
+					if = {
+						limit = {
+							is_company_type = company_type:company_basf
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_Bayer
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_AGFA
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_Hoechst
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_Griesheim_Elektron
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+					if = {
+						limit = {
+							is_company_type = company_type:company_MeerChemicals
+						}
+						remove_owned_country = scope:company_owner
+						owner ?= {
+							remove_company = prev.type
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_AGFA
+					}
+					remove_company = company_type:company_AGFA
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_Bayer
+					}
+					remove_company = company_type:company_Bayer
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_basf
+					}
+					remove_company = company_type:company_basf
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_Hoechst
+					}
+					remove_company = company_type:company_Hoechst
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_MeerChemicals
+					}
+					remove_company = company_type:company_MeerChemicals
+				}
+				if = {
+					limit = {
+						has_company = company_type:company_Griesheim_Elektron
+					}
+					remove_company = company_type:company_Griesheim_Elektron
+				}
+				add_company = company_type:company_IG_Farben
+				company:company_IG_Farben = {
+					set_company_state_region = s:STATE_HESSE
+				}
+			}
+			every_scope_state = {
+				if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 1
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=1
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 2
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=2
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 3
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=3
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 4
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=4
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 5
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=5
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 6
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=6
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 7
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=7
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 8
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=8
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 9
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=9
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 10
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=10
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 11
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=11
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 12
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=12
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 13
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=13
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 14
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=14
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 15
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=15
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 16
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=16
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 17
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=17
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 18
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=18
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level = 19
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=19
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_chemical_plant
+							level >= 20
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_chemical_plant
+					create_building={
+						building="building_chemical_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=20
+							}
+						}
+						reserves=1
+					}
+				}
+				if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 1
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=1
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 2
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=2
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 3
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=3
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 4
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=4
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 5
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=5
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 6
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=6
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 7
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=7
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 8
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=8
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 9
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=9
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 10
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=10
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 11
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=11
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 12
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=12
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 13
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=13
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 14
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=14
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 15
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=15
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 16
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=16
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 17
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=17
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 18
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=18
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level = 19
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=19
+							}
+						}
+						reserves=1
+					}
+				}
+
+				else_if = {
+					limit = {
+						owner = ROOT
+						is_incorporated = yes
+						any_scope_building = {
+							is_building_type = building_synthetics_plant
+							level >= 20
+						}
+						OR = {
+							region = sr:region_western_europe
+							region = sr:region_central_europe
+						}
+					}
+					remove_building = building_synthetics_plant
+					create_building={
+						building="building_synthetics_plant"
+						add_ownership={
+							company={
+								type=company_IG_Farben
+								country=scope:company_owner
+								levels=20
+							}
+						}
+						reserves=1
+					}
+				}
+			}
+			
+		}
+	}
+}
