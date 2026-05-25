@@ -321,66 +321,59 @@ TRY_REPLACE:company_jingdezhen = {
 ##############################DLC-MP1##############################
 
 # Jiangnan Weaving Bureaus
-TRY_REPLACE:company_jiangnan_weaving_bureaus= {
+TRY_REPLACE:company_jiangnan_weaving_bureaus = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_jiangnan_weaving_bureaus.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
-
+	
 	flavored_company = yes
-
+	
 	preferred_headquarters = { STATE_SUZHOU STATE_ZHEJIANG STATE_NANJING }
-
-	building_types = {
-		building_silk_plantation
-		building_textile_mill
+	
+	possible_prestige_goods = {
+		prestige_good_generic_uniforms
 	}
 
-	extension_building_types = {
+	building_types = { #24
+		building_textile_mill
 		building_cotton_plantation
 	}
-
-	possible_prestige_goods = {
-		prestige_good_suzhou_silk
+	
+	extension_building_types = {
+		building_synthetics_plant
 	}
 
 	potential = {
-		has_dlc_feature = mp1_content
 		has_interest_marker_in_region = sr:region_south_china
 	}
-
+	
 	attainable = {
 		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
 			any_scope_state = {
-				OR = {
-					state_region = s:STATE_SUZHOU
-					state_region = s:STATE_ZHEJIANG
-					state_region = s:STATE_NANJING
-				}
-			}
-		}
-	}
-
-	possible = {
-		any_scope_state = {
-			OR = {
 				state_region = s:STATE_SUZHOU
 				state_region = s:STATE_ZHEJIANG
 				state_region = s:STATE_NANJING
 			}
+		}
+	}
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_SUZHOU
+			state_region = s:STATE_ZHEJIANG
+			state_region = s:STATE_NANJING
 			is_incorporated = yes
 			any_scope_building = {
-				OR = {
-					is_building_type = building_silk_plantation
-					is_building_type = building_textile_mill
-				}
+				is_building_type = building_textile_mill
 				level >= 5
 			}
 		}
 	}
-
+	
 	prosperity_modifier = {
-		country_authority_mult = 0.10
+		country_prestige_mult = 0.02 #2
 		country_influence_mult = 0.10
-	}
+	}	
+	
 
 	ai_will_do = {
 		has_technology_researched = chemical_bleaching
@@ -1257,17 +1250,17 @@ company_Jiangnan_Arsenal = {
 	category = bureaucrat_owned
 	
 	possible_prestige_goods = {
-		prestige_good_generic_machine_parts
+		prestige_good_generic_small_arms
 	}
 
 	building_types = {  #11
 		building_arms_industry
 		building_tooling_workshop
-		building_shipyard
+		building_munition_plant
 	}
 	
 	extension_building_types = {
-		building_munition_plant
+		building_shipyard
 	}
 
 	potential = {
@@ -2771,16 +2764,13 @@ company_Da_Qing_Bank = {
 	}
 	
 	building_types = {
-		building_paper_mill
 		building_rice_farm
-		building_livestock_ranch
+		building_tea_plantation
+		building_tobacco_plantation
 	}
 	
 	extension_building_types = {	
-		building_arms_industry
-		building_railway
-		building_munition_plant
-		building_steel_mill		
+		building_livestock_ranch
 	}
 	
 	potential = {
@@ -3165,6 +3155,166 @@ company_canton_factories = {
 			}
 		}
 	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
+# Nanyang Company
+company_NanyangCompany = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/Nanyang.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_GUANGDONG }
+	
+	possible_prestige_goods = {
+		prestige_good_redwood
+	}
+
+	
+	building_types = {  #17
+		building_logging_camp
+		building_rubber_plantation
+		building_coffee_plantation
+	}
+	
+	extension_building_types = {
+		building_port
+		building_oil_rig
+	}
+	
+	potential = {
+		has_interest_marker_in_region = sr:region_south_china
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_GUANGDONG
+			}
+		}
+	}		
+	
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_GUANGDONG
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_logging_camp
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		building_group_bg_logging_throughput_add = 0.13 #17
+	}
+
+
+	
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_GUANGDONG
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_logging_camp = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_GUANGDONG
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}	
+}
+
+# Ministry of Works Mineral Resources Bureau
+company_mineral_resources_bureau = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/QingMineral.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_SHANXI STATE_ZHILI }
+
+	building_types = {
+		building_iron_mine
+		building_coal_mine
+	}
+
+	extension_building_types = {
+		building_railway
+	}
+	
+	possible_prestige_goods = {
+		prestige_good_generic_iron
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_north_china
+	}
+
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				OR = {
+					state_region = s:STATE_SHANXI
+					state_region = s:STATE_ZHILI
+				}
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = steam_donkey
+		has_technology_researched = railways
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_BEIJING
+				state_region = s:STATE_ZHILI
+			}
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_coal_mine
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		country_tech_spread_mult = 0.1
+	}
+
+	ai_will_do = {
+		has_technology_researched = steam_donkey
+		has_technology_researched = railways
+		any_scope_state = {
+			OR = {
+				state_region = s:STATE_SHANXI
+				state_region = s:STATE_ZHILI
+			}
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_coal_mine = {
+			level = 5
+			state_trigger = {
+				OR = {
+					state_region = s:STATE_SHANXI
+					state_region = s:STATE_ZHILI
+				}
+				is_incorporated = yes
+			}
+		}
+	}
+
 	ai_weight = {
 		value = 3 # Higher base value for flavored companies
 	}
