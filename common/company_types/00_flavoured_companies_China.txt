@@ -322,7 +322,7 @@ TRY_REPLACE:company_jingdezhen = {
 
 # Jiangnan Weaving Bureaus
 TRY_REPLACE:company_jiangnan_weaving_bureaus = {
-	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_jiangnan_weaving_bureaus.dds"
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/JiangnanWeavingBureaus.png"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 	
 	flavored_company = yes
@@ -3302,3 +3302,78 @@ company_mineral_resources_bureau = {
 		value = 3 # Higher base value for flavored companies
 	}
 }
+
+# Jiangnan Machinery Bureaus
+company_Jiangnan_Machinery_Bureaus = {
+	icon = "gfx/interface/icons/company_icons/JiangnanMachineryBureaus.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	
+	flavored_company = yes
+	preferred_headquarters = { STATE_SUZHOU }
+	
+	category = bureaucrat_owned
+	
+	possible_prestige_goods = {
+		prestige_good_generic_small_arms
+	}
+
+	building_types = {  #11
+		building_arms_industry
+		building_tooling_workshop
+		building_motor_industry
+	}
+	
+	extension_building_types = {
+		building_munition_plant
+		building_automotive_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_south_china	
+	}
+	
+	attainable = {
+		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
+			any_scope_state = {
+				state_region = s:STATE_SUZHOU
+			}
+		}
+	}	
+	
+	possible = { 
+		any_scope_state = {
+			state_region = s:STATE_SUZHOU
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tooling_workshop
+				level >= 3
+			}
+		}
+	}
+	
+	prosperity_modifier = {
+		unit_army_defense_mult = 0.05 #10
+		building_group_bg_manufacturing_throughput_add = 0.05
+	}
+	
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_SUZHOU
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_tooling_workshop = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_SUZHOU
+			}
+		}
+	}
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}
+
