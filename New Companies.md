@@ -11,11 +11,11 @@
 TRY_REPLACE:company_jiangnan_weaving_bureaus = {
 	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_jiangnan_weaving_bureaus.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
-	
+
 	flavored_company = yes
-	
+
 	preferred_headquarters = { STATE_SUZHOU STATE_ZHEJIANG STATE_NANJING }
-	
+
 	possible_prestige_goods = {
 		prestige_good_generic_uniforms
 	}
@@ -24,7 +24,7 @@ TRY_REPLACE:company_jiangnan_weaving_bureaus = {
 		building_textile_mill
 		building_cotton_plantation
 	}
-	
+
 	extension_building_types = {
 		building_synthetics_plant
 	}
@@ -32,7 +32,7 @@ TRY_REPLACE:company_jiangnan_weaving_bureaus = {
 	potential = {
 		has_interest_marker_in_region = sr:region_south_china
 	}
-	
+
 	attainable = {
 		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
 			any_scope_state = {
@@ -42,7 +42,7 @@ TRY_REPLACE:company_jiangnan_weaving_bureaus = {
 			}
 		}
 	}
-	
+
 	possible = {
 		any_scope_state = {
 			state_region = s:STATE_SUZHOU
@@ -55,12 +55,12 @@ TRY_REPLACE:company_jiangnan_weaving_bureaus = {
 			}
 		}
 	}
-	
+
 	prosperity_modifier = {
 		country_prestige_mult = 0.02 #2
 		country_influence_mult = 0.10
-	}	
-	
+	}
+
 
 	ai_will_do = {
 		has_technology_researched = chemical_bleaching
@@ -109,8 +109,8 @@ TRY_REPLACE:company_jiangnan_weaving_bureaus = {
 
 地点：山西/河北
 铁矿、煤矿、铁路（可选）
-+
-名贵：名贵铁
+
+-   名贵：名贵铁
 
 ```
 # Ministry of Works Mineral Resources Bureau
@@ -130,7 +130,7 @@ TRY_REPLACE:company_kaiping_mining = {
 	extension_building_types = {
 		building_railway
 	}
-	
+
 	possible_prestige_goods = {
 		prestige_good_generic_iron
 	}
@@ -208,7 +208,60 @@ TRY_REPLACE:company_kaiping_mining = {
 +20% 建造部门吞吐
 
 ```
+TRY_REPLACE:company_construction_power_bloc = {
+	icon = "gfx/interface/icons/company_icons/basic_construction.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
+	category = bureaucrat_owned
+
+	building_types = {
+		building_steel_mill
+		building_tooling_workshop
+		building_glassworks
+	}
+
+	extension_building_types = {
+		building_lead_mine
+	}
+
+	potential = {
+		is_in_power_bloc = yes
+	}
+
+	unlocking_principles = {
+		principle_construction_3
+	}
+
+	possible = {
+		any_scope_state = {
+			any_scope_building = {
+				OR = {
+					is_building_type = building_steel_mill
+					is_building_type = building_tooling_workshop
+					is_building_type = building_glassworks
+				}
+				level >= 10
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_construction_sector_throughput_add = 0.2
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			any_scope_building = {
+				OR = {
+					is_building_type = building_steel_mill
+					is_building_type = building_tooling_workshop
+					is_building_type = building_glassworks
+				}
+				level >= 5
+			}
+		}
+	}
+}
 ```
 
 ### 户部农业银行
@@ -219,41 +272,41 @@ TRY_REPLACE:company_kaiping_mining = {
 ```
 #Da-Qing Bank / Bank of China
 company_Da_Qing_Bank = {
-	icon = "gfx/interface/icons/company_icons/historical_company_icons/da_qingbank.png" 
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/da_qingbank.png"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
-	
+
 	flavored_company = yes
 	preferred_headquarters = { STATE_BEIJING }
-	
+
 	category = aristocrat_owned
-	
+
 	possible_prestige_goods = {
 		#prestige_good_generic_currency_paper
 	}
-	
+
 	building_types = {
 		building_rice_farm
 		building_tea_plantation
 		building_tobacco_plantation
 	}
-	
-	extension_building_types = {	
+
+	extension_building_types = {
 		building_livestock_ranch
 	}
-	
+
 	potential = {
 		has_game_rule = banks_enabled
-		has_interest_marker_in_region = sr:region_north_china	
+		has_interest_marker_in_region = sr:region_north_china
 	}
-	
+
 	attainable = {
 		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
 			any_scope_state = {
 				state_region = s:STATE_BEIJING
 			}
 		}
-	}	
-	
+	}
+
 	possible = {
 		any_scope_state = {
 			state_region = s:STATE_BEIJING
@@ -266,26 +319,26 @@ company_Da_Qing_Bank = {
 		has_technology_researched = international_exchange_standards
 		unique_companies_has_bank = no
 	}
-	
+
 	prosperity_modifier = {
 		state_trade_advantage_mult = 0.1
 
 		country_loan_interest_rate_mult = -0.025
-        country_private_construction_allocation_mult = 0.1		
-		
+        country_private_construction_allocation_mult = 0.1
+
 		state_farmers_investment_pool_contribution_add = 0.02 #<--
 		state_shopkeepers_investment_pool_contribution_add = 0.02 #<--
 		state_clergymen_investment_pool_contribution_add = 0.04
 		state_aristocrats_investment_pool_contribution_add = 0.04
 		state_capitalists_investment_pool_contribution_add = 0.065
-		
+
 		building_nationalization_investment_return_add = 0.075 #<--
 		country_government_dividends_reinvestment_add = 0.075 #<--
 		country_government_dividends_efficiency_add = 0.075 #<--
-		
+
 		country_max_companies_add = 1
 	}
-	
+
 	ai_will_do = {
 	    unique_companies_has_bank = no
 	    has_technology_researched = international_exchange_standards
@@ -321,12 +374,12 @@ company_Da_Qing_Bank = {
 company_Jiangnan_Arsenal = {
 	icon = "gfx/interface/icons/company_icons/basic_metalworks.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
-	
+
 	flavored_company = yes
 	preferred_headquarters = { STATE_SUZHOU }
-	
+
 	category = bureaucrat_owned
-	
+
 	possible_prestige_goods = {
 		prestige_good_generic_small_arms
 	}
@@ -336,24 +389,24 @@ company_Jiangnan_Arsenal = {
 		building_tooling_workshop
 		building_munition_plant
 	}
-	
+
 	extension_building_types = {
 		building_shipyard
 	}
 
 	potential = {
-		has_interest_marker_in_region = sr:region_south_china	
+		has_interest_marker_in_region = sr:region_south_china
 	}
-	
+
 	attainable = {
 		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
 			any_scope_state = {
 				state_region = s:STATE_SUZHOU
 			}
 		}
-	}	
-	
-	possible = { 
+	}
+
+	possible = {
 		any_scope_state = {
 			state_region = s:STATE_SUZHOU
 			is_incorporated = yes
@@ -363,12 +416,12 @@ company_Jiangnan_Arsenal = {
 			}
 		}
 	}
-	
+
 	prosperity_modifier = {
 		unit_army_defense_mult = 0.05 #10
 		country_max_weekly_construction_progress_add = 10
-	}	
-	
+	}
+
 
 	ai_will_do = {
 		any_scope_state = {
@@ -408,38 +461,38 @@ company_Jiangnan_Arsenal = {
 company_NanyangCompany = {
 	icon = "gfx/interface/icons/company_icons/basic_forestry.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
-	
+
 	flavored_company = yes
 	preferred_headquarters = { STATE_GUANGDONG }
-	
+
 	possible_prestige_goods = {
 		prestige_good_redwood
 	}
 
-	
+
 	building_types = {  #17
 		building_logging_camp
 		building_rubber_plantation
 		building_coffee_plantation
 	}
-	
+
 	extension_building_types = {
 		building_port
 		building_oil_rig
 	}
-	
+
 	potential = {
 		has_interest_marker_in_region = sr:region_south_china
 	}
-	
+
 	attainable = {
 		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
 			any_scope_state = {
 				state_region = s:STATE_GUANGDONG
 			}
 		}
-	}		
-	
+	}
+
 	possible = {
 		any_scope_state = {
 			state_region = s:STATE_GUANGDONG
@@ -450,13 +503,13 @@ company_NanyangCompany = {
 			}
 		}
 	}
-	
+
 	prosperity_modifier = {
 		building_group_bg_logging_throughput_add = 0.13 #17
 	}
 
 
-	
+
 	ai_will_do = {
 		any_scope_state = {
 			state_region = s:STATE_GUANGDONG
@@ -474,8 +527,7 @@ company_NanyangCompany = {
 	}
 	ai_weight = {
 		value = 3 # Higher base value for flavored companies
-	}	
+	}
 }
 
 ```
-

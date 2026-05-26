@@ -327,10 +327,10 @@ TRY_REPLACE:company_jiangnan_weaving_bureaus = {
 	
 	flavored_company = yes
 	
-	preferred_headquarters = { STATE_SUZHOU STATE_ZHEJIANG STATE_NANJING }
+	preferred_headquarters = { STATE_NANJING }
 	
 	possible_prestige_goods = {
-		prestige_good_generic_uniforms
+		prestige_good_generic_clothes
 	}
 
 	building_types = { #24
@@ -349,8 +349,6 @@ TRY_REPLACE:company_jiangnan_weaving_bureaus = {
 	attainable = {
 		hidden_trigger = { # Hide attainable if it's always fulfilled by possible
 			any_scope_state = {
-				state_region = s:STATE_SUZHOU
-				state_region = s:STATE_ZHEJIANG
 				state_region = s:STATE_NANJING
 			}
 		}
@@ -358,8 +356,6 @@ TRY_REPLACE:company_jiangnan_weaving_bureaus = {
 	
 	possible = {
 		any_scope_state = {
-			state_region = s:STATE_SUZHOU
-			state_region = s:STATE_ZHEJIANG
 			state_region = s:STATE_NANJING
 			is_incorporated = yes
 			any_scope_building = {
@@ -370,35 +366,19 @@ TRY_REPLACE:company_jiangnan_weaving_bureaus = {
 	}
 	
 	prosperity_modifier = {
-		country_prestige_mult = 0.02 #2
 		country_influence_mult = 0.10
+        country_prestige_mult = 0.02 #2
 	}	
 	
 
 	ai_will_do = {
-		has_technology_researched = chemical_bleaching
 		any_scope_state = {
-			OR = {
-				state_region = s:STATE_SUZHOU
-				state_region = s:STATE_ZHEJIANG
-				state_region = s:STATE_NANJING
-			}
+			state_region = s:STATE_NANJING
 			is_incorporated = yes
 		}
 	}
 
 	ai_construction_targets = {
-		building_silk_plantation = {
-			level = 5
-			state_trigger = {
-				OR = {
-					state_region = s:STATE_SUZHOU
-					state_region = s:STATE_ZHEJIANG
-					state_region = s:STATE_NANJING
-				}
-				is_incorporated = yes
-			}
-		}
 		building_textile_mill = {
 			level = 5
 			state_trigger = {
@@ -2764,6 +2744,7 @@ company_Da_Qing_Bank = {
 	}
 	
 	building_types = {
+		building_gold_mine
 		building_rice_farm
 		building_tea_plantation
 		building_tobacco_plantation
@@ -3177,6 +3158,7 @@ company_NanyangCompany = {
 		building_logging_camp
 		building_rubber_plantation
 		building_coffee_plantation
+		building_sugar_plantation
 	}
 	
 	extension_building_types = {
@@ -3209,6 +3191,7 @@ company_NanyangCompany = {
 	
 	prosperity_modifier = {
 		building_group_bg_logging_throughput_add = 0.13 #17
+		state_infrastructure_from_population_max_add = 15
 	}
 
 
